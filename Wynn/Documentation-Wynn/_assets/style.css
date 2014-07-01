@@ -1,0 +1,104 @@
+html, body {
+	margin:0; padding:0; border:0;
+}
+
+/* Typography */
+
+html {
+	color:#444; font-size:14px; line-height: 22px; font-family: Arial ;
+}
+
+pre {
+	/*margin:12px 0;
+	padding:5px 12px;
+	font-style:italic;*/
+	font-size:90%; font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; background-color: #e5e5e5;
+}
+
+code { padding:0 5px; font-size:90%; font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace; background: #e5e5e5; }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight:bold;
+}
+
+h4{
+	font-size: 16px;
+}
+
+a:link, a:visited, a:hover { color: #24c26d; text-decoration: none;}
+a:hover {text-decoration: underline;}
+#toc a:link, #toc a:visited, #toc a:hover { color: #444; }
+#toc ol {list-style: lower-roman;}
+
+img {border: solid 1px #ddd; margin: 10px 0; max-width: 100%;} 
+
+/* Structure */
+
+#mojo {
+	width:100%; background:rgb( 240, 240, 240 ); padding-top:24px;
+}
+
+#container {
+	width:840px;
+	margin:0 auto; border:1px solid rgb( 227, 227, 227 ); background-color:rgb( 255, 255, 255 ); padding:32px;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border:8px;
+}
+#cloud {
+	background:#fff url('images/body.png') repeat-x center 0;
+}
+.section {
+	padding:24px 0; border-bottom:1px dotted #aaa;
+}
+#mojo .section {
+	padding:0 0 24px 0 !important;
+}
+
+h1 {
+	color:#24c26d; padding:12px 0; font-size: 32px;
+}
+h2 {
+	color:#000; position:relative; font-size: 24px; z-index:10; background-color:rgb( 255, 255, 255 ); left:-90px; padding:12px 12px 12px 18px; border-left:1px solid rgb( 227, 227, 227 );
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border:8px;
+}
+h3 { font-size: 20px;}
+
+.info {
+	font-size:90%; font-style:italic; 
+}
+
+.removed {color: #fff; background-color: #990000;}
+.note {background-color: #FFFF99;}
+.highlight {background-color: #FFFF00;}
+.warning {color: #FF0000;}
+
+/* Author */
+
+#author {
+	margin:0 auto;
+}
+#author td.author {
+	text-align:left;
+}
+#author td.author ul li {
+	list-style-type:none;
+}
+#author td.author ul li span {
+	 font-weight:bold;
+}
+#author td.author ul li a {
+	font-weight:normal;
+}
+
+#author td.title p {
+	text-align:right;
+}
+
+/* Sections */
+
+.section p {
+	line-height:150%;
+}
