@@ -79,6 +79,10 @@
 .be-section {
     overflow: hidden;
 }
+.be-section.map-section {
+    display: none;
+    visibility: hidden;
+}
 .be-bg-video {
     display: none;
     position: absolute;
