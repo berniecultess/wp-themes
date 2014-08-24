@@ -1,0 +1,2813 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Wynn1.0\n"
+"POT-Creation-Date: 2014-01-24 22:03+0530\n"
+"PO-Revision-Date: 2014-01-24 22:04+0530\n"
+"Last-Translator: \n"
+"Language-Team: Brand Exponents <swami@brandexponents.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;esc_attr__;esc_attr_e;"
+"esc_attr_x;esc_html__;esc_html_e;esc_html_x\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: 404.php:15 ../wynn/404.php:15
+msgid "404 PAGE NOT FOUND"
+msgstr ""
+
+#: 404.php:19 ../twentyfourteen/content-none.php:27
+#: ../twentythirteen/content-none.php:27 ../twentytwelve/404.php:21
+#: ../wynn/404.php:19
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: ajax-handler.php:24 ../wynn/ajax-handler.php:24
+msgid "All fields are required"
+msgstr ""
+
+#: ajax-handler.php:28 ../wynn/ajax-handler.php:28
+msgid "Please enter a valid email address"
+msgstr ""
+
+#: ajax-handler.php:37 ../wynn/ajax-handler.php:37
+msgid "Your message was sent sucessfully"
+msgstr ""
+
+#: archive.php:35 category.php:36 index.php:28 search.php:39 tag.php:35
+#: portfolio/portfolio-loadmore.php:17 ../wynn/archive.php:35
+#: ../wynn/category.php:36 ../wynn/index.php:28 ../wynn/search.php:39
+#: ../wynn/tag.php:35 ../wynn/portfolio/portfolio-loadmore.php:17
+msgid "Load More"
+msgstr ""
+
+#: archive.php:40 category.php:40 index.php:32 search.php:43 tag.php:39
+#: ../twentytwelve/content-none.php:17 ../twentytwelve/index.php:53
+#: ../wynn/archive.php:40 ../wynn/category.php:40 ../wynn/index.php:32
+#: ../wynn/search.php:43 ../wynn/tag.php:39
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: be-themes-metabox.php:38 ../wynn/be-themes-metabox.php:38
+msgid "Project Meta"
+msgstr ""
+
+#: be-themes-metabox.php:50 ../wynn/be-themes-metabox.php:50
+msgid "Project URL"
+msgstr ""
+
+#: be-themes-metabox.php:59 ../wynn/be-themes-metabox.php:59
+msgid "Portfolio Single Page Style"
+msgstr ""
+
+#: be-themes-metabox.php:72 ../wynn/be-themes-metabox.php:72
+msgid "Slider Images"
+msgstr ""
+
+#: be-themes-metabox.php:126 ../wynn/be-themes-metabox.php:126
+msgid "Right Sidebar"
+msgstr ""
+
+#: be-themes-metabox.php:133 ../wynn/be-themes-metabox.php:133
+msgid "Porifolio Style"
+msgstr ""
+
+#: be-themes-metabox.php:181 ../wynn/be-themes-metabox.php:181
+msgid "Show posts"
+msgstr ""
+
+#: be-themes-metabox.php:211 ../wynn/be-themes-metabox.php:211
+msgid "Youtube / Vimeo Video Url"
+msgstr ""
+
+#: be-themes-metabox.php:223 ../wynn/be-themes-metabox.php:223
+msgid "Audio Embed Code Or Link to an Audio File"
+msgstr ""
+
+#: be-themes-metabox.php:235 ../twentytwelve/content-link.php:12
+#: ../wynn/be-themes-metabox.php:235
+msgid "Link"
+msgstr ""
+
+#: be-themes-metabox.php:247 ../wynn/be-themes-metabox.php:247
+msgid "Quote Title"
+msgstr ""
+
+#: be-themes-metabox.php:259 ../wynn/be-themes-metabox.php:259
+msgid "Gallery Post Format Images"
+msgstr ""
+
+#: be-themes-options.php:26 ../wynn/be-themes-options.php:26
+msgid "A Section added by hook"
+msgstr ""
+
+#: be-themes-options.php:27 ../wynn/be-themes-options.php:27
+msgid ""
+"<p class=\"description\">This is a section created by adding a filter to the "
+"sections array, great to allow child themes, to add/remove sections from the "
+"options.</p>"
+msgstr ""
+
+#: be-themes-options.php:72 ../wynn/be-themes-options.php:72
+msgid ""
+"<p>Welcome to Ubercorp Options Panel. You will find out that its very simple "
+"to do what you want to and yet powerful enough to do whatever you want to "
+"with our wide variety of options. </p>"
+msgstr ""
+
+#: be-themes-options.php:82 options/options.php:74
+#: ../wynn/be-themes-options.php:82 ../wynn/options/options.php:74
+msgid "Wynn Options"
+msgstr ""
+
+#: be-themes-options.php:85 ../wynn/be-themes-options.php:85
+msgid "Wynn Theme Options"
+msgstr ""
+
+#: be-themes-options.php:101 ../wynn/be-themes-options.php:101
+msgid "Theme Information 1"
+msgstr ""
+
+#: be-themes-options.php:102 be-themes-options.php:107
+#: ../wynn/be-themes-options.php:102 ../wynn/be-themes-options.php:107
+msgid "<p>This is the tab content, HTML is allowed.</p>"
+msgstr ""
+
+#: be-themes-options.php:106 ../wynn/be-themes-options.php:106
+msgid "Theme Information 2"
+msgstr ""
+
+#: be-themes-options.php:111 ../wynn/be-themes-options.php:111
+msgid "<p>This is the sidebar content, HTML is allowed.</p>"
+msgstr ""
+
+#: be-themes-options.php:153 ../wynn/be-themes-options.php:153
+msgid "General"
+msgstr ""
+
+#: be-themes-options.php:154 be-themes-options.php:275
+#: be-themes-options.php:597 ../wynn/be-themes-options.php:154
+#: ../wynn/be-themes-options.php:275 ../wynn/be-themes-options.php:597
+msgid "<p class=\"description\"></p>"
+msgstr ""
+
+#: be-themes-options.php:159 ../wynn/be-themes-options.php:159
+msgid "Status of the Website"
+msgstr ""
+
+#: be-themes-options.php:161 ../wynn/be-themes-options.php:161
+msgid ""
+"It is important to set this to \"deploy\" after you have finished playing "
+"with options panel and ready to launch the website. It will help us cache "
+"the css and optimize performance of the website"
+msgstr ""
+
+#: be-themes-options.php:168 ../wynn/be-themes-options.php:168
+msgid "Enable Pagebuilder ?"
+msgstr ""
+
+#: be-themes-options.php:169 ../wynn/be-themes-options.php:169
+msgid ""
+"Check this box if you would like to use the page builder for constructing "
+"your pages and portfolio posts. Page Builder is not available for blog "
+"posts. You can still disable the page builder per page if you would like to "
+"use the default wordpress content editor"
+msgstr ""
+
+#: be-themes-options.php:176 ../wynn/be-themes-options.php:176
+msgid "Your Logo"
+msgstr ""
+
+#: be-themes-options.php:178 ../wynn/be-themes-options.php:178
+msgid "Please upload your logo here."
+msgstr ""
+
+#: be-themes-options.php:183 ../wynn/be-themes-options.php:183
+msgid "Your Favicon"
+msgstr ""
+
+#: be-themes-options.php:185 ../wynn/be-themes-options.php:185
+msgid "Please upload a favicon here."
+msgstr ""
+
+#: be-themes-options.php:190 ../wynn/be-themes-options.php:190
+msgid "Copyrights Text"
+msgstr ""
+
+#: be-themes-options.php:192 ../wynn/be-themes-options.php:192
+msgid ""
+"Please Enter the text along with any links that need to go in the footer "
+"copyright area"
+msgstr ""
+
+#: be-themes-options.php:200 ../wynn/be-themes-options.php:200
+msgid "Google Analytics Code"
+msgstr ""
+
+#: be-themes-options.php:202 ../wynn/be-themes-options.php:202
+msgid "Please enter your Google analytics tracking ID here."
+msgstr ""
+
+#: be-themes-options.php:209 ../wynn/be-themes-options.php:209
+msgid "Custom CSS"
+msgstr ""
+
+#: be-themes-options.php:211 ../wynn/be-themes-options.php:211
+msgid "Please add your custom css here."
+msgstr ""
+
+#: be-themes-options.php:218 ../wynn/be-themes-options.php:218
+msgid "Custom Javascript"
+msgstr ""
+
+#: be-themes-options.php:220 ../wynn/be-themes-options.php:220
+msgid "Please add your custom js code here"
+msgstr ""
+
+#: be-themes-options.php:228 ../wynn/be-themes-options.php:228
+msgid "Background"
+msgstr ""
+
+#: be-themes-options.php:229 ../wynn/be-themes-options.php:229
+msgid ""
+"<p class=\"description\">Control the Appearance of the site from this tab by "
+"uploading your own patterns and images or by choosing from one of the "
+"plethora of presets available</p>"
+msgstr ""
+
+#: be-themes-options.php:235 ../wynn/be-themes-options.php:235
+msgid "Body"
+msgstr ""
+
+#: be-themes-options.php:254 ../wynn/be-themes-options.php:254
+msgid "Header"
+msgstr ""
+
+#: be-themes-options.php:274 ../wynn/be-themes-options.php:274
+msgid "Typography"
+msgstr ""
+
+#: be-themes-options.php:282 ../wynn/be-themes-options.php:282
+msgid "Font Preview"
+msgstr ""
+
+#: be-themes-options.php:283 ../wynn/be-themes-options.php:283
+msgid "Typography Font Preview Section"
+msgstr ""
+
+#: be-themes-options.php:290 ../wynn/be-themes-options.php:290
+msgid "H1"
+msgstr ""
+
+#: be-themes-options.php:291 ../wynn/be-themes-options.php:291
+msgid "Heading Tag 1"
+msgstr ""
+
+#: be-themes-options.php:310 ../wynn/be-themes-options.php:310
+msgid "H2"
+msgstr ""
+
+#: be-themes-options.php:311 ../wynn/be-themes-options.php:311
+msgid "Heading Tag 2"
+msgstr ""
+
+#: be-themes-options.php:329 ../wynn/be-themes-options.php:329
+msgid "H3"
+msgstr ""
+
+#: be-themes-options.php:330 ../wynn/be-themes-options.php:330
+msgid "Heading Tag 3"
+msgstr ""
+
+#: be-themes-options.php:348 ../wynn/be-themes-options.php:348
+msgid "H4"
+msgstr ""
+
+#: be-themes-options.php:349 ../wynn/be-themes-options.php:349
+msgid "Heading Tag 4"
+msgstr ""
+
+#: be-themes-options.php:367 ../wynn/be-themes-options.php:367
+msgid "H5"
+msgstr ""
+
+#: be-themes-options.php:368 ../wynn/be-themes-options.php:368
+msgid "Heading Tag 5"
+msgstr ""
+
+#: be-themes-options.php:386 ../wynn/be-themes-options.php:386
+msgid "H6"
+msgstr ""
+
+#: be-themes-options.php:387 ../wynn/be-themes-options.php:387
+msgid "Heading Tag 6"
+msgstr ""
+
+#: be-themes-options.php:405 ../wynn/be-themes-options.php:405
+msgid "Body Text"
+msgstr ""
+
+#: be-themes-options.php:422 ../wynn/be-themes-options.php:422
+msgid "Footer Text"
+msgstr ""
+
+#: be-themes-options.php:440 ../twentythirteen/functions.php:93
+#: ../wynn/be-themes-options.php:440
+msgid "Navigation Menu"
+msgstr ""
+
+#: be-themes-options.php:460 ../twentyfourteen/inc/customizer.php:47
+#: ../wynn/be-themes-options.php:460
+msgid "Layout"
+msgstr ""
+
+#: be-themes-options.php:461 be-themes-options.php:495
+#: be-themes-options.php:580 ../wynn/be-themes-options.php:461
+#: ../wynn/be-themes-options.php:495 ../wynn/be-themes-options.php:580
+msgid "<p class=\"description\">"
+msgstr ""
+
+#: be-themes-options.php:466 ../wynn/be-themes-options.php:466
+msgid "Show Comments Section in Pages ?"
+msgstr ""
+
+#: be-themes-options.php:474 ../wynn/be-themes-options.php:474
+msgid "Custom Sidebars"
+msgstr ""
+
+#: be-themes-options.php:483 ../wynn/be-themes-options.php:483
+msgid "Products per Page"
+msgstr ""
+
+#: be-themes-options.php:494 ../wynn/be-themes-options.php:494
+msgid "Colors"
+msgstr ""
+
+#: be-themes-options.php:501 ../wynn/be-themes-options.php:501
+msgid "Color Scheme"
+msgstr ""
+
+#: be-themes-options.php:510 ../wynn/be-themes-options.php:510
+msgid "Text Color on a background which has the above Color Scheme"
+msgstr ""
+
+#: be-themes-options.php:518 ../wynn/be-themes-options.php:518
+msgid "Border Color of elements that have the above Color Scheme as background"
+msgstr ""
+
+#: be-themes-options.php:526 ../wynn/be-themes-options.php:526
+msgid "Secondary Background Color"
+msgstr ""
+
+#: be-themes-options.php:528 ../wynn/be-themes-options.php:528
+msgid ""
+"Background Color of certain shortcode and widget elements such as Tabs, "
+"Accordion, Text boxes etc"
+msgstr ""
+
+#: be-themes-options.php:534 ../wynn/be-themes-options.php:534
+msgid "Secondary Text Color"
+msgstr ""
+
+#: be-themes-options.php:536 ../wynn/be-themes-options.php:536
+msgid ""
+"Text Color of certain shortcode and widget elements which have the secondary "
+"background above"
+msgstr ""
+
+#: be-themes-options.php:542 ../wynn/be-themes-options.php:542
+msgid "Secondary Border Color"
+msgstr ""
+
+#: be-themes-options.php:544 ../wynn/be-themes-options.php:544
+msgid ""
+"Border Color of certain shortcode and widget elements such as Tabs, "
+"Accordion, Text boxes etc"
+msgstr ""
+
+#: be-themes-options.php:550 ../wynn/be-themes-options.php:550
+msgid "Secondary Title Color"
+msgstr ""
+
+#: be-themes-options.php:552 ../wynn/be-themes-options.php:552
+msgid ""
+"Color of Heading tags on certain shortcode and widget elements which have "
+"the secondary background above"
+msgstr ""
+
+#: be-themes-options.php:558 ../wynn/be-themes-options.php:558
+msgid "Meta Colors"
+msgstr ""
+
+#: be-themes-options.php:560 ../wynn/be-themes-options.php:560
+msgid ""
+"Text Color of Meta Information like Portfolio Categories, Blog Post Date etc"
+msgstr ""
+
+#: be-themes-options.php:566 be-page-builder/be-pb-options.php:686
+#: ../wynn/be-themes-options.php:566
+#: ../wynn/be-page-builder/be-pb-options.php:686
+msgid "Separator Color"
+msgstr ""
+
+#: be-themes-options.php:579 ../wynn/be-themes-options.php:579
+msgid "Portfolio"
+msgstr ""
+
+#: be-themes-options.php:585 ../wynn/be-themes-options.php:585
+msgid "Back to Portfolio Link"
+msgstr ""
+
+#: be-themes-options.php:596 ../wynn/be-themes-options.php:596
+msgid "Contact Settings"
+msgstr ""
+
+#: be-themes-options.php:603 ../wynn/be-themes-options.php:603
+msgid "Contact Address"
+msgstr ""
+
+#: be-themes-options.php:605 ../wynn/be-themes-options.php:605
+msgid "Please Enter your address to be used in the contact page map"
+msgstr ""
+
+#: be-themes-options.php:618 ../wynn/be-themes-options.php:618
+msgid "Social Media Settings"
+msgstr ""
+
+#: be-themes-options.php:619 ../wynn/be-themes-options.php:619
+msgid ""
+"<p class=\"description\">Please choose the icons that need to be displayed "
+"using the Social Media Widget. Use this widget to direct your visitors to "
+"follow your social media profiles.</p>"
+msgstr ""
+
+#: be-themes-options.php:625 ../wynn/be-themes-options.php:625
+msgid "Facebook"
+msgstr ""
+
+#: be-themes-options.php:627 ../wynn/be-themes-options.php:627
+msgid "Add Facebook Icon"
+msgstr ""
+
+#: be-themes-options.php:634 ../wynn/be-themes-options.php:634
+msgid "Facebook Icon Url"
+msgstr ""
+
+#: be-themes-options.php:636 ../wynn/be-themes-options.php:636
+msgid "Please enter your Facebook page/profile url"
+msgstr ""
+
+#: be-themes-options.php:644 ../wynn/be-themes-options.php:644
+msgid "Twitter"
+msgstr ""
+
+#: be-themes-options.php:646 ../wynn/be-themes-options.php:646
+msgid "Add Twitter Icon"
+msgstr ""
+
+#: be-themes-options.php:654 ../wynn/be-themes-options.php:654
+msgid "Twitter Icon Url"
+msgstr ""
+
+#: be-themes-options.php:656 ../wynn/be-themes-options.php:656
+msgid "Please enter your Twitter page/profile url"
+msgstr ""
+
+#: be-themes-options.php:665 ../wynn/be-themes-options.php:665
+msgid "Google Plus"
+msgstr ""
+
+#: be-themes-options.php:667 ../wynn/be-themes-options.php:667
+msgid "Add Google Plus Icon"
+msgstr ""
+
+#: be-themes-options.php:674 ../wynn/be-themes-options.php:674
+msgid "Google Plus Icon Url"
+msgstr ""
+
+#: be-themes-options.php:676 ../wynn/be-themes-options.php:676
+msgid "Please enter your Google plus page/profile url"
+msgstr ""
+
+#: be-themes-options.php:684 ../wynn/be-themes-options.php:684
+msgid "Dribbble"
+msgstr ""
+
+#: be-themes-options.php:685 ../wynn/be-themes-options.php:685
+msgid "Please enter your RSS feed url"
+msgstr ""
+
+#: be-themes-options.php:686 ../wynn/be-themes-options.php:686
+msgid "Add Dribbble Icon"
+msgstr ""
+
+#: be-themes-options.php:692 ../wynn/be-themes-options.php:692
+msgid "Dribbble Icon Url"
+msgstr ""
+
+#: be-themes-options.php:694 ../wynn/be-themes-options.php:694
+msgid "Please enter your Dribbble profile url"
+msgstr ""
+
+#: be-themes-options.php:701 ../wynn/be-themes-options.php:701
+msgid "Pinterest"
+msgstr ""
+
+#: be-themes-options.php:702 ../wynn/be-themes-options.php:702
+msgid "Please enter your Pinterest url"
+msgstr ""
+
+#: be-themes-options.php:703 ../wynn/be-themes-options.php:703
+msgid "Add Pinterest Icon"
+msgstr ""
+
+#: be-themes-options.php:710 ../wynn/be-themes-options.php:710
+msgid "Pinterest Icon Url"
+msgstr ""
+
+#: be-themes-options.php:712 ../wynn/be-themes-options.php:712
+msgid "Please enter your Pinterest profile url"
+msgstr ""
+
+#: be-themes-options.php:719 ../wynn/be-themes-options.php:719
+msgid "Youtube"
+msgstr ""
+
+#: be-themes-options.php:721 ../wynn/be-themes-options.php:721
+msgid "Add Youtube Icon"
+msgstr ""
+
+#: be-themes-options.php:727 ../wynn/be-themes-options.php:727
+msgid "Youtube Icon Url"
+msgstr ""
+
+#: be-themes-options.php:729 ../wynn/be-themes-options.php:729
+msgid "Please enter your Youtube url"
+msgstr ""
+
+#: be-themes-options.php:736 ../wynn/be-themes-options.php:736
+msgid "Flickr"
+msgstr ""
+
+#: be-themes-options.php:737 ../wynn/be-themes-options.php:737
+msgid "Please enter your Flickr url"
+msgstr ""
+
+#: be-themes-options.php:738 ../wynn/be-themes-options.php:738
+msgid "Add Flickr Icon"
+msgstr ""
+
+#: be-themes-options.php:744 ../wynn/be-themes-options.php:744
+msgid "Flickr Icon Url"
+msgstr ""
+
+#: be-themes-options.php:746 ../wynn/be-themes-options.php:746
+msgid "Please enter your Flickr profile url"
+msgstr ""
+
+#: be-themes-options.php:753 ../wynn/be-themes-options.php:753
+msgid "Skype"
+msgstr ""
+
+#: be-themes-options.php:755 ../wynn/be-themes-options.php:755
+msgid "Add Skype Icon"
+msgstr ""
+
+#: be-themes-options.php:761 ../wynn/be-themes-options.php:761
+msgid "Skype Icon Url"
+msgstr ""
+
+#: be-themes-options.php:763 ../wynn/be-themes-options.php:763
+msgid "Please enter your Skype url"
+msgstr ""
+
+#: be-themes-options.php:770 ../wynn/be-themes-options.php:770
+msgid "Instagram"
+msgstr ""
+
+#: be-themes-options.php:772 ../wynn/be-themes-options.php:772
+msgid "Add Instagram Icon"
+msgstr ""
+
+#: be-themes-options.php:778 ../wynn/be-themes-options.php:778
+msgid "Instagram Icon Url"
+msgstr ""
+
+#: be-themes-options.php:780 ../wynn/be-themes-options.php:780
+msgid "Please enter your Instagram url"
+msgstr ""
+
+#: be-themes-options.php:809 ../wynn/be-themes-options.php:809
+msgid "<strong>Theme URL:</strong> "
+msgstr ""
+
+#: be-themes-options.php:810 ../wynn/be-themes-options.php:810
+msgid "<strong>Author:</strong> "
+msgstr ""
+
+#: be-themes-options.php:811 ../wynn/be-themes-options.php:811
+msgid "<strong>Version:</strong> "
+msgstr ""
+
+#: be-themes-options.php:813 ../wynn/be-themes-options.php:813
+msgid "<strong>Tags:</strong> "
+msgstr ""
+
+#: be-themes-options.php:820 ../wynn/be-themes-options.php:820
+msgid "Theme Information"
+msgstr ""
+
+#: comments.php:8 ../wynn/comments.php:8
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: comments.php:28 comments.php:42 ../twentyfourteen/comments.php:34
+#: ../twentyfourteen/comments.php:52 ../twentythirteen/comments.php:45
+#: ../twentytwelve/comments.php:42 ../wynn/comments.php:28
+#: ../wynn/comments.php:42
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:29 comments.php:43 ../twentyfourteen/comments.php:35
+#: ../twentyfourteen/comments.php:53 ../twentythirteen/comments.php:46
+#: ../twentytwelve/comments.php:43 ../wynn/comments.php:29
+#: ../wynn/comments.php:43
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:30 comments.php:44 ../twentyfourteen/comments.php:36
+#: ../twentyfourteen/comments.php:54 ../twentythirteen/comments.php:47
+#: ../twentytwelve/comments.php:44 ../wynn/comments.php:30
+#: ../wynn/comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:51 ../twentyfourteen/comments.php:59
+#: ../twentythirteen/comments.php:52 ../twentytwelve/comments.php:53
+#: ../wynn/comments.php:51
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:57 contact.php:44 ../wynn/comments.php:57
+#: ../wynn/contact.php:44
+msgid "Submit"
+msgstr ""
+
+#: contact.php:23 ../wynn/contact.php:23
+msgid "Contact Us"
+msgstr ""
+
+#: contact.php:27 ../wynn/contact.php:27
+msgid "Your Name:*"
+msgstr ""
+
+#: contact.php:31 ../wynn/contact.php:31
+msgid "Your Email:*"
+msgstr ""
+
+#: contact.php:35 ../wynn/contact.php:35
+msgid "Subject:"
+msgstr ""
+
+#: contact.php:40 ../wynn/contact.php:40
+msgid "Your Message:*"
+msgstr ""
+
+#: loop.php:20 loop.php:55 loop.php:78 loop.php:117 loop.php:138 loop.php:183
+#: loop.php:224 loop.php:261 loop.php:285 loop.php:325 loop.php:345
+#: loop.php:393 ../wynn/loop.php:20 ../wynn/loop.php:55 ../wynn/loop.php:78
+#: ../wynn/loop.php:117 ../wynn/loop.php:138 ../wynn/loop.php:183
+#: ../wynn/loop.php:224 ../wynn/loop.php:261 ../wynn/loop.php:285
+#: ../wynn/loop.php:325 ../wynn/loop.php:345 ../wynn/loop.php:393
+msgid "Comments"
+msgstr ""
+
+#: loop.php:196 ../wynn/loop.php:196
+msgid "Next >"
+msgstr ""
+
+#: loop.php:197 ../wynn/loop.php:197
+msgid "< Prev"
+msgstr ""
+
+#: page-title.php:3 ../wynn/page-title.php:3
+msgid "Category: "
+msgstr ""
+
+#: page-title.php:5 ../wynn/page-title.php:5
+msgid "Articles Tagged with: "
+msgstr ""
+
+#: page-title.php:7 ../wynn/page-title.php:7
+msgid "Search Results for: "
+msgstr ""
+
+#: page-title.php:10 ../wynn/page-title.php:10
+#, php-format
+msgid "Daily Archives: <span>%s</span>"
+msgstr ""
+
+#: page-title.php:12 ../wynn/page-title.php:12
+#, php-format
+msgid "Monthly Archives: <span>%s</span>"
+msgstr ""
+
+#: page-title.php:14 ../wynn/page-title.php:14
+#, php-format
+msgid "Yearly Archives: <span>%s</span>"
+msgstr ""
+
+#: page-title.php:16 functions/helpers.php:526 ../wynn/page-title.php:16
+#: ../wynn/functions/helpers.php:526
+msgid "Blog Archives"
+msgstr ""
+
+#: search.php:46 ../wynn/search.php:46
+msgid "Sorry, Please enter a search query"
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:313
+#: be-page-builder/be-page-builder.php:418
+#: ../wynn/be-page-builder/be-page-builder.php:313
+#: ../wynn/be-page-builder/be-page-builder.php:418
+msgid "Select"
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:577
+#: ../wynn/be-page-builder/be-page-builder.php:577
+msgid "Page Builder"
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:598
+#: ../wynn/be-page-builder/be-page-builder.php:598
+msgid ""
+"Add Rows, organize content into column blocks and style the page using a "
+"myraid collection of shortcodes"
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:601
+#: ../wynn/be-page-builder/be-page-builder.php:601
+msgid "Structure"
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:602
+#: ../wynn/be-page-builder/be-page-builder.php:602
+msgid ""
+"These are optional but important modules which you can use to build up the "
+"structure of the page. Click on one of these modules to add them to the page "
+"builder."
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:627
+#: ../wynn/be-page-builder/be-page-builder.php:627
+msgid "Styling & Elements"
+msgstr ""
+
+#: be-page-builder/be-page-builder.php:628
+#: ../wynn/be-page-builder/be-page-builder.php:628
+msgid ""
+"If you wish to adjust or add styling to your page or content, you can use "
+"the optional modules below."
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:374
+#: ../wynn/be-page-builder/be-pb-options.php:374
+msgid "Title with Icon"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:380
+#: be-page-builder/be-pb-options.php:1251
+#: ../wynn/be-page-builder/be-pb-options.php:380
+#: ../wynn/be-page-builder/be-pb-options.php:1251
+msgid "Style"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:386 be-page-builder/be-pb-options.php:934
+#: be-page-builder/be-pb-options.php:1239
+#: ../wynn/be-page-builder/be-pb-options.php:386
+#: ../wynn/be-page-builder/be-pb-options.php:934
+#: ../wynn/be-page-builder/be-pb-options.php:1239
+msgid "Icon"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:392 be-page-builder/be-pb-options.php:940
+#: ../wynn/be-page-builder/be-pb-options.php:392
+#: ../wynn/be-page-builder/be-pb-options.php:940
+msgid "Circled ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:397 be-page-builder/be-pb-options.php:945
+#: ../wynn/be-page-builder/be-pb-options.php:397
+#: ../wynn/be-page-builder/be-pb-options.php:945
+msgid "Background of Icon if circled"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:402 be-page-builder/be-pb-options.php:950
+#: be-page-builder/be-pb-options.php:1257
+#: ../wynn/be-page-builder/be-pb-options.php:402
+#: ../wynn/be-page-builder/be-pb-options.php:950
+#: ../wynn/be-page-builder/be-pb-options.php:1257
+msgid "Icon Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:407
+#: ../wynn/be-page-builder/be-pb-options.php:407
+msgid "Upload Custom Icon as Image"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:413 be-page-builder/be-pb-options.php:450
+#: be-page-builder/be-pb-options.php:674
+#: be-page-builder/be-pb-options.php:1019
+#: ../wynn/be-page-builder/be-pb-options.php:413
+#: ../wynn/be-page-builder/be-pb-options.php:450
+#: ../wynn/be-page-builder/be-pb-options.php:674
+#: ../wynn/be-page-builder/be-pb-options.php:1019
+msgid "Title"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:418 be-page-builder/be-pb-options.php:455
+#: be-page-builder/be-pb-options.php:680
+#: ../wynn/be-page-builder/be-pb-options.php:418
+#: ../wynn/be-page-builder/be-pb-options.php:455
+#: ../wynn/be-page-builder/be-pb-options.php:680
+msgid "Heading tag to use for Title"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:424 be-page-builder/be-pb-options.php:955
+#: ../wynn/be-page-builder/be-pb-options.php:424
+#: ../wynn/be-page-builder/be-pb-options.php:955
+msgid "Content"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:430 be-page-builder/be-pb-options.php:506
+#: be-page-builder/be-pb-options.php:583
+#: be-page-builder/be-pb-options.php:1287
+#: ../wynn/be-page-builder/be-pb-options.php:430
+#: ../wynn/be-page-builder/be-pb-options.php:506
+#: ../wynn/be-page-builder/be-pb-options.php:583
+#: ../wynn/be-page-builder/be-pb-options.php:1287
+msgid "Animate Block"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:435 be-page-builder/be-pb-options.php:511
+#: be-page-builder/be-pb-options.php:588
+#: be-page-builder/be-pb-options.php:1292
+#: ../wynn/be-page-builder/be-pb-options.php:435
+#: ../wynn/be-page-builder/be-pb-options.php:511
+#: ../wynn/be-page-builder/be-pb-options.php:588
+#: ../wynn/be-page-builder/be-pb-options.php:1292
+msgid "Animation Type"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:444
+#: ../wynn/be-page-builder/be-pb-options.php:444
+msgid "Team"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:461
+#: ../wynn/be-page-builder/be-pb-options.php:461
+msgid "Description"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:466
+#: ../wynn/be-page-builder/be-pb-options.php:466
+msgid "Upload Team Member image"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:471
+#: ../wynn/be-page-builder/be-pb-options.php:471
+msgid "Designation"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:476
+#: ../wynn/be-page-builder/be-pb-options.php:476
+msgid "Facebook Profile Url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:481
+#: ../wynn/be-page-builder/be-pb-options.php:481
+msgid "Twitter Profile Url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:486
+#: ../wynn/be-page-builder/be-pb-options.php:486
+msgid "Google Plus Url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:491
+#: ../wynn/be-page-builder/be-pb-options.php:491
+msgid "Linked In Profile Url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:496
+#: ../wynn/be-page-builder/be-pb-options.php:496
+msgid "Youtube Profile Url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:501
+#: ../wynn/be-page-builder/be-pb-options.php:501
+msgid "Dribbble Profile Url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:571
+#: ../wynn/be-page-builder/be-pb-options.php:571
+msgid "Text Block"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:577
+#: ../wynn/be-page-builder/be-pb-options.php:577
+msgid "Text Block Content"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:597
+#: ../wynn/be-page-builder/be-pb-options.php:597
+msgid "Premium Sliders"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:602
+#: ../wynn/be-page-builder/be-pb-options.php:602
+msgid "Slider Shortcode"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:611
+#: ../wynn/be-page-builder/be-pb-options.php:611
+msgid "Divider"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:617
+#: ../wynn/be-page-builder/be-pb-options.php:617
+msgid "Choose a divider style"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:623
+#: ../wynn/be-page-builder/be-pb-options.php:623
+msgid "Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:630
+#: ../wynn/be-page-builder/be-pb-options.php:630
+msgid "Animated Numbers"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:635
+#: ../wynn/be-page-builder/be-pb-options.php:635
+msgid "Number"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:640
+#: be-page-builder/be-pb-options.php:1023
+#: ../wynn/be-page-builder/be-pb-options.php:640
+#: ../wynn/be-page-builder/be-pb-options.php:1023
+msgid "Caption"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:645
+#: ../wynn/be-page-builder/be-pb-options.php:645
+msgid "Number Size"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:650
+#: ../wynn/be-page-builder/be-pb-options.php:650
+msgid "Number Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:655
+#: ../wynn/be-page-builder/be-pb-options.php:655
+msgid "Caption Size"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:660
+#: ../wynn/be-page-builder/be-pb-options.php:660
+msgid "Caption Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:668
+#: ../wynn/be-page-builder/be-pb-options.php:668
+msgid "Special Title / Heading"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:690
+#: ../wynn/be-page-builder/be-pb-options.php:690
+msgid "Alignment"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:701
+#: ../wynn/be-page-builder/be-pb-options.php:701
+msgid "Video"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:706
+#: ../wynn/be-page-builder/be-pb-options.php:706
+msgid "Choose a Video style"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:712
+#: ../wynn/be-page-builder/be-pb-options.php:712
+msgid "Enter the video url"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:720
+#: ../wynn/be-page-builder/be-pb-options.php:720
+msgid "Notifications"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:726
+#: ../wynn/be-page-builder/be-pb-options.php:726
+msgid "Background Color of Notification box"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:731
+#: ../wynn/be-page-builder/be-pb-options.php:731
+msgid "Notification Content"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:785
+#: ../wynn/be-page-builder/be-pb-options.php:785
+msgid "Buttons"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:791
+#: ../wynn/be-page-builder/be-pb-options.php:791
+msgid "Button Text"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:796
+#: ../wynn/be-page-builder/be-pb-options.php:796
+msgid "Button Size"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:802
+#: ../wynn/be-page-builder/be-pb-options.php:802
+msgid "Gradient ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:807
+#: ../wynn/be-page-builder/be-pb-options.php:807
+msgid "Rounded Corners ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:812
+#: ../wynn/be-page-builder/be-pb-options.php:812
+msgid "Button Icon"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:818
+#: ../wynn/be-page-builder/be-pb-options.php:818
+msgid "Default background Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:823
+#: ../wynn/be-page-builder/be-pb-options.php:823
+msgid "Hover Background Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:828
+#: ../wynn/be-page-builder/be-pb-options.php:828
+msgid "Button Links to"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:836
+#: ../wynn/be-page-builder/be-pb-options.php:836
+msgid "Skills Bar"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:844
+#: ../wynn/be-page-builder/be-pb-options.php:844
+msgid "Skill"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:849
+#: ../wynn/be-page-builder/be-pb-options.php:849
+msgid "Skill Name"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:853
+#: ../wynn/be-page-builder/be-pb-options.php:853
+msgid "Skill Score in %"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:862
+#: ../wynn/be-page-builder/be-pb-options.php:862
+msgid "Tabs"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:870
+#: ../wynn/be-page-builder/be-pb-options.php:870
+msgid "Tab"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:875
+#: ../wynn/be-page-builder/be-pb-options.php:875
+msgid "Tab Title"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:879
+#: ../wynn/be-page-builder/be-pb-options.php:879
+msgid "Choose an icon"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:884
+#: ../wynn/be-page-builder/be-pb-options.php:884
+msgid "Tab Content"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:893
+#: ../wynn/be-page-builder/be-pb-options.php:893
+msgid "Accordion"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:901
+#: ../wynn/be-page-builder/be-pb-options.php:901
+msgid "Toggle"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:906
+#: ../wynn/be-page-builder/be-pb-options.php:906
+msgid "Accordion Title"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:910
+#: ../wynn/be-page-builder/be-pb-options.php:910
+msgid "Accordion Content"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:921
+#: ../wynn/be-page-builder/be-pb-options.php:921
+msgid "Custom Lists"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:929
+#: ../wynn/be-page-builder/be-pb-options.php:929
+msgid "Custom List Item"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:966
+#: ../wynn/be-page-builder/be-pb-options.php:966
+msgid "Flex Slider"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:973
+#: be-page-builder/be-pb-options.php:1037
+#: ../wynn/be-page-builder/be-pb-options.php:973
+#: ../wynn/be-page-builder/be-pb-options.php:1037
+msgid "Animation style"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:979
+#: ../wynn/be-page-builder/be-pb-options.php:979
+msgid "Auto Slide"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:985
+#: be-page-builder/be-pb-options.php:1043
+#: ../wynn/be-page-builder/be-pb-options.php:985
+#: ../wynn/be-page-builder/be-pb-options.php:1043
+msgid "Slide Interval in milli secs if auto slide is enabled"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:992
+#: ../wynn/be-page-builder/be-pb-options.php:992
+msgid "Slide"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:997
+#: ../wynn/be-page-builder/be-pb-options.php:997
+msgid "Choose a slider image"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1003
+#: ../wynn/be-page-builder/be-pb-options.php:1003
+msgid "Enter Youtube/ Vimeo url if you wish to have video in the slide"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1007
+#: ../wynn/be-page-builder/be-pb-options.php:1007
+msgid "Show Title ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1013
+#: ../wynn/be-page-builder/be-pb-options.php:1013
+msgid "Show Caption ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1030
+#: ../wynn/be-page-builder/be-pb-options.php:1030
+msgid "Testimonials"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1050
+#: ../wynn/be-page-builder/be-pb-options.php:1050
+msgid "Testimonial"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1055
+#: ../wynn/be-page-builder/be-pb-options.php:1055
+msgid "Choose a Testimonial Author image"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1061
+#: ../wynn/be-page-builder/be-pb-options.php:1061
+msgid "Author"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1065
+#: ../wynn/be-page-builder/be-pb-options.php:1065
+msgid "Company"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1069
+#: ../wynn/be-page-builder/be-pb-options.php:1069
+msgid "Testimonial Content"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1077
+#: ../wynn/be-page-builder/be-pb-options.php:1077
+msgid "Portfolio Details"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1083
+#: ../wynn/be-page-builder/be-pb-options.php:1083
+msgid "Extra Spacing"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1088
+#: ../wynn/be-page-builder/be-pb-options.php:1088
+msgid "Height of blank space (only numbers)"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1098
+#: ../wynn/be-page-builder/be-pb-options.php:1098
+msgid "Section Settings"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1103
+#: ../wynn/be-page-builder/be-pb-options.php:1103
+msgid "Background Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1108
+#: ../wynn/be-page-builder/be-pb-options.php:1108
+msgid "Background Image"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1114
+#: ../wynn/be-page-builder/be-pb-options.php:1114
+msgid "Background Repeat"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1120
+#: ../wynn/be-page-builder/be-pb-options.php:1120
+msgid "Background Attachment"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1126
+#: ../wynn/be-page-builder/be-pb-options.php:1126
+msgid "Background Position"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1132
+#: ../wynn/be-page-builder/be-pb-options.php:1132
+msgid "Center Scale Image to occupy container"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1137
+#: ../wynn/be-page-builder/be-pb-options.php:1137
+msgid "Parallax Effect on Section"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1142
+#: ../wynn/be-page-builder/be-pb-options.php:1142
+msgid "Border Size (only numbers)"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1147
+#: ../wynn/be-page-builder/be-pb-options.php:1147
+msgid "Border Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1152
+#: ../wynn/be-page-builder/be-pb-options.php:1152
+msgid "Top Padding"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1157
+#: ../wynn/be-page-builder/be-pb-options.php:1157
+msgid "Bottom Padding"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1162
+#: ../wynn/be-page-builder/be-pb-options.php:1162
+msgid "Enable background Video"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1167
+#: ../wynn/be-page-builder/be-pb-options.php:1167
+msgid "Mp4 Video File"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1172
+#: ../wynn/be-page-builder/be-pb-options.php:1172
+msgid "Enable Background Overlay"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1177
+#: ../wynn/be-page-builder/be-pb-options.php:1177
+msgid "Background Overlay Color"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1182
+#: ../wynn/be-page-builder/be-pb-options.php:1182
+msgid "Background Overlay Opacity"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1191
+#: ../wynn/be-page-builder/be-pb-options.php:1191
+msgid "Row Settings"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1196
+#: ../wynn/be-page-builder/be-pb-options.php:1196
+msgid "No Wrap ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1201
+#: ../wynn/be-page-builder/be-pb-options.php:1201
+msgid "Zero Bottom Margin ?"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1211
+#: ../wynn/be-page-builder/be-pb-options.php:1211
+msgid "Google Map"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1216
+#: ../wynn/be-page-builder/be-pb-options.php:1216
+msgid "Address"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1221
+#: ../wynn/be-page-builder/be-pb-options.php:1221
+msgid "Height in px (only numbers)"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1226
+#: ../wynn/be-page-builder/be-pb-options.php:1226
+msgid "Zoom value"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1234
+#: ../wynn/be-page-builder/be-pb-options.php:1234
+msgid "Font Icons"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1245
+#: ../wynn/be-page-builder/be-pb-options.php:1245
+msgid "Size"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1262
+#: ../wynn/be-page-builder/be-pb-options.php:1262
+msgid "Background of Icon if circled/ Square"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1267
+#: ../wynn/be-page-builder/be-pb-options.php:1267
+msgid "Icon Color during Mouse Over"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1272
+#: ../wynn/be-page-builder/be-pb-options.php:1272
+msgid "Background Color of Icon during hover"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1277
+#: ../wynn/be-page-builder/be-pb-options.php:1277
+msgid "Icon Link URL"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1282
+#: ../wynn/be-page-builder/be-pb-options.php:1282
+msgid "Center Align the Font Icon"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1301
+#: ../wynn/be-page-builder/be-pb-options.php:1301
+msgid "Lightbox Image"
+msgstr ""
+
+#: be-page-builder/be-pb-options.php:1306
+#: ../wynn/be-page-builder/be-pb-options.php:1306
+msgid "Choose a thumbnail image"
+msgstr ""
+
+#: functions/be-tgm-plugins.php:67
+#: functions/class-tgm-plugin-activation.php:164
+#: ../wynn/functions/be-tgm-plugins.php:67
+#: ../wynn/functions/class-tgm-plugin-activation.php:164
+msgid "Install Required Plugins"
+msgstr ""
+
+#: functions/be-tgm-plugins.php:68
+#: functions/class-tgm-plugin-activation.php:165
+#: ../wynn/functions/be-tgm-plugins.php:68
+#: ../wynn/functions/class-tgm-plugin-activation.php:165
+msgid "Install Plugins"
+msgstr ""
+
+#: functions/be-tgm-plugins.php:69
+#: functions/class-tgm-plugin-activation.php:166
+#: ../wynn/functions/be-tgm-plugins.php:69
+#: ../wynn/functions/class-tgm-plugin-activation.php:166
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: functions/be-tgm-plugins.php:70 ../wynn/functions/be-tgm-plugins.php:70
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: functions/be-tgm-plugins.php:81
+#: functions/class-tgm-plugin-activation.php:178
+#: functions/class-tgm-plugin-activation.php:490
+#: ../wynn/functions/be-tgm-plugins.php:81
+#: ../wynn/functions/class-tgm-plugin-activation.php:178
+#: ../wynn/functions/class-tgm-plugin-activation.php:490
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: functions/be-tgm-plugins.php:82
+#: functions/class-tgm-plugin-activation.php:179
+#: functions/class-tgm-plugin-activation.php:1846
+#: ../wynn/functions/be-tgm-plugins.php:82
+#: ../wynn/functions/class-tgm-plugin-activation.php:179
+#: ../wynn/functions/class-tgm-plugin-activation.php:1846
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: functions/be-tgm-plugins.php:83 ../wynn/functions/be-tgm-plugins.php:83
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:167
+#: ../wynn/functions/class-tgm-plugin-activation.php:167
+msgid "Something went wrong."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:180
+#: ../wynn/functions/class-tgm-plugin-activation.php:180
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:517
+#: functions/class-tgm-plugin-activation.php:2058
+#: ../wynn/functions/class-tgm-plugin-activation.php:517
+#: ../wynn/functions/class-tgm-plugin-activation.php:2058
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:545
+#: ../wynn/functions/class-tgm-plugin-activation.php:545
+#, php-format
+msgid "The following plugin was activated successfully: %s."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:704
+#: ../wynn/functions/class-tgm-plugin-activation.php:704
+msgid "Dismiss this notice"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1091
+#: ../wynn/functions/class-tgm-plugin-activation.php:1091
+msgid "External Link"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1096
+#: ../wynn/functions/class-tgm-plugin-activation.php:1096
+msgid "Private Repository"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1099
+#: ../wynn/functions/class-tgm-plugin-activation.php:1099
+msgid "Pre-Packaged"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1103
+#: ../wynn/functions/class-tgm-plugin-activation.php:1103
+msgid "WordPress Repository"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1106
+#: ../wynn/functions/class-tgm-plugin-activation.php:1106
+msgid "Required"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1106
+#: ../wynn/functions/class-tgm-plugin-activation.php:1106
+msgid "Recommended"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1109
+#: ../wynn/functions/class-tgm-plugin-activation.php:1109
+msgid "Not Installed"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1111
+#: ../wynn/functions/class-tgm-plugin-activation.php:1111
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1281
+#: ../wynn/functions/class-tgm-plugin-activation.php:1281
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1297
+#: ../wynn/functions/class-tgm-plugin-activation.php:1297
+msgid "Plugin"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1298
+#: ../wynn/functions/class-tgm-plugin-activation.php:1298
+msgid "Source"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1299
+#: ../wynn/functions/class-tgm-plugin-activation.php:1299
+msgid "Type"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1300
+#: ../wynn/functions/class-tgm-plugin-activation.php:1300
+msgid "Status"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1318
+#: ../wynn/functions/class-tgm-plugin-activation.php:1318
+msgid "Install"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1319
+#: ../wynn/functions/class-tgm-plugin-activation.php:1319
+msgid "Activate"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1829
+#: ../wynn/functions/class-tgm-plugin-activation.php:1829
+msgid "Install package not available."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1830
+#: ../wynn/functions/class-tgm-plugin-activation.php:1830
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1831
+#: ../wynn/functions/class-tgm-plugin-activation.php:1831
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1832
+#: ../wynn/functions/class-tgm-plugin-activation.php:1832
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1833
+#: ../wynn/functions/class-tgm-plugin-activation.php:1833
+msgid "Plugin install failed."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1834
+#: ../wynn/functions/class-tgm-plugin-activation.php:1834
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1845
+#: ../wynn/functions/class-tgm-plugin-activation.php:1845
+msgid "Plugin activation failed."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1955
+#: ../wynn/functions/class-tgm-plugin-activation.php:1955
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1956
+#: ../wynn/functions/class-tgm-plugin-activation.php:1956
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1956
+#: functions/class-tgm-plugin-activation.php:1965
+#: ../wynn/functions/class-tgm-plugin-activation.php:1956
+#: ../wynn/functions/class-tgm-plugin-activation.php:1965
+msgid "Show Details"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1956
+#: functions/class-tgm-plugin-activation.php:1965
+#: ../wynn/functions/class-tgm-plugin-activation.php:1956
+#: ../wynn/functions/class-tgm-plugin-activation.php:1965
+msgid "Hide Details"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1957
+#: ../wynn/functions/class-tgm-plugin-activation.php:1957
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1958
+#: ../wynn/functions/class-tgm-plugin-activation.php:1958
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1962
+#: ../wynn/functions/class-tgm-plugin-activation.php:1962
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1963
+#: ../wynn/functions/class-tgm-plugin-activation.php:1963
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1964
+#: ../wynn/functions/class-tgm-plugin-activation.php:1964
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1965
+#: ../wynn/functions/class-tgm-plugin-activation.php:1965
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1966
+#: ../wynn/functions/class-tgm-plugin-activation.php:1966
+msgid "All installations have been completed."
+msgstr ""
+
+#: functions/class-tgm-plugin-activation.php:1967
+#: ../wynn/functions/class-tgm-plugin-activation.php:1967
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: functions/helpers.php:32 functions/helpers.php:98
+#: ../wynn/functions/helpers.php:32 ../wynn/functions/helpers.php:98
+msgid "First"
+msgstr ""
+
+#: functions/helpers.php:35 functions/helpers.php:101
+#: ../wynn/functions/helpers.php:35 ../wynn/functions/helpers.php:101
+msgid "Prev"
+msgstr ""
+
+#: functions/helpers.php:43 functions/helpers.php:109
+#: ../twentyfourteen/functions.php:261 ../wynn/functions/helpers.php:43
+#: ../wynn/functions/helpers.php:109
+msgid "Next"
+msgstr ""
+
+#: functions/helpers.php:46 functions/helpers.php:112
+#: ../wynn/functions/helpers.php:46 ../wynn/functions/helpers.php:112
+msgid "Last"
+msgstr ""
+
+#: functions/helpers.php:244 ../wynn/functions/helpers.php:244
+msgid "Older posts"
+msgstr ""
+
+#: functions/helpers.php:245 ../wynn/functions/helpers.php:245
+msgid "Newer posts"
+msgstr ""
+
+#: functions/helpers.php:276 ../wynn/functions/helpers.php:276
+msgid "Search ..."
+msgstr ""
+
+#: functions/helpers.php:309 functions/helpers.php:357
+#: ../twentyfourteen/content-aside.php:40
+#: ../twentyfourteen/content-audio.php:40
+#: ../twentyfourteen/content-gallery.php:40
+#: ../twentyfourteen/content-image.php:40
+#: ../twentyfourteen/content-link.php:40 ../twentyfourteen/content-page.php:28
+#: ../twentyfourteen/content-quote.php:40
+#: ../twentyfourteen/content-video.php:40 ../twentyfourteen/content.php:42
+#: ../twentyfourteen/image.php:34
+#: ../twentyfourteen/page-templates/contributors.php:35
+#: ../twentythirteen/content-aside.php:20
+#: ../twentythirteen/content-aside.php:28
+#: ../twentythirteen/content-audio.php:31
+#: ../twentythirteen/content-chat.php:29
+#: ../twentythirteen/content-gallery.php:39
+#: ../twentythirteen/content-image.php:35
+#: ../twentythirteen/content-link.php:19
+#: ../twentythirteen/content-quote.php:25
+#: ../twentythirteen/content-status.php:19
+#: ../twentythirteen/content-video.php:35 ../twentythirteen/content.php:29
+#: ../twentythirteen/image.php:44 ../twentythirteen/page.php:39
+#: ../twentytwelve/content-aside.php:26 ../twentytwelve/content-image.php:26
+#: ../twentytwelve/content-link.php:24 ../twentytwelve/content-page.php:24
+#: ../twentytwelve/content-quote.php:23 ../twentytwelve/content-status.php:30
+#: ../twentytwelve/content.php:46 ../twentytwelve/functions.php:341
+#: ../twentytwelve/image.php:37 ../wynn/functions/helpers.php:309
+#: ../wynn/functions/helpers.php:357
+msgid "Edit"
+msgstr ""
+
+#: functions/helpers.php:324 ../twentytwelve/functions.php:345
+#: ../wynn/functions/helpers.php:324
+msgid "Reply"
+msgstr ""
+
+#: functions/helpers.php:333 ../wynn/functions/helpers.php:333
+#, php-format
+msgid "%1$s %2$s"
+msgstr ""
+
+#: functions/helpers.php:348 ../twentytwelve/functions.php:336
+#: ../wynn/functions/helpers.php:348
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions/helpers.php:520 functions/helpers.php:522
+#: functions/helpers.php:524 ../wynn/functions/helpers.php:520
+#: ../wynn/functions/helpers.php:522 ../wynn/functions/helpers.php:524
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: functions/helpers.php:692 ../wynn/functions/helpers.php:692
+msgid "Related Posts"
+msgstr ""
+
+#: functions/helpers.php:698 functions/shortcodes.php:1331
+#: ../wynn/functions/helpers.php:698 ../wynn/functions/shortcodes.php:1331
+msgid " comments"
+msgstr ""
+
+#: functions/shortcodes.php:882 ../wynn/functions/shortcodes.php:882
+msgid "Filter"
+msgstr ""
+
+#: functions/shortcodes.php:882 ../wynn/functions/shortcodes.php:882
+msgid "All"
+msgstr ""
+
+#: functions/widget-functions.php:11 ../wynn/functions/widget-functions.php:11
+msgid "Default Header Sidebar"
+msgstr ""
+
+#: functions/widget-functions.php:13 ../wynn/functions/widget-functions.php:13
+msgid "Widget area of Right Sidebar template pages"
+msgstr ""
+
+#: functions/widget-functions.php:42 functions/widget-functions.php:44
+#: woocommerce/be-woo-functions.php:116
+#: ../wynn/functions/widget-functions.php:42
+#: ../wynn/functions/widget-functions.php:44
+#: ../wynn/woocommerce/be-woo-functions.php:116
+msgid "View your shopping cart"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:75
+#: ../wynn/functions/custom-post-types/post_type.class.php:75
+#, php-format
+msgid "Add New %s"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:76
+#: ../wynn/functions/custom-post-types/post_type.class.php:76
+#, php-format
+msgid "Edit %s"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:77
+#: ../wynn/functions/custom-post-types/post_type.class.php:77
+#, php-format
+msgid "New %s"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:78
+#: ../wynn/functions/custom-post-types/post_type.class.php:78
+#, php-format
+msgid "All %s"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:79
+#: ../wynn/functions/custom-post-types/post_type.class.php:79
+#, php-format
+msgid "View %s"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:80
+#: ../wynn/functions/custom-post-types/post_type.class.php:80
+#, php-format
+msgid "Search %s"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:81
+#: ../wynn/functions/custom-post-types/post_type.class.php:81
+#, php-format
+msgid "No %s found"
+msgstr ""
+
+#: functions/custom-post-types/post_type.class.php:82
+#: ../wynn/functions/custom-post-types/post_type.class.php:82
+#, php-format
+msgid "No %s found in trash"
+msgstr ""
+
+#: functions/custom-post-types/PostType.php:57
+#: ../wynn/functions/custom-post-types/PostType.php:57
+msgid "Remove current image"
+msgstr ""
+
+#: functions/custom-post-types/PostType.php:58
+#: ../wynn/functions/custom-post-types/PostType.php:58
+msgid "Remove current file"
+msgstr ""
+
+#: functions/custom-post-types/PostType.php:177
+#: ../wynn/functions/custom-post-types/PostType.php:177
+msgid "Use of a reserved term"
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:90
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:90
+msgid "Search "
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:91
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:91
+msgid "All "
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:92
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:92
+msgid "Parent "
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:93
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:93
+msgid "Parent :"
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:94
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:94
+msgid "Edit "
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:95
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:95
+msgid "Update "
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:96
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:96
+msgid "Add New "
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:97
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:97
+msgid "New Name"
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:158
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:158
+msgid "Date"
+msgstr ""
+
+#: functions/custom-post-types/taxonomy.class.php:211
+#: ../wynn/functions/custom-post-types/taxonomy.class.php:211
+#, php-format
+msgid "Show All %s"
+msgstr ""
+
+#: functions/widgets/recent_post_widget.php:5
+#: ../wynn/functions/widgets/recent_post_widget.php:5
+msgid "The most recent posts on your site"
+msgstr ""
+
+#: functions/widgets/recent_post_widget.php:6
+#: functions/widgets/recent_post_widget.php:27
+#: ../wynn/functions/widgets/recent_post_widget.php:6
+#: ../wynn/functions/widgets/recent_post_widget.php:27
+msgid "Recent Posts"
+msgstr ""
+
+#: functions/widgets/recent_post_widget.php:79
+#: ../twentyfourteen/inc/widgets.php:236
+#: ../wynn/functions/widgets/recent_post_widget.php:79
+msgid "Title:"
+msgstr ""
+
+#: functions/widgets/recent_post_widget.php:82
+#: ../twentyfourteen/inc/widgets.php:239
+#: ../wynn/functions/widgets/recent_post_widget.php:82
+msgid "Number of posts to show:"
+msgstr ""
+
+#: meta-box/meta-box.php:82 ../wynn/meta-box/meta-box.php:82
+msgid "RW_Meta_Box Debug:"
+msgstr ""
+
+#: meta-box/inc/classes/meta-box.php:252
+#: ../wynn/meta-box/inc/classes/meta-box.php:252
+msgid "Please correct the errors highlighted below and try again."
+msgstr ""
+
+#: meta-box/inc/classes/meta-box.php:426
+#: ../wynn/meta-box/inc/classes/meta-box.php:426
+msgid "+"
+msgstr ""
+
+#: meta-box/inc/classes/meta-box.php:448
+#: ../wynn/meta-box/inc/classes/meta-box.php:448
+msgid "&#8211;"
+msgstr ""
+
+#: meta-box/inc/fields/button.php:36 ../wynn/meta-box/inc/fields/button.php:36
+msgid "Click me"
+msgstr ""
+
+#: meta-box/inc/fields/file-advanced.php:23
+#: ../wynn/meta-box/inc/fields/file-advanced.php:23
+msgid "Select Files"
+msgstr ""
+
+#: meta-box/inc/fields/file.php:19 ../wynn/meta-box/inc/fields/file.php:19
+#, php-format
+msgid "You may only upload maximum %d file"
+msgstr ""
+
+#: meta-box/inc/fields/file.php:20 ../wynn/meta-box/inc/fields/file.php:20
+#, php-format
+msgid "You may only upload maximum %d files"
+msgstr ""
+
+#: meta-box/inc/fields/file.php:70 ../wynn/meta-box/inc/fields/file.php:70
+msgid "Error: Cannot delete file"
+msgstr ""
+
+#: meta-box/inc/fields/image-advanced.php:22
+#: ../wynn/meta-box/inc/fields/image-advanced.php:22
+msgid "Select Images"
+msgstr ""
+
+#: meta-box/inc/fields/image.php:62 ../wynn/meta-box/inc/fields/image.php:62
+msgid "Order saved"
+msgstr ""
+
+#: meta-box/inc/fields/map.php:48 ../wynn/meta-box/inc/fields/map.php:48
+msgid "Find Address"
+msgstr ""
+
+#: meta-box/inc/fields/post.php:54 ../wynn/meta-box/inc/fields/post.php:54
+msgid "Post"
+msgstr ""
+
+#: meta-box/inc/fields/post.php:68 meta-box/inc/fields/taxonomy.php:40
+#: ../wynn/meta-box/inc/fields/post.php:68
+#: ../wynn/meta-box/inc/fields/taxonomy.php:40
+#, php-format
+msgid "Select a %s"
+msgstr ""
+
+#: options/options.php:60 options/options.php:62
+#: ../wynn/options/options.php:60 ../wynn/options/options.php:62
+msgid "Options"
+msgstr ""
+
+#: options/options.php:289 ../wynn/options/options.php:289
+msgid "Are you sure? Resetting will loose all custom values."
+msgstr ""
+
+#: options/options.php:641 ../wynn/options/options.php:641
+msgid "<strong>Settings Imported!</strong>"
+msgstr ""
+
+#: options/options.php:643 options/options.php:648
+#: ../wynn/options/options.php:643 ../wynn/options/options.php:648
+msgid "<strong>Settings Saved!</strong>"
+msgstr ""
+
+#: options/options.php:649 ../wynn/options/options.php:649
+msgid "<strong>Settings Reseted!</strong>"
+msgstr ""
+
+#: options/options.php:650 ../wynn/options/options.php:650
+msgid "<strong>Settings have changed!, you should save them!</strong>"
+msgstr ""
+
+#: options/options.php:651 ../wynn/options/options.php:651
+msgid "<strong><span></span> error(s) were found!</strong>"
+msgstr ""
+
+#: options/options.php:653 ../wynn/options/options.php:653
+msgid "<strong><span></span> warning(s) were found!</strong>"
+msgstr ""
+
+#: options/options.php:655 ../wynn/options/options.php:655
+msgid "<strong><span></span> No Changes Made!</strong>"
+msgstr ""
+
+#: options/options.php:675 ../wynn/options/options.php:675
+msgid "Import / Export"
+msgstr ""
+
+#: options/options.php:693 options/options.php:773
+#: ../wynn/options/options.php:693 ../wynn/options/options.php:773
+msgid "Dev Mode Info"
+msgstr ""
+
+#: options/options.php:709 ../wynn/options/options.php:709
+msgid "Import / Export Options"
+msgstr ""
+
+#: options/options.php:711 ../wynn/options/options.php:711
+msgid "Import Options"
+msgstr ""
+
+#: options/options.php:719 ../wynn/options/options.php:719
+msgid ""
+"Input your backup file below and hit Import to restore your sites options "
+"from a backup."
+msgstr ""
+
+#: options/options.php:732 ../wynn/options/options.php:732
+msgid ""
+"Input the URL to another sites options set and hit Import to load the "
+"options from that site."
+msgstr ""
+
+#: options/options.php:742 ../wynn/options/options.php:742
+msgid "Import"
+msgstr ""
+
+#: options/options.php:742 ../wynn/options/options.php:742
+msgid ""
+"WARNING! This will overwrite any existing options, please proceed with "
+"caution!"
+msgstr ""
+
+#: options/options.php:745 ../wynn/options/options.php:745
+msgid "Export Options"
+msgstr ""
+
+#: options/options.php:747 ../wynn/options/options.php:747
+msgid ""
+"Here you can copy/download your themes current option settings. Keep this "
+"safe as you can use it as a backup should anything go wrong. Or you can use "
+"it to restore your settings on this site (or any other site). You also have "
+"the handy option to copy the link to yours sites settings. Which you can "
+"then use to duplicate on another site"
+msgstr ""
+
+#: options/options.php:798 ../wynn/options/options.php:798
+msgid "Reset to Defaults"
+msgstr ""
+
+#: options/fields/color_gradient/field_color_gradient.php:35
+#: ../wynn/options/fields/color_gradient/field_color_gradient.php:35
+msgid "From:"
+msgstr ""
+
+#: options/fields/color_gradient/field_color_gradient.php:38
+#: ../wynn/options/fields/color_gradient/field_color_gradient.php:38
+msgid " To:"
+msgstr ""
+
+#: options/fields/multi_text/field_multi_text.php:39
+#: options/fields/multi_text/field_multi_text.php:46
+#: options/fields/multi_text/field_multi_text.php:50
+#: ../wynn/options/fields/multi_text/field_multi_text.php:39
+#: ../wynn/options/fields/multi_text/field_multi_text.php:46
+#: ../wynn/options/fields/multi_text/field_multi_text.php:50
+msgid "Remove"
+msgstr ""
+
+#: options/fields/multi_text/field_multi_text.php:54
+#: ../wynn/options/fields/multi_text/field_multi_text.php:54
+msgid "Add More"
+msgstr ""
+
+#: options/fields/upload/field_upload.php:40
+#: ../wynn/options/fields/upload/field_upload.php:40
+msgid "Browse"
+msgstr ""
+
+#: options/fields/upload/field_upload.php:41
+#: ../wynn/options/fields/upload/field_upload.php:41
+msgid "Remove Upload"
+msgstr ""
+
+#: options/validation/color/validation_color.php:15
+#: ../wynn/options/validation/color/validation_color.php:15
+msgid "This field must be a valid color value."
+msgstr ""
+
+#: options/validation/comma_numeric/validation_comma_numeric.php:15
+#: ../wynn/options/validation/comma_numeric/validation_comma_numeric.php:15
+msgid ""
+"You must provide a comma seperated list of numerical values for this option."
+msgstr ""
+
+#: options/validation/date/validation_date.php:15
+#: ../wynn/options/validation/date/validation_date.php:15
+msgid "This field must be a valid date."
+msgstr ""
+
+#: options/validation/email/validation_email.php:15
+#: ../wynn/options/validation/email/validation_email.php:15
+msgid "You must provide a valid email for this option."
+msgstr ""
+
+#: options/validation/no_html/validation_no_html.php:15
+#: ../wynn/options/validation/no_html/validation_no_html.php:15
+msgid ""
+"You must not enter any HTML in this field, all HTML tags have been removed."
+msgstr ""
+
+#: options/validation/no_special_chars/validation_no_special_chars.php:15
+#: ../wynn/options/validation/no_special_chars/validation_no_special_chars.php:15
+msgid ""
+"You must not enter any special characters in this field, all special "
+"characters have been removed."
+msgstr ""
+
+#: options/validation/numeric/validation_numeric.php:15
+#: ../wynn/options/validation/numeric/validation_numeric.php:15
+msgid "You must provide a numerical value for this option."
+msgstr ""
+
+#: options/validation/url/validation_url.php:15
+#: ../wynn/options/validation/url/validation_url.php:15
+msgid "You must provide a valid URL for this option."
+msgstr ""
+
+#: ../twentyfourteen/404.php:17
+msgid "Not Found"
+msgstr ""
+
+#: ../twentyfourteen/404.php:21 ../twentythirteen/404.php:22
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: ../twentyfourteen/archive.php:31 ../twentythirteen/archive.php:29
+#: ../twentytwelve/archive.php:29
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../twentyfourteen/archive.php:34 ../twentythirteen/archive.php:31
+#: ../twentytwelve/archive.php:31
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../twentyfourteen/archive.php:37 ../twentythirteen/archive.php:33
+#: ../twentytwelve/archive.php:33
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../twentyfourteen/archive.php:40
+#: ../twentyfourteen/taxonomy-post_format.php:51
+#: ../twentythirteen/archive.php:35 ../twentytwelve/archive.php:35
+msgid "Archives"
+msgstr ""
+
+#: ../twentyfourteen/author.php:31 ../twentythirteen/author.php:30
+#, php-format
+msgid "All posts by %s"
+msgstr ""
+
+#: ../twentyfourteen/category.php:20 ../twentythirteen/category.php:19
+#: ../twentytwelve/category.php:21
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:180
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+msgid "Leave a comment"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:180
+msgid "1 Comment"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:37
+#: ../twentyfourteen/content-audio.php:37
+#: ../twentyfourteen/content-gallery.php:37
+#: ../twentyfourteen/content-image.php:37
+#: ../twentyfourteen/content-link.php:37
+#: ../twentyfourteen/content-quote.php:37
+#: ../twentyfourteen/content-video.php:37 ../twentyfourteen/content.php:38
+#: ../twentyfourteen/inc/widgets.php:180
+msgid "% Comments"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:46
+#: ../twentyfourteen/content-audio.php:46
+#: ../twentyfourteen/content-gallery.php:46
+#: ../twentyfourteen/content-image.php:46
+#: ../twentyfourteen/content-link.php:46
+#: ../twentyfourteen/content-quote.php:46
+#: ../twentyfourteen/content-video.php:46 ../twentyfourteen/content.php:54
+#: ../twentyfourteen/inc/widgets.php:113 ../twentyfourteen/inc/widgets.php:158
+#: ../twentythirteen/content-aside.php:13
+#: ../twentythirteen/content-audio.php:24
+#: ../twentythirteen/content-gallery.php:24
+#: ../twentythirteen/content-image.php:23
+#: ../twentythirteen/content-link.php:24
+#: ../twentythirteen/content-quote.php:13
+#: ../twentythirteen/content-status.php:13
+#: ../twentythirteen/content-video.php:23 ../twentythirteen/content.php:39
+#: ../twentytwelve/content-aside.php:15 ../twentytwelve/content-image.php:13
+#: ../twentytwelve/content-link.php:14 ../twentytwelve/content-quote.php:13
+#: ../twentytwelve/content-status.php:21 ../twentytwelve/content.php:39
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/content-aside.php:48
+#: ../twentyfourteen/content-audio.php:48
+#: ../twentyfourteen/content-gallery.php:48
+#: ../twentyfourteen/content-image.php:48
+#: ../twentyfourteen/content-link.php:48 ../twentyfourteen/content-page.php:22
+#: ../twentyfourteen/content-quote.php:48
+#: ../twentyfourteen/content-video.php:48 ../twentyfourteen/content.php:56
+#: ../twentyfourteen/image.php:54 ../twentythirteen/content-aside.php:14
+#: ../twentythirteen/content-audio.php:25
+#: ../twentythirteen/content-chat.php:24
+#: ../twentythirteen/content-gallery.php:25
+#: ../twentythirteen/content-image.php:24
+#: ../twentythirteen/content-link.php:25
+#: ../twentythirteen/content-quote.php:14
+#: ../twentythirteen/content-status.php:14
+#: ../twentythirteen/content-video.php:24 ../twentythirteen/content.php:40
+#: ../twentythirteen/image.php:70 ../twentythirteen/page.php:35
+#: ../twentytwelve/content-page.php:21 ../twentytwelve/content.php:40
+#: ../twentytwelve/image.php:92
+msgid "Pages:"
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:12 ../twentythirteen/content-none.php:12
+#: ../twentytwelve/content-none.php:13 ../twentytwelve/index.php:49
+#: ../twentytwelve/search.php:34
+msgid "Nothing Found"
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:18 ../twentythirteen/content-none.php:18
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: ../twentyfourteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:20
+#: ../twentytwelve/footer.php:17
+msgid "http://wordpress.org/"
+msgstr ""
+
+#: ../twentyfourteen/footer.php:21 ../twentythirteen/footer.php:20
+#: ../twentytwelve/footer.php:17
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:83
+msgid "Top primary menu"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:84
+msgid "Secondary menu in left sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:175
+msgid "Primary Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:177
+msgid "Main sidebar that appears on the left."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:184
+msgid "Content Sidebar"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:186
+msgid "Additional sidebar that appears on the right."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:193
+msgid "Footer Widget Area"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:195 ../twentythirteen/functions.php:229
+msgid "Appears in the footer section of the site."
+msgstr ""
+
+#: ../twentyfourteen/functions.php:260
+msgid "Previous"
+msgstr ""
+
+#: ../twentyfourteen/functions.php:500 ../twentythirteen/functions.php:212
+#: ../twentytwelve/functions.php:213
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../twentyfourteen/header.php:48
+msgid "Search"
+msgstr ""
+
+#: ../twentyfourteen/header.php:52 ../twentytwelve/functions.php:64
+msgid "Primary Menu"
+msgstr ""
+
+#: ../twentyfourteen/header.php:53 ../twentythirteen/header.php:44
+#: ../twentytwelve/header.php:44
+msgid "Skip to content"
+msgstr ""
+
+#: ../twentyfourteen/image.php:65
+msgid "Previous Image"
+msgstr ""
+
+#: ../twentyfourteen/image.php:66
+msgid "Next Image"
+msgstr ""
+
+#: ../twentyfourteen/search.php:18 ../twentythirteen/search.php:18
+#: ../twentytwelve/search.php:18
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../twentyfourteen/tag.php:22 ../twentythirteen/tag.php:21
+#: ../twentytwelve/tag.php:21
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:30
+#: ../twentyfourteen/inc/widgets.php:53
+msgid "Asides"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:33
+#: ../twentyfourteen/inc/widgets.php:54
+msgid "Images"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:36
+#: ../twentyfourteen/inc/widgets.php:55
+msgid "Videos"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:39
+#: ../twentyfourteen/inc/widgets.php:56
+msgid "Audio"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:42
+#: ../twentyfourteen/inc/widgets.php:57
+msgid "Quotes"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:45
+#: ../twentyfourteen/inc/widgets.php:58
+msgid "Links"
+msgstr ""
+
+#: ../twentyfourteen/taxonomy-post_format.php:48
+#: ../twentyfourteen/inc/widgets.php:59
+msgid "Galleries"
+msgstr ""
+
+#: ../twentyfourteen/inc/back-compat.php:41
+#: ../twentyfourteen/inc/back-compat.php:53
+#: ../twentyfourteen/inc/back-compat.php:68
+#, php-format
+msgid ""
+"Twenty Fourteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:19
+#: ../twentyfourteen/inc/customizer.php:20
+msgid "Background may only be visible on wide screens."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:28
+msgid "Site Title Color"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:31
+msgid "Display Site Title &amp; Tagline"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:35
+#: ../twentyfourteen/inc/featured-content.php:408
+msgid "Featured Content"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:36
+#, php-format
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:51
+msgid "Grid"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:52
+msgid "Slider"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:98
+msgid "Twenty Fourteen"
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:101
+#, php-format
+msgid ""
+"The home page features your choice of up to 6 posts prominently displayed in "
+"a grid or slider, controlled by the <a href=\"%1$s\">featured</a> tag; you "
+"can change the tag and layout in <a href=\"%2$s\">Appearance &rarr; "
+"Customize</a>. If no posts match the tag, <a href=\"%3$s\">sticky posts</a> "
+"will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:102
+#, php-format
+msgid ""
+"Enhance your site design by using <a href=\"%s\">Featured Images</a> for "
+"posts you&rsquo;d like to stand out (also known as post thumbnails). This "
+"allows you to associate an image with your post without inserting it. Twenty "
+"Fourteen uses featured images for posts and pages&mdash;above the "
+"title&mdash;and in the Featured Content area on the home page."
+msgstr ""
+
+#: ../twentyfourteen/inc/customizer.php:103
+#, php-format
+msgid ""
+"For an in-depth tutorial, and more tips and tricks, visit the <a href=\"%s"
+"\">Twenty Fourteen documentation</a>."
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:409
+#, php-format
+msgid ""
+"Use the <a href=\"%1$s\">\"featured\" tag</a> to feature your posts. You can "
+"change this to a tag of your choice; if no posts match the tag, <a href="
+"\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:428
+msgid "Tag Name"
+msgstr ""
+
+#: ../twentyfourteen/inc/featured-content.php:433
+msgid "Don&rsquo;t display tag on front end."
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:47 ../twentytwelve/image.php:41
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:48 ../twentytwelve/image.php:42
+msgid "Next &rarr;"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:55
+#: ../twentythirteen/functions.php:264
+msgid "Posts navigation"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:84
+#: ../twentythirteen/functions.php:300 ../twentytwelve/functions.php:282
+#: ../twentytwelve/single.php:20
+msgid "Post navigation"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:88
+msgid "<span class=\"meta-nav\">Published In</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:90
+msgid "<span class=\"meta-nav\">Previous Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:91
+msgid "<span class=\"meta-nav\">Next Post</span>%title"
+msgstr ""
+
+#: ../twentyfourteen/inc/template-tags.php:110
+#: ../twentythirteen/functions.php:324
+msgid "Sticky"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:44
+msgid "Twenty Fourteen Ephemera"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:46
+msgid ""
+"Use this widget to list your recent Aside, Quote, Video, Audio, Image, "
+"Gallery, and Link posts"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:189
+#, php-format
+msgid "More %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentyfourteen/inc/widgets.php:242
+msgid "Post format to show:"
+msgstr ""
+
+#: ../twentythirteen/404.php:16
+msgid "Not found"
+msgstr ""
+
+#: ../twentythirteen/404.php:21 ../twentytwelve/404.php:17
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:16 ../twentytwelve/author.php:53
+#: ../twentytwelve/content.php:53
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: ../twentythirteen/author-bio.php:20 ../twentytwelve/content.php:57
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+msgid "One comment so far"
+msgstr ""
+
+#: ../twentythirteen/content-gallery.php:36
+#: ../twentythirteen/content-image.php:32
+#: ../twentythirteen/content-quote.php:22
+#: ../twentythirteen/content-video.php:32 ../twentythirteen/content.php:47
+#, php-format
+msgid "View all % comments"
+msgstr ""
+
+#: ../twentythirteen/content-none.php:22
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with "
+"different keywords."
+msgstr ""
+
+#: ../twentythirteen/footer.php:20 ../twentytwelve/footer.php:17
+msgid "Semantic Personal Publishing Platform"
+msgstr ""
+
+#: ../twentythirteen/functions.php:227
+msgid "Main Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:237
+msgid "Secondary Widget Area"
+msgstr ""
+
+#: ../twentythirteen/functions.php:239
+msgid "Appears on posts and pages in the sidebar."
+msgstr ""
+
+#: ../twentythirteen/functions.php:268 ../twentytwelve/functions.php:283
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: ../twentythirteen/functions.php:272 ../twentytwelve/functions.php:284
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/functions.php:330 ../twentythirteen/functions.php:336
+#: ../twentytwelve/functions.php:364 ../twentytwelve/functions.php:367
+msgid ", "
+msgstr ""
+
+#: ../twentythirteen/functions.php:345 ../twentytwelve/functions.php:378
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../twentythirteen/functions.php:371 ../twentytwelve/content-aside.php:20
+#: ../twentytwelve/content-link.php:18 ../twentytwelve/content-quote.php:17
+#: ../twentytwelve/content-status.php:15
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../twentythirteen/header.php:43 ../twentytwelve/header.php:43
+msgid "Menu"
+msgstr ""
+
+#: ../twentythirteen/image.php:22
+#, php-format
+msgid ""
+"<span class=\"attachment-meta\">Published on <time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time> in <a href=\"%3$s\" title=\"Return to %4$s\" "
+"rel=\"gallery\">%5$s</a></span>"
+msgstr ""
+
+#: ../twentythirteen/image.php:38
+msgid "Link to full-size image"
+msgstr ""
+
+#: ../twentythirteen/image.php:39
+msgid "Full resolution"
+msgstr ""
+
+#: ../twentythirteen/image.php:51
+msgid "<span class=\"meta-nav\">&larr;</span> Previous"
+msgstr ""
+
+#: ../twentythirteen/image.php:52
+msgid "Next <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../twentythirteen/taxonomy-post_format.php:23
+#, php-format
+msgid "%s Archives"
+msgstr ""
+
+#: ../twentythirteen/inc/back-compat.php:38
+#: ../twentythirteen/inc/back-compat.php:50
+#: ../twentythirteen/inc/back-compat.php:65
+#, php-format
+msgid ""
+"Twenty Thirteen requires at least WordPress version 3.6. You are running "
+"version %s. Please upgrade and try again."
+msgstr ""
+
+#: ../twentytwelve/author.php:32
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:27 ../twentytwelve/content.php:28
+msgid "Leave a reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:27 ../twentytwelve/content.php:28
+msgid "1 Reply"
+msgstr ""
+
+#: ../twentytwelve/content-aside.php:23 ../twentytwelve/content-image.php:23
+#: ../twentytwelve/content-link.php:21 ../twentytwelve/content-quote.php:20
+#: ../twentytwelve/content-status.php:27 ../twentytwelve/content.php:28
+msgid "% Replies"
+msgstr ""
+
+#: ../twentytwelve/content.php:14
+msgid "Featured post"
+msgstr ""
+
+#: ../twentytwelve/functions.php:238
+msgid "Main Sidebar"
+msgstr ""
+
+#: ../twentytwelve/functions.php:240
+msgid ""
+"Appears on posts and pages except the optional Front Page template, which "
+"has its own widgets"
+msgstr ""
+
+#: ../twentytwelve/functions.php:248
+msgid "First Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:250 ../twentytwelve/functions.php:260
+msgid ""
+"Appears when using the optional Front Page template with a page set as "
+"Static Front Page"
+msgstr ""
+
+#: ../twentytwelve/functions.php:258
+msgid "Second Front Page Widget Area"
+msgstr ""
+
+#: ../twentytwelve/functions.php:309
+msgid "Pingback:"
+msgstr ""
+
+#: ../twentytwelve/functions.php:309
+msgid "(Edit)"
+msgstr ""
+
+#: ../twentytwelve/functions.php:324
+msgid "Post author"
+msgstr ""
+
+#: ../twentytwelve/functions.php:330
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../twentytwelve/functions.php:384
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:386
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: ../twentytwelve/functions.php:388
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: ../twentytwelve/image.php:26
+#, php-format
+msgid ""
+"<span class=\"meta-prep meta-prep-entry-date\">Published </span> <span class="
+"\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></"
+"span> at <a href=\"%3$s\" title=\"Link to full-size image\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" title=\"Return to %7$s\" rel=\"gallery\">%8$s</"
+"a>."
+msgstr ""
+
+#: ../twentytwelve/index.php:38
+msgid "No posts to display"
+msgstr ""
+
+#: ../twentytwelve/index.php:42
+#, php-format
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: ../twentytwelve/search.php:38
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
