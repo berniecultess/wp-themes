@@ -5,7 +5,7 @@
 	<header class="page-header">
 		<div class="row">
 			<div class="c12 end">
-				<h1 class="page-title">Latest Posts</h1>
+				<h1 class="page-title"><?php _e('Latest Posts','zoo') ?></h1>
 			</div>
 		</div>
 		<div class="row">

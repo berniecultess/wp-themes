@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
 	/*Mobile Navigation Dropdown*/
 	$("#menubutton").click(function(){
 		
-		if($(window).scrollTop() < home.outerHeight() - $(".mainnav").outerHeight()){
+		if( $('.mainnav').is("[style*='position: absolute;']")){
 			$(".nav-links").slideToggle();
 			$('html, body').animate({scrollTop: home.outerHeight()}, 800);
 		} 

@@ -4,7 +4,7 @@
  * Set the text domain for the theme or plugin.
  *
  */
-define('Zoo_TEXT_DOMAIN', 'zoo-opts');
+define('Zoo_TEXT_DOMAIN', 'zoo');
 
 /*
  *

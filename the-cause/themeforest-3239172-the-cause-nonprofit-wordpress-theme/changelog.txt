@@ -1,0 +1,41 @@
+v1.3 - December 6th, 2014.
+
+1. Updated Slider revolution (folder plugins of the main package)
+2. fixed accordion problems (includes/help/tb_enqueue.php)
+3. fixed problem with Google Maps (header-gmap.php and header-contact.php)
+4. fixed YouTube popup (js/themeblossom.js)
+5. fixed problem with image align (js/themeblossom.js)
+6. WooCommerce 2+ compatible (style.css, js/themeblossom.js, functions.php; removed folder woocommerce; removed file page-woocommerce.php; added file woocommerce.php)
+7. EWDP style fix (style.css)
+8. new demo xml and wie files added. Slider demos changed. (folder demo of the main package)
+9. Documentation Updated
+
+v1.2 – February 8th, 2013.
+
+1. Updated Slider revolution
+
+
+v1.1 – January 24th, 2013.
+
+1. Fixed bug which caused Easy WordPress Donations Plugin 1.6 error
+2. Promo image is now repeatable
+3. Fixed pagination bug on subcategory archive pages
+4. Removed WooCommerce donations page template
+5. Removed old parallax page template
+6. Added three more home page templates with Slider Revolution integrated
+7. Updated meta box plugin
+8. Donate button can be easily removed/edited
+9. YouTube/Vimeo thumbs are automatically added
+10. Featured images for articles are optional now
+11. Category page template added
+12. Form objects coloring removed
+13. Three predefined color schemes added
+14. Position of home page modules is changeable and optional
+15. Fixed layout problem of sidebar widgets without title
+16. Changed current date on events/past events page
+17. Twitter widget is changed to use new Twitter API
+
+
+v1.0 – October 22nd, 2012
+
+- initial release

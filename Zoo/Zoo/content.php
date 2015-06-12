@@ -39,10 +39,10 @@
 		<?php else : ?>
 				<div class="row">
 					<div class="c12 end">
-						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', '_s' ) ); ?>
+						<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'zoo' ) ); ?>
 						<?php
 						wp_link_pages( array(
-						'before' => '<div class="page-links">' . __( 'Pages:', '_s' ),
+						'before' => '<div class="page-links">' . __( 'Pages:', 'zoo' ),
 						'after' => '</div>',
 						) );
 						?>
@@ -60,12 +60,12 @@
 						} 
 						
 						else{
-								$tags_list = get_the_tag_list( '', __( ', ', '_s' ) );
+								$tags_list = get_the_tag_list( '', __( ', ', 'zoo' ) );
 								if ( $tags_list ) :?>
 									<div class="row">
 										<div class="c12 end">
 											<span class="tags-links">
-											<?php printf( __( 'Tagged %1$s', '_s' ), $tags_list ); ?>
+											<?php printf( __( 'Tagged %1$s', 'zoo' ), $tags_list ); ?>
 											</span>
 										</div>	
 									</div>	

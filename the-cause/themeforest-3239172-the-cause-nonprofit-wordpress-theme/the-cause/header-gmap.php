@@ -48,7 +48,7 @@ if ($latitude || $longitude) { ?>
     var marker = new google.maps.Marker({
         position: tbLatlng,
         map: map,
-        title: '<?php echo $post->post_title; ?>'
+        title: "<?php echo $post->post_title; ?>"
     });
   }
 </script>
@@ -60,6 +60,11 @@ if ($latitude || $longitude) { ?>
 
 <body <?php body_class(); ?> onload="initialize()">
 <?php }  else { ?>
+
+
+<?php wp_head(); ?>
+
+
 </head>
 
 <body  <?php body_class(); ?> >

@@ -44,6 +44,19 @@ update_option('woocommerce_thumbnail_image_width', 90);
 update_option('woocommerce_thumbnail_image_height', 90);
 update_option('woocommerce_thumbnail_image_crop', 1);
 
+add_theme_support( 'woocommerce' );
+
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+
+function custom_override_checkout_fields( $fields ) {
+	$fields['billing']['billing_first_name']['placeholder'] = 'First Name';
+	$fields['billing']['billing_last_name']['placeholder'] = 'Last Name';
+	$fields['billing']['billing_company']['placeholder'] = 'Company Name';
+	$fields['billing']['billing_phone']['placeholder'] = 'Phone';
+
+	return $fields;
+}
+
 /* THEME OPTIONS */
 $tbOptions = array();
 if ($handle = opendir(TBO)) {

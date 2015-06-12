@@ -135,7 +135,7 @@ http://www.gnu.org/licenses/gpl.html
 
     $window.bind('scroll', update).resize(update);
     update();
-	$this.css('opacity', 1);
+  $this.css('opacity', 1);
   };
 })(jQuery);
 
@@ -650,7 +650,7 @@ $.fn.menu = function() {
     menuItem = null;
   }
   var config = {
-		over: function(){
+    over: function(){
         cancelTimer();
         var parent = false;
         $(this).parents('li').each(function() { 
@@ -670,28 +670,28 @@ $.fn.menu = function() {
         closeTimer = window.setTimeout(close, 500);
       } 
     };
-	$do = $(this).find('li')
-	function do_menu() {
-		if(jQuery( window ).width() > 959) {
-			$do.hoverIntent( config );
-			jQuery('#navigation').show();
-		}
-		else {
-			$do.unbind("mouseenter").unbind("mouseleave");
-			$do.removeProp('hoverIntent_t');
-			$do.removeProp('hoverIntent_s');
-		}
-	}
-	do_menu();
-	if (ie) {
-		$(this).find('ul a').css('display', 'inline-block');
-		$(this).find('ul ul').css('top', '0');
-	}
-	jQuery(window).smartresize(function() {
-		do_menu();
-		jQuery('.my-sub-menu').hide();
-		jQuery('.mobile-sub-menu-controller').removeClass('active');
-	});
+  $do = $(this).find('li')
+  function do_menu() {
+    if(jQuery( window ).width() > 959) {
+      $do.hoverIntent( config );
+      jQuery('#navigation').show();
+    }
+    else {
+      $do.unbind("mouseenter").unbind("mouseleave");
+      $do.removeProp('hoverIntent_t');
+      $do.removeProp('hoverIntent_s');
+    }
+  }
+  do_menu();
+  if (ie) {
+    $(this).find('ul a').css('display', 'inline-block');
+    $(this).find('ul ul').css('top', '0');
+  }
+  jQuery(window).smartresize(function() {
+    do_menu();
+    jQuery('.my-sub-menu').hide();
+    jQuery('.mobile-sub-menu-controller').removeClass('active');
+  });
 }
 
 })(jQuery);
@@ -791,7 +791,7 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/GPL-license.txt
 
 
 /******************************************************
-				Jquery Elastislide Plugin
+        Jquery Elastislide Plugin
 *******************************************************/
 /**
  * jquery.elastislide.js v1.1.0
@@ -805,920 +805,920 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/GPL-license.txt
  */
 
 ;( function( $, window, undefined ) {
-	
-	'use strict';
-
-	/*
-	* debouncedresize: special jQuery event that happens once after a window resize
-	*
-	* latest version and complete README available on Github:
-	* https://github.com/louisremi/jquery-smartresize/blob/master/jquery.debouncedresize.js
-	*
-	* Copyright 2011 @louis_remi
-	* Licensed under the MIT license.
-	*/
-	var $event = $.event,
-	$special,
-	resizeTimeout;
-
-	$special = $event.special.debouncedresize = {
-		setup: function() {
-			$( this ).on( "resize", $special.handler );
-		},
-		teardown: function() {
-			$( this ).off( "resize", $special.handler );
-		},
-		handler: function( event, execAsap ) {
-			// Save the context
-			var context = this,
-				args = arguments,
-				dispatch = function() {
-					// set correct event type
-					event.type = "debouncedresize";
-					$event.dispatch.apply( context, args );
-				};
-
-			if ( resizeTimeout ) {
-				clearTimeout( resizeTimeout );
-			}
-
-			execAsap ?
-				dispatch() :
-				resizeTimeout = setTimeout( dispatch, $special.threshold );
-		},
-		threshold: 150
-	};
-
-	// ======================= imagesLoaded Plugin ===============================
-	// https://github.com/desandro/imagesloaded
-
-	// $('#my-container').imagesLoaded(myFunction)
-	// execute a callback when all images have loaded.
-	// needed because .load() doesn't work on cached images
-
-	// callback function gets image collection as argument
-	//  this is the container
-
-	// original: mit license. paul irish. 2010.
-	// contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
-
-	// blank image data-uri bypasses webkit log warning (thx doug jones)
-	var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-	
-	$.fn.imagesLoaded = function( callback ) {
-		var $this = this,
-			deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-			hasNotify = $.isFunction(deferred.notify),
-			$images = $this.find('img').add( $this.filter('img') ),
-			loaded = [],
-			proper = [],
-			broken = [];
-
-		// Register deferred callbacks
-		if ($.isPlainObject(callback)) {
-			$.each(callback, function (key, value) {
-				if (key === 'callback') {
-					callback = value;
-				} else if (deferred) {
-					deferred[key](value);
-				}
-			});
-		}
-
-		function doneLoading() {
-			var $proper = $(proper),
-				$broken = $(broken);
-
-			if ( deferred ) {
-				if ( broken.length ) {
-					deferred.reject( $images, $proper, $broken );
-				} else {
-					deferred.resolve( $images );
-				}
-			}
-
-			if ( $.isFunction( callback ) ) {
-				callback.call( $this, $images, $proper, $broken );
-			}
-		}
-
-		function imgLoaded( img, isBroken ) {
-			// don't proceed if BLANK image, or image is already loaded
-			if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
-				return;
-			}
-
-			// store element in loaded images array
-			loaded.push( img );
-
-			// keep track of broken and properly loaded images
-			if ( isBroken ) {
-				broken.push( img );
-			} else {
-				proper.push( img );
-			}
-
-			// cache image and its state for future calls
-			$.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
-
-			// trigger deferred progress method if present
-			if ( hasNotify ) {
-				deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
-			}
-
-			// call doneLoading and clean listeners if all images are loaded
-			if ( $images.length === loaded.length ){
-				setTimeout( doneLoading );
-				$images.unbind( '.imagesLoaded' );
-			}
-		}
-
-		// if no images, trigger immediately
-		if ( !$images.length ) {
-			doneLoading();
-		} else {
-			$images.bind( 'load.imagesLoaded error.imagesLoaded', function( event ){
-				// trigger imgLoaded
-				imgLoaded( event.target, event.type === 'error' );
-			}).each( function( i, el ) {
-				var src = el.src;
-
-				// find out if this image has been already checked for status
-				// if it was, and src has not changed, call imgLoaded on it
-				var cached = $.data( el, 'imagesLoaded' );
-				if ( cached && cached.src === src ) {
-					imgLoaded( el, cached.isBroken );
-					return;
-				}
-
-				// if complete is true and browser supports natural sizes, try
-				// to check for image status manually
-				if ( el.complete && el.naturalWidth !== undefined ) {
-					imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
-					return;
-				}
-
-				// cached images don't fire load sometimes, so we reset src, but only when
-				// dealing with IE, or image is complete (loaded) and failed manual check
-				// webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-				if ( el.readyState || el.complete ) {
-					el.src = BLANK;
-					el.src = src;
-				}
-			});
-		}
-
-		return deferred ? deferred.promise( $this ) : $this;
-	};
-
-	// global
-	var $window = $( window ),
-		Modernizr = window.Modernizr;
-
-	$.Elastislide = function( options, element ) {
-		
-		this.$el = $( element );
-		this._init( options );
-		
-	};
-
-	$.Elastislide.defaults = {
-		// orientation 'horizontal' || 'vertical'
-		orientation : 'horizontal',
-		// sliding speed
-		speed : 500,
-		// sliding easing
-		easing : 'ease-in-out',
-		// the minimum number of items to show. 
-		// when we resize the window, this will make sure minItems are always shown 
-		// (unless of course minItems is higher than the total number of elements)
-		minItems : 3,
-		// index of the current item (left most item of the carousel)
-		start : 0,
-		// click item callback
-		onClick : function( el, position, evt ) { return false; },
-		onReady : function() { return false; },
-		onBeforeSlide : function() { return false; },
-		onAfterSlide : function() { return false; }
-	};
-
-	$.Elastislide.prototype = {
-
-		_init : function( options ) {
-			
-			// options
-			this.options = $.extend( true, {}, $.Elastislide.defaults, options );
-
-			// https://github.com/twitter/bootstrap/issues/2870
-			var self = this,
-				transEndEventNames = {
-					'WebkitTransition' : 'webkitTransitionEnd',
-					'MozTransition' : 'transitionend',
-					'OTransition' : 'oTransitionEnd',
-					'msTransition' : 'MSTransitionEnd',
-					'transition' : 'transitionend'
-				};
-			
-			this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ];
-			
-			// suport for css transforms and css transitions
-			this.support = Modernizr.csstransitions && Modernizr.csstransforms;
-
-			// current item's index
-			this.current = this.options.start;
-
-			// control if it's sliding
-			this.isSliding = false;
-
-			this.$items = this.$el.children( 'li' );
-			// total number of items
-			this.itemsCount = this.$items.length;
-			if( this.itemsCount === 0 ) {
-
-				return false;
-
-			}
-			this._validate();
-			// remove white space
-			this.$items.detach();
-			this.$el.empty();
-			this.$el.append( this.$items );
-
-			// main wrapper
-			this.$el.wrap( '<div class="elastislide-wrapper elastislide-loading elastislide-' + this.options.orientation + '"></div>' );
-
-			// check if we applied a transition to the <ul>
-			this.hasTransition = false;
-			
-			// add transition for the <ul>
-			this.hasTransitionTimeout = setTimeout( function() {
-				
-				self._addTransition();
-
-			}, 100 );
-
-			// preload the images
-			$.fn.imagesLoaded = function( callback ) {
-				var $this = this,
-					deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-					hasNotify = $.isFunction(deferred.notify),
-					$images = $this.find('img').add( $this.filter('img') ),
-					loaded = [],
-					proper = [],
-					broken = [];
-
-				// Register deferred callbacks
-				if ($.isPlainObject(callback)) {
-					$.each(callback, function (key, value) {
-						if (key === 'callback') {
-							callback = value;
-						} else if (deferred) {
-							deferred[key](value);
-						}
-					});
-				}
-
-				function doneLoading() {
-					var $proper = $(proper),
-						$broken = $(broken);
-
-					if ( deferred ) {
-						if ( broken.length ) {
-							deferred.reject( $images, $proper, $broken );
-						} else {
-							deferred.resolve( $images );
-						}
-					}
-
-					if ( $.isFunction( callback ) ) {
-						callback.call( $this, $images, $proper, $broken );
-					}
-				}
-
-				function imgLoadedHandler( event ) {
-					imgLoaded( event.target, event.type === 'error' );
-				}
-
-				function imgLoaded( img, isBroken ) {
-					// don't proceed if BLANK image, or image is already loaded
-					if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
-						return;
-					}
-
-					// store element in loaded images array
-					loaded.push( img );
-
-					// keep track of broken and properly loaded images
-					if ( isBroken ) {
-						broken.push( img );
-					} else {
-						proper.push( img );
-					}
-
-					// cache image and its state for future calls
-					$.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
-
-					// trigger deferred progress method if present
-					if ( hasNotify ) {
-						deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
-					}
-
-					// call doneLoading and clean listeners if all images are loaded
-					if ( $images.length === loaded.length ) {
-						setTimeout( doneLoading );
-						$images.unbind( '.imagesLoaded', imgLoadedHandler );
-					}
-				}
-
-				// if no images, trigger immediately
-				if ( !$images.length ) {
-					doneLoading();
-				} else {
-					$images.bind( 'load.imagesLoaded error.imagesLoaded', imgLoadedHandler )
-					.each( function( i, el ) {
-						var src = el.src;
-
-						// find out if this image has been already checked for status
-						// if it was, and src has not changed, call imgLoaded on it
-						var cached = $.data( el, 'imagesLoaded' );
-						if ( cached && cached.src === src ) {
-							imgLoaded( el, cached.isBroken );
-							return;
-						}
-
-						// if complete is true and browser supports natural sizes, try
-						// to check for image status manually
-						if ( el.complete && el.naturalWidth !== undefined ) {
-							imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
-							return;
-						}
-
-						// cached images don't fire load sometimes, so we reset src, but only when
-						// dealing with IE, or image is complete (loaded) and failed manual check
-						// webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-						if ( el.readyState || el.complete ) {
-							el.src = BLANK;
-							el.src = src;
-						}
-					});
-				}
-
-				return deferred ? deferred.promise( $this ) : $this;
-			};
-			
-			
-			this.$el.imagesLoaded( function() {
-				self.$el.show();
-
-				self._layout();
-				self._configure();
-				
-				if( self.hasTransition ) {
-
-					// slide to current's position
-					self._removeTransition();
-					self._slideToItem( self.current );
-
-					self.$el.on( self.transEndEventName, function() {
-
-						self.$el.off( self.transEndEventName );
-						self._setWrapperSize();
-						// add transition for the <ul>
-						self._addTransition();
-						self._initEvents();
-
-					} );
-
-				}
-				else {
-
-					clearTimeout( self.hasTransitionTimeout );
-					self._setWrapperSize();
-					self._initEvents();
-					// slide to current's position
-					self._slideToItem( self.current );
-					setTimeout( function() { self._addTransition(); }, 25 );
-
-				}
-
-				self.options.onReady();
-
-			} );
-
-		},
-		_validate : function() {
-
-			if( this.options.speed < 0 ) {
-
-				this.options.speed = 500;
-
-			}
-			if( this.options.minItems < 1 || this.options.minItems > this.itemsCount ) {
-
-				this.options.minItems = 1;
-
-			}
-			if( this.options.start < 0 || this.options.start > this.itemsCount - 1 ) {
-
-				this.options.start = 0;
-
-			}
-			if( this.options.orientation != 'horizontal' && this.options.orientation != 'vertical' ) {
-
-				this.options.orientation = 'horizontal';
-
-			}
-				
-		},
-		_layout : function() {
-
-			this.$el.wrap( '<div class="elastislide-carousel"></div>' );
-
-			this.$carousel = this.$el.parent();
-			this.$wrapper = this.$carousel.parent().removeClass( 'elastislide-loading' );
-
-			// save original image sizes
-			var $img = this.$items.find( 'img:first' );
-			this.imgSize = { width : $img.outerWidth( true ), height : $img.outerHeight( true ) };
-
-			this._setItemsSize();
-			this.options.orientation === 'horizontal' ? this.$el.css( 'max-height', this.imgSize.height ) : this.$el.css( 'height', this.options.minItems * this.imgSize.height );
-
-			// add the controls
-			this._addControls();
-
-		},
-		_addTransition : function() {
-
-			if( this.support ) {
-
-				this.$el.css( 'transition', 'all ' + this.options.speed + 'ms ' + this.options.easing );
-				
-			}
-			this.hasTransition = true;
-
-		},
-		_removeTransition : function() {
-
-			if( this.support ) {
-
-				this.$el.css( 'transition', 'all 0s' );
-
-			}
-			this.hasTransition = false;
-			
-		},
-		_addControls : function() {
-
-			var self = this;
-
-			// add navigation elements
-			this.$navigation = $( '<nav><span class="elastislide-prev">Previous</span><span class="elastislide-next">Next</span></nav>' )
-				.appendTo( this.$wrapper );
-
-
-			this.$navPrev = this.$navigation.find( 'span.elastislide-prev' ).on( 'mousedown.elastislide', function( event ) {
-
-				self._slide( 'prev' );
-				return false;
-
-			} );
-
-			this.$navNext = this.$navigation.find( 'span.elastislide-next' ).on( 'mousedown.elastislide', function( event ) {
-
-				self._slide( 'next' );
-				return false;
-
-			} );
-
-		},
-		_setItemsSize : function() {
-
-			// width for the items (%)
-			var w = this.options.orientation === 'horizontal' ? ( Math.floor( this.$carousel.width() / this.options.minItems ) * 100 ) / this.$carousel.width() : 100;
-			
-			this.$items.css( {
-				'width' : w + '%',
-				'max-width' : this.imgSize.width,
-				'max-height' : this.imgSize.height
-			} );
-
-			if( this.options.orientation === 'vertical' ) {
-			
-				this.$wrapper.css( 'max-width', this.imgSize.width + parseInt( this.$wrapper.css( 'padding-left' ) ) + parseInt( this.$wrapper.css( 'padding-right' ) ) );
-			
-			}
-
-		},
-		_setWrapperSize : function() {
-
-			if( this.options.orientation === 'vertical' ) {
-
-				this.$wrapper.css( {
-					'height' : this.options.minItems * this.imgSize.height + parseInt( this.$wrapper.css( 'padding-top' ) ) + parseInt( this.$wrapper.css( 'padding-bottom' ) )
-				} );
-
-			}
-
-		},
-		_configure : function() {
-
-			// check how many items fit in the carousel (visible area -> this.$carousel.width() )
-			this.fitCount = this.options.orientation === 'horizontal' ? 
-								this.$carousel.width() < this.options.minItems * this.imgSize.width ? this.options.minItems : Math.floor( this.$carousel.width() / this.imgSize.width ) :
-								this.$carousel.height() < this.options.minItems * this.imgSize.height ? this.options.minItems : Math.floor( this.$carousel.height() / this.imgSize.height );
-
-		},
-		_initEvents : function() {
-
-			var self = this;
-
-			$window.on( 'debouncedresize.elastislide', function() {
-
-				self._setItemsSize();
-				self._configure();
-				self._slideToItem( self.current );
-
-			} );
-
-			this.$el.on( this.transEndEventName, function() {
-
-				self._onEndTransition();
-
-			} );
-
-			if( this.options.orientation === 'horizontal' ) {
-
-				this.$el.on( {
-					swipeleft : function() {
-
-						self._slide( 'next' );
-					
-					},
-					swiperight : function() {
-
-						self._slide( 'prev' );
-					
-					}
-				} );
-
-			}
-			else {
-
-				this.$el.on( {
-					swipeup : function() {
-
-						self._slide( 'next' );
-					
-					},
-					swipedown : function() {
-
-						self._slide( 'prev' );
-					
-					}
-				} );
-
-			}
-
-			// item click event
-			this.$el.on( 'click.elastislide', 'li', function( event ) {
-
-				var $item = $( this );
-
-				self.options.onClick( $item, $item.index(), event );
-				
-			});
-
-		},
-		_destroy : function( callback ) {
-			
-			this.$el.off( this.transEndEventName ).off( 'swipeleft swiperight swipeup swipedown .elastislide' );
-			$window.off( '.elastislide' );
-			
-			this.$el.css( {
-				'max-height' : 'none',
-				'transition' : 'none'
-			} ).unwrap( this.$carousel ).unwrap( this.$wrapper );
-
-			this.$items.css( {
-				'width' : 'auto',
-				'max-width' : 'none',
-				'max-height' : 'none'
-			} );
-
-			this.$navigation.remove();
-			this.$wrapper.remove();
-
-			if( callback ) {
-
-				callback.call();
-
-			}
-
-		},
-		_toggleControls : function( dir, display ) {
-
-			if( display ) {
-
-				( dir === 'next' ) ? this.$navNext.show() : this.$navPrev.show();
-
-			}
-			else {
-
-				( dir === 'next' ) ? this.$navNext.hide() : this.$navPrev.hide();
-
-			}
-			
-		},
-		_slide : function( dir, tvalue ) {
-
-			if( this.isSliding ) {
-
-				return false;
-
-			}
-			
-			this.options.onBeforeSlide();
-
-			this.isSliding = true;
-
-			var self = this,
-				translation = this.translation || 0,
-				// width/height of an item ( <li> )
-				itemSpace = this.options.orientation === 'horizontal' ? this.$items.outerWidth( true ) : this.$items.outerHeight( true ),
-				// total width/height of the <ul>
-				totalSpace = this.itemsCount * itemSpace,
-				// visible width/height
-				visibleSpace = this.options.orientation === 'horizontal' ? this.$carousel.width() : this.$carousel.height();
-			
-			if( tvalue === undefined ) {
-				
-				var amount = this.fitCount * itemSpace;
-
-				if( amount < 0 ) {
-
-					return false;
-
-				}
-
-				if( dir === 'next' && totalSpace - ( Math.abs( translation ) + amount ) < visibleSpace ) {
-
-					amount = totalSpace - ( Math.abs( translation ) + visibleSpace );
-
-					// show / hide navigation buttons
-					this._toggleControls( 'next', false );
-					this._toggleControls( 'prev', true );
-
-				}
-				else if( dir === 'prev' && Math.abs( translation ) - amount < 0 ) {
-
-					amount = Math.abs( translation );
-
-					// show / hide navigation buttons
-					this._toggleControls( 'next', true );
-					this._toggleControls( 'prev', false );
-
-				}
-				else {
-					
-					// future translation value
-					var ftv = dir === 'next' ? Math.abs( translation ) + Math.abs( amount ) : Math.abs( translation ) - Math.abs( amount );
-					
-					// show / hide navigation buttons
-					ftv > 0 ? this._toggleControls( 'prev', true ) : this._toggleControls( 'prev', false );
-					ftv < totalSpace - visibleSpace ? this._toggleControls( 'next', true ) : this._toggleControls( 'next', false );
-						
-				}
-				
-				tvalue = dir === 'next' ? translation - amount : translation + amount;
-
-			}
-			else {
-
-				var amount = Math.abs( tvalue );
-
-				if( Math.max( totalSpace, visibleSpace ) - amount < visibleSpace ) {
-
-					tvalue	= - ( Math.max( totalSpace, visibleSpace ) - visibleSpace );
-				
-				}
-
-				// show / hide navigation buttons
-				amount > 0 ? this._toggleControls( 'prev', true ) : this._toggleControls( 'prev', false );
-				Math.max( totalSpace, visibleSpace ) - visibleSpace > amount ? this._toggleControls( 'next', true ) : this._toggleControls( 'next', false );
-
-			}
-			
-			this.translation = tvalue;
-
-			if( translation === tvalue ) {
-				
-				this._onEndTransition();
-				return false;
-
-			}
-
-			if( this.support ) {
-				
-				this.options.orientation === 'horizontal' ? this.$el.css( 'transform', 'translateX(' + tvalue + 'px)' ) : this.$el.css( 'transform', 'translateY(' + tvalue + 'px)' );
-
-			}
-			else {
-
-				$.fn.applyStyle = this.hasTransition ? $.fn.animate : $.fn.css;
-				var styleCSS = this.options.orientation === 'horizontal' ? { left : tvalue } : { top : tvalue };
-				
-				this.$el.stop().applyStyle( styleCSS, $.extend( true, [], { duration : this.options.speed, complete : function() {
-
-					self._onEndTransition();
-					
-				} } ) );
-
-			}
-			
-			if( !this.hasTransition ) {
-
-				this._onEndTransition();
-
-			}
-
-		},
-		_onEndTransition : function() {
-
-			this.isSliding = false;
-			this.options.onAfterSlide();
-
-		},
-		_slideTo : function( pos ) {
-
-			var pos = pos || this.current,
-				translation = Math.abs( this.translation ) || 0,
-				itemSpace = this.options.orientation === 'horizontal' ? this.$items.outerWidth( true ) : this.$items.outerHeight( true ),
-				posR = translation + this.$carousel.width(),
-				ftv = Math.abs( pos * itemSpace );
-
-			if( ftv + itemSpace > posR || ftv < translation ) {
-
-				this._slideToItem( pos );
-			
-			}
-
-		},
-		_slideToItem : function( pos ) {
-
-			// how much to slide?
-			var amount	= this.options.orientation === 'horizontal' ? pos * this.$items.outerWidth( true ) : pos * this.$items.outerHeight( true );
-			this._slide( '', -amount );
-			
-		},
-		// public method: adds new items to the carousel
-		/*
-		
-		how to use:
-		var carouselEl = $( '#carousel' ),
-			carousel = carouselEl.elastislide();
-		...
-		
-		// append or prepend new items:
-		carouselEl.prepend('<li><a href="#"><img src="images/large/2.jpg" alt="image02" /></a></li>');
-
-		// call the add method:
-		es.add();
-		
-		*/
-		add : function( callback ) {
-			
-			var self = this,
-				oldcurrent = this.current,
-				$currentItem = this.$items.eq( this.current );
-			
-			// adds new items to the carousel
-			this.$items = this.$el.children( 'li' );
-			this.itemsCount = this.$items.length;
-			this.current = $currentItem.index();
-			this._setItemsSize();
-			this._configure();
-			this._removeTransition();
-			oldcurrent < this.current ? this._slideToItem( this.current ) : this._slide( 'next', this.translation );
-			setTimeout( function() { self._addTransition(); }, 25 );
-			
-			if ( callback ) {
-
-				callback.call();
-
-			}
-			
-		},
-		// public method: sets a new element as the current. slides to that position
-		setCurrent : function( idx, callback ) {
-			
-			this.current = idx;
-
-			this._slideTo();
-			
-			if ( callback ) {
-
-				callback.call();
-
-			}
-			
-		},
-		// public method: slides to the next set of items
-		next : function() {
-
-			self._slide( 'next' );
-
-		},
-		// public method: slides to the previous set of items
-		previous : function() {
-
-			self._slide( 'prev' );
-
-		},
-		// public method: slides to the first item
-		slideStart : function() {
-
-			this._slideTo( 0 );
-
-		},
-		// public method: slides to the last item
-		slideEnd : function() {
-
-			this._slideTo( this.itemsCount - 1 );
-
-		},
-		// public method: destroys the elastislide instance
-		destroy : function( callback ) {
-
-			this._destroy( callback );
-		
-		}
-
-	};
-	
-	var logError = function( message ) {
-
-		if ( window.console ) {
-
-			window.console.error( message );
-		
-		}
-
-	};
-	
-	$.fn.elastislide = function( options ) {
-
-		var self = $.data( this, 'elastislide' );
-		
-		if ( typeof options === 'string' ) {
-			
-			var args = Array.prototype.slice.call( arguments, 1 );
-			
-			this.each(function() {
-			
-				if ( !self ) {
-
-					logError( "cannot call methods on elastislide prior to initialization; " +
-					"attempted to call method '" + options + "'" );
-					return;
-				
-				}
-				
-				if ( !$.isFunction( self[options] ) || options.charAt(0) === "_" ) {
-
-					logError( "no such method '" + options + "' for elastislide self" );
-					return;
-				
-				}
-				
-				self[ options ].apply( self, args );
-			
-			});
-		
-		} 
-		else {
-		
-			this.each(function() {
-				
-				if ( self ) {
-
-					self._init();
-				
-				}
-				else {
-
-					self = $.data( this, 'elastislide', new $.Elastislide( options, this ) );
-				
-				}
-
-			});
-		
-		}
-		
-		return self;
-		
-	};
-	
+  
+  'use strict';
+
+  /*
+  * debouncedresize: special jQuery event that happens once after a window resize
+  *
+  * latest version and complete README available on Github:
+  * https://github.com/louisremi/jquery-smartresize/blob/master/jquery.debouncedresize.js
+  *
+  * Copyright 2011 @louis_remi
+  * Licensed under the MIT license.
+  */
+  var $event = $.event,
+  $special,
+  resizeTimeout;
+
+  $special = $event.special.debouncedresize = {
+    setup: function() {
+      $( this ).on( "resize", $special.handler );
+    },
+    teardown: function() {
+      $( this ).off( "resize", $special.handler );
+    },
+    handler: function( event, execAsap ) {
+      // Save the context
+      var context = this,
+        args = arguments,
+        dispatch = function() {
+          // set correct event type
+          event.type = "debouncedresize";
+          $event.dispatch.apply( context, args );
+        };
+
+      if ( resizeTimeout ) {
+        clearTimeout( resizeTimeout );
+      }
+
+      execAsap ?
+        dispatch() :
+        resizeTimeout = setTimeout( dispatch, $special.threshold );
+    },
+    threshold: 150
+  };
+
+  // ======================= imagesLoaded Plugin ===============================
+  // https://github.com/desandro/imagesloaded
+
+  // $('#my-container').imagesLoaded(myFunction)
+  // execute a callback when all images have loaded.
+  // needed because .load() doesn't work on cached images
+
+  // callback function gets image collection as argument
+  //  this is the container
+
+  // original: mit license. paul irish. 2010.
+  // contributors: Oren Solomianik, David DeSandro, Yiannis Chatzikonstantinou
+
+  // blank image data-uri bypasses webkit log warning (thx doug jones)
+  var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+  
+  $.fn.imagesLoaded = function( callback ) {
+    var $this = this,
+      deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
+      hasNotify = $.isFunction(deferred.notify),
+      $images = $this.find('img').add( $this.filter('img') ),
+      loaded = [],
+      proper = [],
+      broken = [];
+
+    // Register deferred callbacks
+    if ($.isPlainObject(callback)) {
+      $.each(callback, function (key, value) {
+        if (key === 'callback') {
+          callback = value;
+        } else if (deferred) {
+          deferred[key](value);
+        }
+      });
+    }
+
+    function doneLoading() {
+      var $proper = $(proper),
+        $broken = $(broken);
+
+      if ( deferred ) {
+        if ( broken.length ) {
+          deferred.reject( $images, $proper, $broken );
+        } else {
+          deferred.resolve( $images );
+        }
+      }
+
+      if ( $.isFunction( callback ) ) {
+        callback.call( $this, $images, $proper, $broken );
+      }
+    }
+
+    function imgLoaded( img, isBroken ) {
+      // don't proceed if BLANK image, or image is already loaded
+      if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
+        return;
+      }
+
+      // store element in loaded images array
+      loaded.push( img );
+
+      // keep track of broken and properly loaded images
+      if ( isBroken ) {
+        broken.push( img );
+      } else {
+        proper.push( img );
+      }
+
+      // cache image and its state for future calls
+      $.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+
+      // trigger deferred progress method if present
+      if ( hasNotify ) {
+        deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
+      }
+
+      // call doneLoading and clean listeners if all images are loaded
+      if ( $images.length === loaded.length ){
+        setTimeout( doneLoading );
+        $images.unbind( '.imagesLoaded' );
+      }
+    }
+
+    // if no images, trigger immediately
+    if ( !$images.length ) {
+      doneLoading();
+    } else {
+      $images.bind( 'load.imagesLoaded error.imagesLoaded', function( event ){
+        // trigger imgLoaded
+        imgLoaded( event.target, event.type === 'error' );
+      }).each( function( i, el ) {
+        var src = el.src;
+
+        // find out if this image has been already checked for status
+        // if it was, and src has not changed, call imgLoaded on it
+        var cached = $.data( el, 'imagesLoaded' );
+        if ( cached && cached.src === src ) {
+          imgLoaded( el, cached.isBroken );
+          return;
+        }
+
+        // if complete is true and browser supports natural sizes, try
+        // to check for image status manually
+        if ( el.complete && el.naturalWidth !== undefined ) {
+          imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
+          return;
+        }
+
+        // cached images don't fire load sometimes, so we reset src, but only when
+        // dealing with IE, or image is complete (loaded) and failed manual check
+        // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+        if ( el.readyState || el.complete ) {
+          el.src = BLANK;
+          el.src = src;
+        }
+      });
+    }
+
+    return deferred ? deferred.promise( $this ) : $this;
+  };
+
+  // global
+  var $window = $( window ),
+    Modernizr = window.Modernizr;
+
+  $.Elastislide = function( options, element ) {
+    
+    this.$el = $( element );
+    this._init( options );
+    
+  };
+
+  $.Elastislide.defaults = {
+    // orientation 'horizontal' || 'vertical'
+    orientation : 'horizontal',
+    // sliding speed
+    speed : 500,
+    // sliding easing
+    easing : 'ease-in-out',
+    // the minimum number of items to show. 
+    // when we resize the window, this will make sure minItems are always shown 
+    // (unless of course minItems is higher than the total number of elements)
+    minItems : 3,
+    // index of the current item (left most item of the carousel)
+    start : 0,
+    // click item callback
+    onClick : function( el, position, evt ) { return false; },
+    onReady : function() { return false; },
+    onBeforeSlide : function() { return false; },
+    onAfterSlide : function() { return false; }
+  };
+
+  $.Elastislide.prototype = {
+
+    _init : function( options ) {
+      
+      // options
+      this.options = $.extend( true, {}, $.Elastislide.defaults, options );
+
+      // https://github.com/twitter/bootstrap/issues/2870
+      var self = this,
+        transEndEventNames = {
+          'WebkitTransition' : 'webkitTransitionEnd',
+          'MozTransition' : 'transitionend',
+          'OTransition' : 'oTransitionEnd',
+          'msTransition' : 'MSTransitionEnd',
+          'transition' : 'transitionend'
+        };
+      
+      this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ];
+      
+      // suport for css transforms and css transitions
+      this.support = Modernizr.csstransitions && Modernizr.csstransforms;
+
+      // current item's index
+      this.current = this.options.start;
+
+      // control if it's sliding
+      this.isSliding = false;
+
+      this.$items = this.$el.children( 'li' );
+      // total number of items
+      this.itemsCount = this.$items.length;
+      if( this.itemsCount === 0 ) {
+
+        return false;
+
+      }
+      this._validate();
+      // remove white space
+      this.$items.detach();
+      this.$el.empty();
+      this.$el.append( this.$items );
+
+      // main wrapper
+      this.$el.wrap( '<div class="elastislide-wrapper elastislide-loading elastislide-' + this.options.orientation + '"></div>' );
+
+      // check if we applied a transition to the <ul>
+      this.hasTransition = false;
+      
+      // add transition for the <ul>
+      this.hasTransitionTimeout = setTimeout( function() {
+        
+        self._addTransition();
+
+      }, 100 );
+
+      // preload the images
+      $.fn.imagesLoaded = function( callback ) {
+        var $this = this,
+          deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
+          hasNotify = $.isFunction(deferred.notify),
+          $images = $this.find('img').add( $this.filter('img') ),
+          loaded = [],
+          proper = [],
+          broken = [];
+
+        // Register deferred callbacks
+        if ($.isPlainObject(callback)) {
+          $.each(callback, function (key, value) {
+            if (key === 'callback') {
+              callback = value;
+            } else if (deferred) {
+              deferred[key](value);
+            }
+          });
+        }
+
+        function doneLoading() {
+          var $proper = $(proper),
+            $broken = $(broken);
+
+          if ( deferred ) {
+            if ( broken.length ) {
+              deferred.reject( $images, $proper, $broken );
+            } else {
+              deferred.resolve( $images );
+            }
+          }
+
+          if ( $.isFunction( callback ) ) {
+            callback.call( $this, $images, $proper, $broken );
+          }
+        }
+
+        function imgLoadedHandler( event ) {
+          imgLoaded( event.target, event.type === 'error' );
+        }
+
+        function imgLoaded( img, isBroken ) {
+          // don't proceed if BLANK image, or image is already loaded
+          if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
+            return;
+          }
+
+          // store element in loaded images array
+          loaded.push( img );
+
+          // keep track of broken and properly loaded images
+          if ( isBroken ) {
+            broken.push( img );
+          } else {
+            proper.push( img );
+          }
+
+          // cache image and its state for future calls
+          $.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+
+          // trigger deferred progress method if present
+          if ( hasNotify ) {
+            deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
+          }
+
+          // call doneLoading and clean listeners if all images are loaded
+          if ( $images.length === loaded.length ) {
+            setTimeout( doneLoading );
+            $images.unbind( '.imagesLoaded', imgLoadedHandler );
+          }
+        }
+
+        // if no images, trigger immediately
+        if ( !$images.length ) {
+          doneLoading();
+        } else {
+          $images.bind( 'load.imagesLoaded error.imagesLoaded', imgLoadedHandler )
+          .each( function( i, el ) {
+            var src = el.src;
+
+            // find out if this image has been already checked for status
+            // if it was, and src has not changed, call imgLoaded on it
+            var cached = $.data( el, 'imagesLoaded' );
+            if ( cached && cached.src === src ) {
+              imgLoaded( el, cached.isBroken );
+              return;
+            }
+
+            // if complete is true and browser supports natural sizes, try
+            // to check for image status manually
+            if ( el.complete && el.naturalWidth !== undefined ) {
+              imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
+              return;
+            }
+
+            // cached images don't fire load sometimes, so we reset src, but only when
+            // dealing with IE, or image is complete (loaded) and failed manual check
+            // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+            if ( el.readyState || el.complete ) {
+              el.src = BLANK;
+              el.src = src;
+            }
+          });
+        }
+
+        return deferred ? deferred.promise( $this ) : $this;
+      };
+      
+      
+      this.$el.imagesLoaded( function() {
+        self.$el.show();
+
+        self._layout();
+        self._configure();
+        
+        if( self.hasTransition ) {
+
+          // slide to current's position
+          self._removeTransition();
+          self._slideToItem( self.current );
+
+          self.$el.on( self.transEndEventName, function() {
+
+            self.$el.off( self.transEndEventName );
+            self._setWrapperSize();
+            // add transition for the <ul>
+            self._addTransition();
+            self._initEvents();
+
+          } );
+
+        }
+        else {
+
+          clearTimeout( self.hasTransitionTimeout );
+          self._setWrapperSize();
+          self._initEvents();
+          // slide to current's position
+          self._slideToItem( self.current );
+          setTimeout( function() { self._addTransition(); }, 25 );
+
+        }
+
+        self.options.onReady();
+
+      } );
+
+    },
+    _validate : function() {
+
+      if( this.options.speed < 0 ) {
+
+        this.options.speed = 500;
+
+      }
+      if( this.options.minItems < 1 || this.options.minItems > this.itemsCount ) {
+
+        this.options.minItems = 1;
+
+      }
+      if( this.options.start < 0 || this.options.start > this.itemsCount - 1 ) {
+
+        this.options.start = 0;
+
+      }
+      if( this.options.orientation != 'horizontal' && this.options.orientation != 'vertical' ) {
+
+        this.options.orientation = 'horizontal';
+
+      }
+        
+    },
+    _layout : function() {
+
+      this.$el.wrap( '<div class="elastislide-carousel"></div>' );
+
+      this.$carousel = this.$el.parent();
+      this.$wrapper = this.$carousel.parent().removeClass( 'elastislide-loading' );
+
+      // save original image sizes
+      var $img = this.$items.find( 'img:first' );
+      this.imgSize = { width : $img.outerWidth( true ), height : $img.outerHeight( true ) };
+
+      this._setItemsSize();
+      this.options.orientation === 'horizontal' ? this.$el.css( 'max-height', this.imgSize.height ) : this.$el.css( 'height', this.options.minItems * this.imgSize.height );
+
+      // add the controls
+      this._addControls();
+
+    },
+    _addTransition : function() {
+
+      if( this.support ) {
+
+        this.$el.css( 'transition', 'all ' + this.options.speed + 'ms ' + this.options.easing );
+        
+      }
+      this.hasTransition = true;
+
+    },
+    _removeTransition : function() {
+
+      if( this.support ) {
+
+        this.$el.css( 'transition', 'all 0s' );
+
+      }
+      this.hasTransition = false;
+      
+    },
+    _addControls : function() {
+
+      var self = this;
+
+      // add navigation elements
+      this.$navigation = $( '<nav><span class="elastislide-prev">Previous</span><span class="elastislide-next">Next</span></nav>' )
+        .appendTo( this.$wrapper );
+
+
+      this.$navPrev = this.$navigation.find( 'span.elastislide-prev' ).on( 'mousedown.elastislide', function( event ) {
+
+        self._slide( 'prev' );
+        return false;
+
+      } );
+
+      this.$navNext = this.$navigation.find( 'span.elastislide-next' ).on( 'mousedown.elastislide', function( event ) {
+
+        self._slide( 'next' );
+        return false;
+
+      } );
+
+    },
+    _setItemsSize : function() {
+
+      // width for the items (%)
+      var w = this.options.orientation === 'horizontal' ? ( Math.floor( this.$carousel.width() / this.options.minItems ) * 100 ) / this.$carousel.width() : 100;
+      
+      this.$items.css( {
+        'width' : w + '%',
+        'max-width' : this.imgSize.width,
+        'max-height' : this.imgSize.height
+      } );
+
+      if( this.options.orientation === 'vertical' ) {
+      
+        this.$wrapper.css( 'max-width', this.imgSize.width + parseInt( this.$wrapper.css( 'padding-left' ) ) + parseInt( this.$wrapper.css( 'padding-right' ) ) );
+      
+      }
+
+    },
+    _setWrapperSize : function() {
+
+      if( this.options.orientation === 'vertical' ) {
+
+        this.$wrapper.css( {
+          'height' : this.options.minItems * this.imgSize.height + parseInt( this.$wrapper.css( 'padding-top' ) ) + parseInt( this.$wrapper.css( 'padding-bottom' ) )
+        } );
+
+      }
+
+    },
+    _configure : function() {
+
+      // check how many items fit in the carousel (visible area -> this.$carousel.width() )
+      this.fitCount = this.options.orientation === 'horizontal' ? 
+                this.$carousel.width() < this.options.minItems * this.imgSize.width ? this.options.minItems : Math.floor( this.$carousel.width() / this.imgSize.width ) :
+                this.$carousel.height() < this.options.minItems * this.imgSize.height ? this.options.minItems : Math.floor( this.$carousel.height() / this.imgSize.height );
+
+    },
+    _initEvents : function() {
+
+      var self = this;
+
+      $window.on( 'debouncedresize.elastislide', function() {
+
+        self._setItemsSize();
+        self._configure();
+        self._slideToItem( self.current );
+
+      } );
+
+      this.$el.on( this.transEndEventName, function() {
+
+        self._onEndTransition();
+
+      } );
+
+      if( this.options.orientation === 'horizontal' ) {
+
+        this.$el.on( {
+          swipeleft : function() {
+
+            self._slide( 'next' );
+          
+          },
+          swiperight : function() {
+
+            self._slide( 'prev' );
+          
+          }
+        } );
+
+      }
+      else {
+
+        this.$el.on( {
+          swipeup : function() {
+
+            self._slide( 'next' );
+          
+          },
+          swipedown : function() {
+
+            self._slide( 'prev' );
+          
+          }
+        } );
+
+      }
+
+      // item click event
+      this.$el.on( 'click.elastislide', 'li', function( event ) {
+
+        var $item = $( this );
+
+        self.options.onClick( $item, $item.index(), event );
+        
+      });
+
+    },
+    _destroy : function( callback ) {
+      
+      this.$el.off( this.transEndEventName ).off( 'swipeleft swiperight swipeup swipedown .elastislide' );
+      $window.off( '.elastislide' );
+      
+      this.$el.css( {
+        'max-height' : 'none',
+        'transition' : 'none'
+      } ).unwrap( this.$carousel ).unwrap( this.$wrapper );
+
+      this.$items.css( {
+        'width' : 'auto',
+        'max-width' : 'none',
+        'max-height' : 'none'
+      } );
+
+      this.$navigation.remove();
+      this.$wrapper.remove();
+
+      if( callback ) {
+
+        callback.call();
+
+      }
+
+    },
+    _toggleControls : function( dir, display ) {
+
+      if( display ) {
+
+        ( dir === 'next' ) ? this.$navNext.show() : this.$navPrev.show();
+
+      }
+      else {
+
+        ( dir === 'next' ) ? this.$navNext.hide() : this.$navPrev.hide();
+
+      }
+      
+    },
+    _slide : function( dir, tvalue ) {
+
+      if( this.isSliding ) {
+
+        return false;
+
+      }
+      
+      this.options.onBeforeSlide();
+
+      this.isSliding = true;
+
+      var self = this,
+        translation = this.translation || 0,
+        // width/height of an item ( <li> )
+        itemSpace = this.options.orientation === 'horizontal' ? this.$items.outerWidth( true ) : this.$items.outerHeight( true ),
+        // total width/height of the <ul>
+        totalSpace = this.itemsCount * itemSpace,
+        // visible width/height
+        visibleSpace = this.options.orientation === 'horizontal' ? this.$carousel.width() : this.$carousel.height();
+      
+      if( tvalue === undefined ) {
+        
+        var amount = this.fitCount * itemSpace;
+
+        if( amount < 0 ) {
+
+          return false;
+
+        }
+
+        if( dir === 'next' && totalSpace - ( Math.abs( translation ) + amount ) < visibleSpace ) {
+
+          amount = totalSpace - ( Math.abs( translation ) + visibleSpace );
+
+          // show / hide navigation buttons
+          this._toggleControls( 'next', false );
+          this._toggleControls( 'prev', true );
+
+        }
+        else if( dir === 'prev' && Math.abs( translation ) - amount < 0 ) {
+
+          amount = Math.abs( translation );
+
+          // show / hide navigation buttons
+          this._toggleControls( 'next', true );
+          this._toggleControls( 'prev', false );
+
+        }
+        else {
+          
+          // future translation value
+          var ftv = dir === 'next' ? Math.abs( translation ) + Math.abs( amount ) : Math.abs( translation ) - Math.abs( amount );
+          
+          // show / hide navigation buttons
+          ftv > 0 ? this._toggleControls( 'prev', true ) : this._toggleControls( 'prev', false );
+          ftv < totalSpace - visibleSpace ? this._toggleControls( 'next', true ) : this._toggleControls( 'next', false );
+            
+        }
+        
+        tvalue = dir === 'next' ? translation - amount : translation + amount;
+
+      }
+      else {
+
+        var amount = Math.abs( tvalue );
+
+        if( Math.max( totalSpace, visibleSpace ) - amount < visibleSpace ) {
+
+          tvalue  = - ( Math.max( totalSpace, visibleSpace ) - visibleSpace );
+        
+        }
+
+        // show / hide navigation buttons
+        amount > 0 ? this._toggleControls( 'prev', true ) : this._toggleControls( 'prev', false );
+        Math.max( totalSpace, visibleSpace ) - visibleSpace > amount ? this._toggleControls( 'next', true ) : this._toggleControls( 'next', false );
+
+      }
+      
+      this.translation = tvalue;
+
+      if( translation === tvalue ) {
+        
+        this._onEndTransition();
+        return false;
+
+      }
+
+      if( this.support ) {
+        
+        this.options.orientation === 'horizontal' ? this.$el.css( 'transform', 'translateX(' + tvalue + 'px)' ) : this.$el.css( 'transform', 'translateY(' + tvalue + 'px)' );
+
+      }
+      else {
+
+        $.fn.applyStyle = this.hasTransition ? $.fn.animate : $.fn.css;
+        var styleCSS = this.options.orientation === 'horizontal' ? { left : tvalue } : { top : tvalue };
+        
+        this.$el.stop().applyStyle( styleCSS, $.extend( true, [], { duration : this.options.speed, complete : function() {
+
+          self._onEndTransition();
+          
+        } } ) );
+
+      }
+      
+      if( !this.hasTransition ) {
+
+        this._onEndTransition();
+
+      }
+
+    },
+    _onEndTransition : function() {
+
+      this.isSliding = false;
+      this.options.onAfterSlide();
+
+    },
+    _slideTo : function( pos ) {
+
+      var pos = pos || this.current,
+        translation = Math.abs( this.translation ) || 0,
+        itemSpace = this.options.orientation === 'horizontal' ? this.$items.outerWidth( true ) : this.$items.outerHeight( true ),
+        posR = translation + this.$carousel.width(),
+        ftv = Math.abs( pos * itemSpace );
+
+      if( ftv + itemSpace > posR || ftv < translation ) {
+
+        this._slideToItem( pos );
+      
+      }
+
+    },
+    _slideToItem : function( pos ) {
+
+      // how much to slide?
+      var amount  = this.options.orientation === 'horizontal' ? pos * this.$items.outerWidth( true ) : pos * this.$items.outerHeight( true );
+      this._slide( '', -amount );
+      
+    },
+    // public method: adds new items to the carousel
+    /*
+    
+    how to use:
+    var carouselEl = $( '#carousel' ),
+      carousel = carouselEl.elastislide();
+    ...
+    
+    // append or prepend new items:
+    carouselEl.prepend('<li><a href="#"><img src="images/large/2.jpg" alt="image02" /></a></li>');
+
+    // call the add method:
+    es.add();
+    
+    */
+    add : function( callback ) {
+      
+      var self = this,
+        oldcurrent = this.current,
+        $currentItem = this.$items.eq( this.current );
+      
+      // adds new items to the carousel
+      this.$items = this.$el.children( 'li' );
+      this.itemsCount = this.$items.length;
+      this.current = $currentItem.index();
+      this._setItemsSize();
+      this._configure();
+      this._removeTransition();
+      oldcurrent < this.current ? this._slideToItem( this.current ) : this._slide( 'next', this.translation );
+      setTimeout( function() { self._addTransition(); }, 25 );
+      
+      if ( callback ) {
+
+        callback.call();
+
+      }
+      
+    },
+    // public method: sets a new element as the current. slides to that position
+    setCurrent : function( idx, callback ) {
+      
+      this.current = idx;
+
+      this._slideTo();
+      
+      if ( callback ) {
+
+        callback.call();
+
+      }
+      
+    },
+    // public method: slides to the next set of items
+    next : function() {
+
+      self._slide( 'next' );
+
+    },
+    // public method: slides to the previous set of items
+    previous : function() {
+
+      self._slide( 'prev' );
+
+    },
+    // public method: slides to the first item
+    slideStart : function() {
+
+      this._slideTo( 0 );
+
+    },
+    // public method: slides to the last item
+    slideEnd : function() {
+
+      this._slideTo( this.itemsCount - 1 );
+
+    },
+    // public method: destroys the elastislide instance
+    destroy : function( callback ) {
+
+      this._destroy( callback );
+    
+    }
+
+  };
+  
+  var logError = function( message ) {
+
+    if ( window.console ) {
+
+      window.console.error( message );
+    
+    }
+
+  };
+  
+  $.fn.elastislide = function( options ) {
+
+    var self = $.data( this, 'elastislide' );
+    
+    if ( typeof options === 'string' ) {
+      
+      var args = Array.prototype.slice.call( arguments, 1 );
+      
+      this.each(function() {
+      
+        if ( !self ) {
+
+          logError( "cannot call methods on elastislide prior to initialization; " +
+          "attempted to call method '" + options + "'" );
+          return;
+        
+        }
+        
+        if ( !$.isFunction( self[options] ) || options.charAt(0) === "_" ) {
+
+          logError( "no such method '" + options + "' for elastislide self" );
+          return;
+        
+        }
+        
+        self[ options ].apply( self, args );
+      
+      });
+    
+    } 
+    else {
+    
+      this.each(function() {
+        
+        if ( self ) {
+
+          self._init();
+        
+        }
+        else {
+
+          self = $.data( this, 'elastislide', new $.Elastislide( options, this ) );
+        
+        }
+
+      });
+    
+    }
+    
+    return self;
+    
+  };
+  
 } )( jQuery, window );
 
 /*
@@ -1763,135 +1763,135 @@ jQuery.easing['jswing'] = jQuery.easing['swing'];
 
 jQuery.extend( jQuery.easing,
 {
-	def: 'easeOutQuad',
-	swing: function (x, t, b, c, d) {
-		//alert(jQuery.easing.default);
-		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
-	},
-	easeInQuad: function (x, t, b, c, d) {
-		return c*(t/=d)*t + b;
-	},
-	easeOutQuad: function (x, t, b, c, d) {
-		return -c *(t/=d)*(t-2) + b;
-	},
-	easeInOutQuad: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t + b;
-		return -c/2 * ((--t)*(t-2) - 1) + b;
-	},
-	easeInCubic: function (x, t, b, c, d) {
-		return c*(t/=d)*t*t + b;
-	},
-	easeOutCubic: function (x, t, b, c, d) {
-		return c*((t=t/d-1)*t*t + 1) + b;
-	},
-	easeInOutCubic: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t + b;
-		return c/2*((t-=2)*t*t + 2) + b;
-	},
-	easeInQuart: function (x, t, b, c, d) {
-		return c*(t/=d)*t*t*t + b;
-	},
-	easeOutQuart: function (x, t, b, c, d) {
-		return -c * ((t=t/d-1)*t*t*t - 1) + b;
-	},
-	easeInOutQuart: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
-		return -c/2 * ((t-=2)*t*t*t - 2) + b;
-	},
-	easeInQuint: function (x, t, b, c, d) {
-		return c*(t/=d)*t*t*t*t + b;
-	},
-	easeOutQuint: function (x, t, b, c, d) {
-		return c*((t=t/d-1)*t*t*t*t + 1) + b;
-	},
-	easeInOutQuint: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
-		return c/2*((t-=2)*t*t*t*t + 2) + b;
-	},
-	easeInSine: function (x, t, b, c, d) {
-		return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
-	},
-	easeOutSine: function (x, t, b, c, d) {
-		return c * Math.sin(t/d * (Math.PI/2)) + b;
-	},
-	easeInOutSine: function (x, t, b, c, d) {
-		return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
-	},
-	easeInExpo: function (x, t, b, c, d) {
-		return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
-	},
-	easeOutExpo: function (x, t, b, c, d) {
-		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-	},
-	easeInOutExpo: function (x, t, b, c, d) {
-		if (t==0) return b;
-		if (t==d) return b+c;
-		if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
-		return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
-	},
-	easeInCirc: function (x, t, b, c, d) {
-		return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
-	},
-	easeOutCirc: function (x, t, b, c, d) {
-		return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
-	},
-	easeInOutCirc: function (x, t, b, c, d) {
-		if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
-		return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
-	},
-	easeInElastic: function (x, t, b, c, d) {
-		var s=1.70158;var p=0;var a=c;
-		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-		if (a < Math.abs(c)) { a=c; var s=p/4; }
-		else var s = p/(2*Math.PI) * Math.asin (c/a);
-		return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-	},
-	easeOutElastic: function (x, t, b, c, d) {
-		var s=1.70158;var p=0;var a=c;
-		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
-		if (a < Math.abs(c)) { a=c; var s=p/4; }
-		else var s = p/(2*Math.PI) * Math.asin (c/a);
-		return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
-	},
-	easeInOutElastic: function (x, t, b, c, d) {
-		var s=1.70158;var p=0;var a=c;
-		if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
-		if (a < Math.abs(c)) { a=c; var s=p/4; }
-		else var s = p/(2*Math.PI) * Math.asin (c/a);
-		if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
-		return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
-	},
-	easeInBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158;
-		return c*(t/=d)*t*((s+1)*t - s) + b;
-	},
-	easeOutBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158;
-		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
-	},
-	easeInOutBack: function (x, t, b, c, d, s) {
-		if (s == undefined) s = 1.70158; 
-		if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
-		return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
-	},
-	easeInBounce: function (x, t, b, c, d) {
-		return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
-	},
-	easeOutBounce: function (x, t, b, c, d) {
-		if ((t/=d) < (1/2.75)) {
-			return c*(7.5625*t*t) + b;
-		} else if (t < (2/2.75)) {
-			return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
-		} else if (t < (2.5/2.75)) {
-			return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
-		} else {
-			return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
-		}
-	},
-	easeInOutBounce: function (x, t, b, c, d) {
-		if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
-		return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
-	}
+  def: 'easeOutQuad',
+  swing: function (x, t, b, c, d) {
+    //alert(jQuery.easing.default);
+    return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+  },
+  easeInQuad: function (x, t, b, c, d) {
+    return c*(t/=d)*t + b;
+  },
+  easeOutQuad: function (x, t, b, c, d) {
+    return -c *(t/=d)*(t-2) + b;
+  },
+  easeInOutQuad: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t + b;
+    return -c/2 * ((--t)*(t-2) - 1) + b;
+  },
+  easeInCubic: function (x, t, b, c, d) {
+    return c*(t/=d)*t*t + b;
+  },
+  easeOutCubic: function (x, t, b, c, d) {
+    return c*((t=t/d-1)*t*t + 1) + b;
+  },
+  easeInOutCubic: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t + b;
+    return c/2*((t-=2)*t*t + 2) + b;
+  },
+  easeInQuart: function (x, t, b, c, d) {
+    return c*(t/=d)*t*t*t + b;
+  },
+  easeOutQuart: function (x, t, b, c, d) {
+    return -c * ((t=t/d-1)*t*t*t - 1) + b;
+  },
+  easeInOutQuart: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+    return -c/2 * ((t-=2)*t*t*t - 2) + b;
+  },
+  easeInQuint: function (x, t, b, c, d) {
+    return c*(t/=d)*t*t*t*t + b;
+  },
+  easeOutQuint: function (x, t, b, c, d) {
+    return c*((t=t/d-1)*t*t*t*t + 1) + b;
+  },
+  easeInOutQuint: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+    return c/2*((t-=2)*t*t*t*t + 2) + b;
+  },
+  easeInSine: function (x, t, b, c, d) {
+    return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+  },
+  easeOutSine: function (x, t, b, c, d) {
+    return c * Math.sin(t/d * (Math.PI/2)) + b;
+  },
+  easeInOutSine: function (x, t, b, c, d) {
+    return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+  },
+  easeInExpo: function (x, t, b, c, d) {
+    return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+  },
+  easeOutExpo: function (x, t, b, c, d) {
+    return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+  },
+  easeInOutExpo: function (x, t, b, c, d) {
+    if (t==0) return b;
+    if (t==d) return b+c;
+    if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+    return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+  },
+  easeInCirc: function (x, t, b, c, d) {
+    return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+  },
+  easeOutCirc: function (x, t, b, c, d) {
+    return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+  },
+  easeInOutCirc: function (x, t, b, c, d) {
+    if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+    return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+  },
+  easeInElastic: function (x, t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+    if (a < Math.abs(c)) { a=c; var s=p/4; }
+    else var s = p/(2*Math.PI) * Math.asin (c/a);
+    return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+  },
+  easeOutElastic: function (x, t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+    if (a < Math.abs(c)) { a=c; var s=p/4; }
+    else var s = p/(2*Math.PI) * Math.asin (c/a);
+    return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+  },
+  easeInOutElastic: function (x, t, b, c, d) {
+    var s=1.70158;var p=0;var a=c;
+    if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+    if (a < Math.abs(c)) { a=c; var s=p/4; }
+    else var s = p/(2*Math.PI) * Math.asin (c/a);
+    if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+    return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+  },
+  easeInBack: function (x, t, b, c, d, s) {
+    if (s == undefined) s = 1.70158;
+    return c*(t/=d)*t*((s+1)*t - s) + b;
+  },
+  easeOutBack: function (x, t, b, c, d, s) {
+    if (s == undefined) s = 1.70158;
+    return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+  },
+  easeInOutBack: function (x, t, b, c, d, s) {
+    if (s == undefined) s = 1.70158; 
+    if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+    return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+  },
+  easeInBounce: function (x, t, b, c, d) {
+    return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+  },
+  easeOutBounce: function (x, t, b, c, d) {
+    if ((t/=d) < (1/2.75)) {
+      return c*(7.5625*t*t) + b;
+    } else if (t < (2/2.75)) {
+      return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+    } else if (t < (2.5/2.75)) {
+      return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+    } else {
+      return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+    }
+  },
+  easeInOutBounce: function (x, t, b, c, d) {
+    if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+    return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+  }
 });
 
 /*
@@ -1969,111 +1969,111 @@ jQuery.extend( jQuery.easing,
 var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
 $.fn.imagesLoaded = function( callback ) {
-	var $this = this,
-		deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-		hasNotify = $.isFunction(deferred.notify),
-		$images = $this.find('img').add( $this.filter('img') ),
-		loaded = [],
-		proper = [],
-		broken = [];
+  var $this = this,
+    deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
+    hasNotify = $.isFunction(deferred.notify),
+    $images = $this.find('img').add( $this.filter('img') ),
+    loaded = [],
+    proper = [],
+    broken = [];
 
-	// Register deferred callbacks
-	if ($.isPlainObject(callback)) {
-		$.each(callback, function (key, value) {
-			if (key === 'callback') {
-				callback = value;
-			} else if (deferred) {
-				deferred[key](value);
-			}
-		});
-	}
+  // Register deferred callbacks
+  if ($.isPlainObject(callback)) {
+    $.each(callback, function (key, value) {
+      if (key === 'callback') {
+        callback = value;
+      } else if (deferred) {
+        deferred[key](value);
+      }
+    });
+  }
 
-	function doneLoading() {
-		var $proper = $(proper),
-			$broken = $(broken);
+  function doneLoading() {
+    var $proper = $(proper),
+      $broken = $(broken);
 
-		if ( deferred ) {
-			if ( broken.length ) {
-				deferred.reject( $images, $proper, $broken );
-			} else {
-				deferred.resolve( $images );
-			}
-		}
+    if ( deferred ) {
+      if ( broken.length ) {
+        deferred.reject( $images, $proper, $broken );
+      } else {
+        deferred.resolve( $images );
+      }
+    }
 
-		if ( $.isFunction( callback ) ) {
-			callback.call( $this, $images, $proper, $broken );
-		}
-	}
+    if ( $.isFunction( callback ) ) {
+      callback.call( $this, $images, $proper, $broken );
+    }
+  }
 
-	function imgLoadedHandler( event ) {
-		imgLoaded( event.target, event.type === 'error' );
-	}
+  function imgLoadedHandler( event ) {
+    imgLoaded( event.target, event.type === 'error' );
+  }
 
-	function imgLoaded( img, isBroken ) {
-		// don't proceed if BLANK image, or image is already loaded
-		if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
-			return;
-		}
+  function imgLoaded( img, isBroken ) {
+    // don't proceed if BLANK image, or image is already loaded
+    if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
+      return;
+    }
 
-		// store element in loaded images array
-		loaded.push( img );
+    // store element in loaded images array
+    loaded.push( img );
 
-		// keep track of broken and properly loaded images
-		if ( isBroken ) {
-			broken.push( img );
-		} else {
-			proper.push( img );
-		}
+    // keep track of broken and properly loaded images
+    if ( isBroken ) {
+      broken.push( img );
+    } else {
+      proper.push( img );
+    }
 
-		// cache image and its state for future calls
-		$.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+    // cache image and its state for future calls
+    $.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
 
-		// trigger deferred progress method if present
-		if ( hasNotify ) {
-			deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
-		}
+    // trigger deferred progress method if present
+    if ( hasNotify ) {
+      deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
+    }
 
-		// call doneLoading and clean listeners if all images are loaded
-		if ( $images.length === loaded.length ) {
-			setTimeout( doneLoading );
-			$images.unbind( '.imagesLoaded', imgLoadedHandler );
-		}
-	}
+    // call doneLoading and clean listeners if all images are loaded
+    if ( $images.length === loaded.length ) {
+      setTimeout( doneLoading );
+      $images.unbind( '.imagesLoaded', imgLoadedHandler );
+    }
+  }
 
-	// if no images, trigger immediately
-	if ( !$images.length ) {
-		doneLoading();
-	} else {
-		$images.bind( 'load.imagesLoaded error.imagesLoaded', imgLoadedHandler )
-		.each( function( i, el ) {
-			var src = el.src;
+  // if no images, trigger immediately
+  if ( !$images.length ) {
+    doneLoading();
+  } else {
+    $images.bind( 'load.imagesLoaded error.imagesLoaded', imgLoadedHandler )
+    .each( function( i, el ) {
+      var src = el.src;
 
-			// find out if this image has been already checked for status
-			// if it was, and src has not changed, call imgLoaded on it
-			var cached = $.data( el, 'imagesLoaded' );
-			if ( cached && cached.src === src ) {
-				imgLoaded( el, cached.isBroken );
-				return;
-			}
+      // find out if this image has been already checked for status
+      // if it was, and src has not changed, call imgLoaded on it
+      var cached = $.data( el, 'imagesLoaded' );
+      if ( cached && cached.src === src ) {
+        imgLoaded( el, cached.isBroken );
+        return;
+      }
 
-			// if complete is true and browser supports natural sizes, try
-			// to check for image status manually
-			if ( el.complete && el.naturalWidth !== undefined ) {
-				imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
-				return;
-			}
+      // if complete is true and browser supports natural sizes, try
+      // to check for image status manually
+      if ( el.complete && el.naturalWidth !== undefined ) {
+        imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
+        return;
+      }
 
-			// cached images don't fire load sometimes, so we reset src, but only when
-			// dealing with IE, or image is complete (loaded) and failed manual check
-			// webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
-			if ( el.readyState || el.complete ) {
-				el.src = BLANK;
-				el.src = src;
-			}
-		});
-	}
+      // cached images don't fire load sometimes, so we reset src, but only when
+      // dealing with IE, or image is complete (loaded) and failed manual check
+      // webkit hack from http://groups.google.com/group/jquery-dev/browse_thread/thread/eee6ab7b2da50e1f
+      if ( el.readyState || el.complete ) {
+        el.src = BLANK;
+        el.src = src;
+      }
+    });
+  }
 
-	return deferred ? deferred.promise( $this ) : $this;
+  return deferred ? deferred.promise( $this ) : $this;
 };
 
 })(jQuery);
@@ -2922,290 +2922,290 @@ https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
 (function($,window,document,Math,undefined) {
 
 var div = $( "<div>" )[0],
-	rsrc = /url\(["']?(.*?)["']?\)/,
-	watched = [],
-	positions = {
-		top: 0,
-		left: 0,
-		bottom: 1,
-		right: 1,
-		center: .5
-	};
+  rsrc = /url\(["']?(.*?)["']?\)/,
+  watched = [],
+  positions = {
+    top: 0,
+    left: 0,
+    bottom: 1,
+    right: 1,
+    center: .5
+  };
 
 // feature detection
 if ( "backgroundSize" in div.style && !$.debugBGS ) { return; }
 
 $.cssHooks.backgroundSize = {
-	set: function( elem, value ) {
-		var firstTime = !$.data( elem, "bgsImg" ),
-			pos,
-			$wrapper, $img;
+  set: function( elem, value ) {
+    var firstTime = !$.data( elem, "bgsImg" ),
+      pos,
+      $wrapper, $img;
 
-		$.data( elem, "bgsValue", value );
+    $.data( elem, "bgsValue", value );
 
-		if ( firstTime ) {
-			// add this element to the 'watched' list so that it's updated on resize
-			watched.push( elem );
+    if ( firstTime ) {
+      // add this element to the 'watched' list so that it's updated on resize
+      watched.push( elem );
 
-			$.refreshBackgroundDimensions( elem, true );
+      $.refreshBackgroundDimensions( elem, true );
 
-			// create wrapper and img
-			$wrapper = $( "<div>" ).css({
-				position: "absolute",
-				zIndex: -1,
-				top: 0,
-				right: 0,
-				left: 0,
-				bottom: 0,
-				overflow: "hidden"
-			});
+      // create wrapper and img
+      $wrapper = $( "<div>" ).css({
+        position: "absolute",
+        zIndex: -1,
+        top: 0,
+        right: 0,
+        left: 0,
+        bottom: 0,
+        overflow: "hidden"
+      });
 
-			$img = $( "<img>" ).css({
-				position: "absolute"
-			}).appendTo( $wrapper ),
+      $img = $( "<img>" ).css({
+        position: "absolute"
+      }).appendTo( $wrapper ),
 
-			$wrapper.prependTo( elem );
+      $wrapper.prependTo( elem );
 
-			$.data( elem, "bgsImg", $img[0] );
+      $.data( elem, "bgsImg", $img[0] );
 
-			pos = ( 
-				// Firefox, Chrome (for debug)
-				$.css( elem, "backgroundPosition" ) ||
-				// IE8
-				$.css( elem, "backgroundPositionX" ) + " " + $.css( elem, "backgroundPositionY" )
-			).split(" ");
+      pos = ( 
+        // Firefox, Chrome (for debug)
+        $.css( elem, "backgroundPosition" ) ||
+        // IE8
+        $.css( elem, "backgroundPositionX" ) + " " + $.css( elem, "backgroundPositionY" )
+      ).split(" ");
 
-			// Only compatible with 1 or 2 percentage or keyword values,
-			// Not yet compatible with length values and 4 values.
-			$.data( elem, "bgsPos", [ 
-				positions[ pos[0] ] || parseFloat( pos[0] ) / 100, 
-				positions[ pos[1] ] || parseFloat( pos[1] ) / 100
-			]);
+      // Only compatible with 1 or 2 percentage or keyword values,
+      // Not yet compatible with length values and 4 values.
+      $.data( elem, "bgsPos", [ 
+        positions[ pos[0] ] || parseFloat( pos[0] ) / 100, 
+        positions[ pos[1] ] || parseFloat( pos[1] ) / 100
+      ]);
 
-			// This is the part where we mess with the existing DOM
-			// to make sure that the background image is correctly zIndexed
-			$.css( elem, "zIndex" ) == "auto" && ( elem.style.zIndex = 0 );
-			$.css( elem, "position" ) == "static" && ( elem.style.position = "relative" );
+      // This is the part where we mess with the existing DOM
+      // to make sure that the background image is correctly zIndexed
+      $.css( elem, "zIndex" ) == "auto" && ( elem.style.zIndex = 0 );
+      $.css( elem, "position" ) == "static" && ( elem.style.position = "relative" );
 
-			$.refreshBackgroundImage( elem );
+      $.refreshBackgroundImage( elem );
 
-		} else {
-			$.refreshBackground( elem );
-		}
-	},
+    } else {
+      $.refreshBackground( elem );
+    }
+  },
 
-	get: function( elem ) {
-		return $.data( elem, "bgsValue" ) || "";
-	}
+  get: function( elem ) {
+    return $.data( elem, "bgsValue" ) || "";
+  }
 };
 
 // The background should refresh automatically when changing the background-image
 $.cssHooks.backgroundImage = {
-	set: function( elem, value ) {
-		// if the element has a backgroundSize, refresh its background
-		return $.data( elem, "bgsImg") ?
-			$.refreshBackgroundImage( elem, value ) :
-			// otherwise set the background-image normally
-			value;
-	}
+  set: function( elem, value ) {
+    // if the element has a backgroundSize, refresh its background
+    return $.data( elem, "bgsImg") ?
+      $.refreshBackgroundImage( elem, value ) :
+      // otherwise set the background-image normally
+      value;
+  }
 };
 
 $.refreshBackgroundDimensions = function( elem, noBgRefresh ) {
-	var $elem = $(elem),
-		currDim = {
-			width: $elem.innerWidth(),
-			height: $elem.innerHeight()
-		},
-		prevDim = $.data( elem, "bgsDim" ),
-		changed = !prevDim ||
-			currDim.width != prevDim.width ||
-			currDim.height != prevDim.height;
+  var $elem = $(elem),
+    currDim = {
+      width: $elem.innerWidth(),
+      height: $elem.innerHeight()
+    },
+    prevDim = $.data( elem, "bgsDim" ),
+    changed = !prevDim ||
+      currDim.width != prevDim.width ||
+      currDim.height != prevDim.height;
 
-	$.data( elem, "bgsDim", currDim );
+  $.data( elem, "bgsDim", currDim );
 
-	if ( changed && !noBgRefresh ) {
-		$.refreshBackground( elem );
-	}
+  if ( changed && !noBgRefresh ) {
+    $.refreshBackground( elem );
+  }
 };
 
 $.refreshBackgroundImage = function( elem, value ) {
-	var img = $.data( elem, "bgsImg" ),
-		currSrc = ( rsrc.exec( value || $.css( elem, "backgroundImage" ) ) || [] )[1],
-		prevSrc = img && img.src,
-		changed = currSrc != prevSrc,
-		imgWidth, imgHeight;
+  var img = $.data( elem, "bgsImg" ),
+    currSrc = ( rsrc.exec( value || $.css( elem, "backgroundImage" ) ) || [] )[1],
+    prevSrc = img && img.src,
+    changed = currSrc != prevSrc,
+    imgWidth, imgHeight;
 
-	if ( changed ) {
-		img.style.height = img.style.width = "auto";
+  if ( changed ) {
+    img.style.height = img.style.width = "auto";
 
-		img.onload = function() {
-			var dim = {
-				width: img.width,
-				height: img.height
-			};
+    img.onload = function() {
+      var dim = {
+        width: img.width,
+        height: img.height
+      };
 
-			// ignore onload on the proxy image
-			if ( dim.width == 1 && dim.height == 1 ) { return; }
+      // ignore onload on the proxy image
+      if ( dim.width == 1 && dim.height == 1 ) { return; }
 
-			$.data( elem, "bgsImgDim", dim );
-			$.data( elem, "bgsConstrain", false );
+      $.data( elem, "bgsImgDim", dim );
+      $.data( elem, "bgsConstrain", false );
 
-			$.refreshBackground( elem );
+      $.refreshBackground( elem );
 
-			img.style.visibility = "visible";
+      img.style.visibility = "visible";
 
-			img.onload = null;
-		};
+      img.onload = null;
+    };
 
-		img.style.visibility = "hidden";
-		img.src = currSrc;
+    img.style.visibility = "hidden";
+    img.src = currSrc;
 
-		if ( img.readyState || img.complete ) {
-			img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
-			img.src = currSrc;
-		}
+    if ( img.readyState || img.complete ) {
+      img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+      img.src = currSrc;
+    }
 
-		elem.style.backgroundImage = "none";
-	}
+    elem.style.backgroundImage = "none";
+  }
 };
 
 $.refreshBackground = function( elem ) {
-	var value = $.data( elem, "bgsValue" ),
-		elemDim = $.data( elem, "bgsDim" ),
-		imgDim = $.data( elem, "bgsImgDim" ),
-		$img = $( $.data( elem, "bgsImg" ) ),
-		pos = $.data( elem, "bgsPos" ),
-		prevConstrain = $.data( elem, "bgsConstrain" ),
-		currConstrain,
-		elemRatio = elemDim.width / elemDim.height,
-		imgRatio = imgDim.width / imgDim.height,
-		delta;
+  var value = $.data( elem, "bgsValue" ),
+    elemDim = $.data( elem, "bgsDim" ),
+    imgDim = $.data( elem, "bgsImgDim" ),
+    $img = $( $.data( elem, "bgsImg" ) ),
+    pos = $.data( elem, "bgsPos" ),
+    prevConstrain = $.data( elem, "bgsConstrain" ),
+    currConstrain,
+    elemRatio = elemDim.width / elemDim.height,
+    imgRatio = imgDim.width / imgDim.height,
+    delta;
 
-	if ( value == "contain" ) {
-		if ( imgRatio > elemRatio ) {
-			$.data( elem, "bgsConstrain", ( currConstrain = "width" ) );
+  if ( value == "contain" ) {
+    if ( imgRatio > elemRatio ) {
+      $.data( elem, "bgsConstrain", ( currConstrain = "width" ) );
 
-			delta = Math.floor( ( elemDim.height - elemDim.width / imgRatio ) * pos[1] );
+      delta = Math.floor( ( elemDim.height - elemDim.width / imgRatio ) * pos[1] );
 
-			$img.css({
-				top: delta
-			});
+      $img.css({
+        top: delta
+      });
 
-			// when switchin from height to with constraint,
-			// make sure to release contraint on height and reset left
-			if ( currConstrain != prevConstrain ) {
-				$img.css({
-					width: "100%",
-					height: "auto",
-					left: 0
-				});
-			}
+      // when switchin from height to with constraint,
+      // make sure to release contraint on height and reset left
+      if ( currConstrain != prevConstrain ) {
+        $img.css({
+          width: "100%",
+          height: "auto",
+          left: 0
+        });
+      }
 
-		} else {
-			$.data( elem, "bgsConstrain", ( currConstrain = "height" ) );
+    } else {
+      $.data( elem, "bgsConstrain", ( currConstrain = "height" ) );
 
-			delta = Math.floor( ( elemDim.width - elemDim.height * imgRatio ) * pos[0] );
+      delta = Math.floor( ( elemDim.width - elemDim.height * imgRatio ) * pos[0] );
 
-			$img.css({
-				left: delta
-			});
+      $img.css({
+        left: delta
+      });
 
-			if ( currConstrain != prevConstrain ) {
-				$img.css({
-					height: "100%",
-					width: "auto",
-					top: 0
-				});
-			}
-		}
+      if ( currConstrain != prevConstrain ) {
+        $img.css({
+          height: "100%",
+          width: "auto",
+          top: 0
+        });
+      }
+    }
 
-	} else if ( value == "cover" ) {
-		if ( imgRatio > elemRatio ) {
-			$.data( elem, "bgsConstrain", ( currConstrain = "height" ) );
+  } else if ( value == "cover" ) {
+    if ( imgRatio > elemRatio ) {
+      $.data( elem, "bgsConstrain", ( currConstrain = "height" ) );
 
-			delta = Math.floor( ( elemDim.height * imgRatio - elemDim.width ) * pos[0] );
+      delta = Math.floor( ( elemDim.height * imgRatio - elemDim.width ) * pos[0] );
 
-			$img.css({
-				left: -delta
-			});
+      $img.css({
+        left: -delta
+      });
 
-			if ( currConstrain != prevConstrain ) {
-				$img.css({
-					height:"100%",
-					width: "auto",
-					top: 0
-				});
-			}
+      if ( currConstrain != prevConstrain ) {
+        $img.css({
+          height:"100%",
+          width: "auto",
+          top: 0
+        });
+      }
 
-		} else {
-			$.data( elem, "bgsConstrain", ( currConstrain = "width" ) );
+    } else {
+      $.data( elem, "bgsConstrain", ( currConstrain = "width" ) );
 
-			delta = Math.floor( ( elemDim.width / imgRatio - elemDim.height ) * pos[1] );
+      delta = Math.floor( ( elemDim.width / imgRatio - elemDim.height ) * pos[1] );
 
-			$img.css({
-				top: -delta
-			});
+      $img.css({
+        top: -delta
+      });
 
-			if ( currConstrain != prevConstrain ) {
-				$img.css({
-					width: "100%",
-					height: "auto",
-					left: 0
-				});
-			}
-		}
-	}
+      if ( currConstrain != prevConstrain ) {
+        $img.css({
+          width: "100%",
+          height: "auto",
+          left: 0
+        });
+      }
+    }
+  }
 }
 
 // Built-in throttledresize
 var $event = $.event,
-	$special,
-	dummy = {_:0},
-	frame = 0,
-	wasResized, animRunning;
+  $special,
+  dummy = {_:0},
+  frame = 0,
+  wasResized, animRunning;
 
 $special = $event.special.throttledresize = {
-	setup: function() {
-		$( this ).on( "resize", $special.handler );
-	},
-	teardown: function() {
-		$( this ).off( "resize", $special.handler );
-	},
-	handler: function( event, execAsap ) {
-		// Save the context
-		var context = this,
-			args = arguments;
+  setup: function() {
+    $( this ).on( "resize", $special.handler );
+  },
+  teardown: function() {
+    $( this ).off( "resize", $special.handler );
+  },
+  handler: function( event, execAsap ) {
+    // Save the context
+    var context = this,
+      args = arguments;
 
-		wasResized = true;
+    wasResized = true;
 
         if ( !animRunning ) {
-        	$(dummy).animate(dummy, { duration: Infinity, step: function() {
-	        	frame++;
+          $(dummy).animate(dummy, { duration: Infinity, step: function() {
+            frame++;
 
-	        	if ( frame > $special.threshold && wasResized || execAsap ) {
-	        		// set correct event type
-        			event.type = "throttledresize";
-	        		$event.dispatch.apply( context, args );
-	        		wasResized = false;
-	        		frame = 0;
-	        	}
-	        	if ( frame > 9 ) {
-	        		$(dummy).stop();
-	        		animRunning = false;
-	        		frame = 0;
-	        	}
-	        }});
-	        animRunning = true;
+            if ( frame > $special.threshold && wasResized || execAsap ) {
+              // set correct event type
+              event.type = "throttledresize";
+              $event.dispatch.apply( context, args );
+              wasResized = false;
+              frame = 0;
+            }
+            if ( frame > 9 ) {
+              $(dummy).stop();
+              animRunning = false;
+              frame = 0;
+            }
+          }});
+          animRunning = true;
         }
-	},
-	threshold: 1
+  },
+  threshold: 1
 };
 
 // All backgrounds should refresh automatically when the window is resized
 $(window).on("throttledresize", function() {
-	$(watched).each(function() {
-		$.refreshBackgroundDimensions( this );
-	});
+  $(watched).each(function() {
+    $.refreshBackgroundDimensions( this );
+  });
 });
 
 })(jQuery,window,document,Math);
@@ -3333,9 +3333,9 @@ e(this)),e(this).data("__nicescroll",h));k.push(h)});return 1==k.length?k[0]:k};
 ;(function(c){var b={init:function(e){var f={set_width:false,set_height:false,horizontalScroll:false,scrollInertia:950,mouseWheel:true,mouseWheelPixels:"auto",autoDraggerLength:true,autoHideScrollbar:false,alwaysShowScrollbar:false,snapAmount:null,snapOffset:0,scrollButtons:{enable:false,scrollType:"continuous",scrollSpeed:"auto",scrollAmount:40},advanced:{updateOnBrowserResize:true,updateOnContentResize:false,autoExpandHorizontalScroll:false,autoScrollOnFocus:true,normalizeMouseWheelDelta:false},contentTouchScroll:true,callbacks:{onScrollStart:function(){},onScroll:function(){},onTotalScroll:function(){},onTotalScrollBack:function(){},onTotalScrollOffset:0,onTotalScrollBackOffset:0,whileScrolling:function(){}},theme:"light"},e=c.extend(true,f,e);return this.each(function(){var m=c(this);if(e.set_width){m.css("width",e.set_width)}if(e.set_height){m.css("height",e.set_height)}if(!c(document).data("mCustomScrollbar-index")){c(document).data("mCustomScrollbar-index","1")}else{var t=parseInt(c(document).data("mCustomScrollbar-index"));c(document).data("mCustomScrollbar-index",t+1)}m.wrapInner("<div class='mCustomScrollBox mCS-"+e.theme+"' id='mCSB_"+c(document).data("mCustomScrollbar-index")+"' style='position:relative; height:100%; overflow:hidden; max-width:100%;' />").addClass("mCustomScrollbar _mCS_"+c(document).data("mCustomScrollbar-index"));var g=m.children(".mCustomScrollBox");if(e.horizontalScroll){g.addClass("mCSB_horizontal").wrapInner("<div class='mCSB_h_wrapper' style='position:relative; left:0; width:999999px;' />");var k=g.children(".mCSB_h_wrapper");k.wrapInner("<div class='mCSB_container' style='position:absolute; left:0;' />").children(".mCSB_container").css({width:k.children().outerWidth(),position:"relative"}).unwrap()}else{g.wrapInner("<div class='mCSB_container' style='position:relative; top:0;' />")}var o=g.children(".mCSB_container");if(c.support.touch){o.addClass("mCS_touch")}o.after("<div class='mCSB_scrollTools' style='position:absolute;'><div class='mCSB_draggerContainer'><div class='mCSB_dragger' style='position:absolute;' oncontextmenu='return false;'><div class='mCSB_dragger_bar' style='position:relative;'></div></div><div class='mCSB_draggerRail'></div></div></div>");var l=g.children(".mCSB_scrollTools"),h=l.children(".mCSB_draggerContainer"),q=h.children(".mCSB_dragger");if(e.horizontalScroll){q.data("minDraggerWidth",q.width())}else{q.data("minDraggerHeight",q.height())}if(e.scrollButtons.enable){if(e.horizontalScroll){l.prepend("<a class='mCSB_buttonLeft' oncontextmenu='return false;'></a>").append("<a class='mCSB_buttonRight' oncontextmenu='return false;'></a>")}else{l.prepend("<a class='mCSB_buttonUp' oncontextmenu='return false;'></a>").append("<a class='mCSB_buttonDown' oncontextmenu='return false;'></a>")}}g.bind("scroll",function(){if(!m.is(".mCS_disabled")){g.scrollTop(0).scrollLeft(0)}});m.data({mCS_Init:true,mCustomScrollbarIndex:c(document).data("mCustomScrollbar-index"),horizontalScroll:e.horizontalScroll,scrollInertia:e.scrollInertia,scrollEasing:"mcsEaseOut",mouseWheel:e.mouseWheel,mouseWheelPixels:e.mouseWheelPixels,autoDraggerLength:e.autoDraggerLength,autoHideScrollbar:e.autoHideScrollbar,alwaysShowScrollbar:e.alwaysShowScrollbar,snapAmount:e.snapAmount,snapOffset:e.snapOffset,scrollButtons_enable:e.scrollButtons.enable,scrollButtons_scrollType:e.scrollButtons.scrollType,scrollButtons_scrollSpeed:e.scrollButtons.scrollSpeed,scrollButtons_scrollAmount:e.scrollButtons.scrollAmount,autoExpandHorizontalScroll:e.advanced.autoExpandHorizontalScroll,autoScrollOnFocus:e.advanced.autoScrollOnFocus,normalizeMouseWheelDelta:e.advanced.normalizeMouseWheelDelta,contentTouchScroll:e.contentTouchScroll,onScrollStart_Callback:e.callbacks.onScrollStart,onScroll_Callback:e.callbacks.onScroll,onTotalScroll_Callback:e.callbacks.onTotalScroll,onTotalScrollBack_Callback:e.callbacks.onTotalScrollBack,onTotalScroll_Offset:e.callbacks.onTotalScrollOffset,onTotalScrollBack_Offset:e.callbacks.onTotalScrollBackOffset,whileScrolling_Callback:e.callbacks.whileScrolling,bindEvent_scrollbar_drag:false,bindEvent_content_touch:false,bindEvent_scrollbar_click:false,bindEvent_mousewheel:false,bindEvent_buttonsContinuous_y:false,bindEvent_buttonsContinuous_x:false,bindEvent_buttonsPixels_y:false,bindEvent_buttonsPixels_x:false,bindEvent_focusin:false,bindEvent_autoHideScrollbar:false,mCSB_buttonScrollRight:false,mCSB_buttonScrollLeft:false,mCSB_buttonScrollDown:false,mCSB_buttonScrollUp:false});if(e.horizontalScroll){if(m.css("max-width")!=="none"){if(!e.advanced.updateOnContentResize){e.advanced.updateOnContentResize=true}}}else{if(m.css("max-height")!=="none"){var s=false,r=parseInt(m.css("max-height"));if(m.css("max-height").indexOf("%")>=0){s=r,r=m.parent().height()*s/100}m.css("overflow","hidden");g.css("max-height",r)}}m.mCustomScrollbar("update");if(e.advanced.updateOnBrowserResize){var i,j=c(window).width(),u=c(window).height();c(window).bind("resize."+m.data("mCustomScrollbarIndex"),function(){if(i){clearTimeout(i)}i=setTimeout(function(){if(!m.is(".mCS_disabled")&&!m.is(".mCS_destroyed")){var w=c(window).width(),v=c(window).height();if(j!==w||u!==v){if(m.css("max-height")!=="none"&&s){g.css("max-height",m.parent().height()*s/100)}m.mCustomScrollbar("update");j=w;u=v}}},150)})}if(e.advanced.updateOnContentResize){var p;if(e.horizontalScroll){var n=o.outerWidth()}else{var n=o.outerHeight()}p=setInterval(function(){if(e.horizontalScroll){if(e.advanced.autoExpandHorizontalScroll){o.css({position:"absolute",width:"auto"}).wrap("<div class='mCSB_h_wrapper' style='position:relative; left:0; width:999999px;' />").css({width:o.outerWidth(),position:"relative"}).unwrap()}var v=o.outerWidth()}else{var v=o.outerHeight()}if(v!=n){m.mCustomScrollbar("update");n=v}},300)}})},update:function(){var n=c(this),k=n.children(".mCustomScrollBox"),q=k.children(".mCSB_container");q.removeClass("mCS_no_scrollbar");n.removeClass("mCS_disabled mCS_destroyed");k.scrollTop(0).scrollLeft(0);var y=k.children(".mCSB_scrollTools"),o=y.children(".mCSB_draggerContainer"),m=o.children(".mCSB_dragger");if(n.data("horizontalScroll")){var A=y.children(".mCSB_buttonLeft"),t=y.children(".mCSB_buttonRight"),f=k.width();if(n.data("autoExpandHorizontalScroll")){q.css({position:"absolute",width:"auto"}).wrap("<div class='mCSB_h_wrapper' style='position:relative; left:0; width:999999px;' />").css({width:q.outerWidth(),position:"relative"}).unwrap()}var z=q.outerWidth()}else{var w=y.children(".mCSB_buttonUp"),g=y.children(".mCSB_buttonDown"),r=k.height(),i=q.outerHeight()}if(i>r&&!n.data("horizontalScroll")){y.css("display","block");var s=o.height();if(n.data("autoDraggerLength")){var u=Math.round(r/i*s),l=m.data("minDraggerHeight");if(u<=l){m.css({height:l})}else{if(u>=s-10){var p=s-10;m.css({height:p})}else{m.css({height:u})}}m.children(".mCSB_dragger_bar").css({"line-height":m.height()+"px"})}var B=m.height(),x=(i-r)/(s-B);n.data("scrollAmount",x).mCustomScrollbar("scrolling",k,q,o,m,w,g,A,t);var D=Math.abs(q.position().top);n.mCustomScrollbar("scrollTo",D,{scrollInertia:0,trigger:"internal"})}else{if(z>f&&n.data("horizontalScroll")){y.css("display","block");var h=o.width();if(n.data("autoDraggerLength")){var j=Math.round(f/z*h),C=m.data("minDraggerWidth");if(j<=C){m.css({width:C})}else{if(j>=h-10){var e=h-10;m.css({width:e})}else{m.css({width:j})}}}var v=m.width(),x=(z-f)/(h-v);n.data("scrollAmount",x).mCustomScrollbar("scrolling",k,q,o,m,w,g,A,t);var D=Math.abs(q.position().left);n.mCustomScrollbar("scrollTo",D,{scrollInertia:0,trigger:"internal"})}else{k.unbind("mousewheel focusin");if(n.data("horizontalScroll")){m.add(q).css("left",0)}else{m.add(q).css("top",0)}if(n.data("alwaysShowScrollbar")){if(!n.data("horizontalScroll")){m.css({height:o.height()})}else{if(n.data("horizontalScroll")){m.css({width:o.width()})}}}else{y.css("display","none");q.addClass("mCS_no_scrollbar")}n.data({bindEvent_mousewheel:false,bindEvent_focusin:false})}}},scrolling:function(i,q,n,k,A,f,D,w){var l=c(this);if(!l.data("bindEvent_scrollbar_drag")){var o,p,C,z,e;if(c.support.pointer){C="pointerdown";z="pointermove";e="pointerup"}else{if(c.support.msPointer){C="MSPointerDown";z="MSPointerMove";e="MSPointerUp"}}if(c.support.pointer||c.support.msPointer){k.bind(C,function(K){K.preventDefault();l.data({on_drag:true});k.addClass("mCSB_dragger_onDrag");var J=c(this),M=J.offset(),I=K.originalEvent.pageX-M.left,L=K.originalEvent.pageY-M.top;if(I<J.width()&&I>0&&L<J.height()&&L>0){o=L;p=I}});c(document).bind(z+"."+l.data("mCustomScrollbarIndex"),function(K){K.preventDefault();if(l.data("on_drag")){var J=k,M=J.offset(),I=K.originalEvent.pageX-M.left,L=K.originalEvent.pageY-M.top;G(o,p,L,I)}}).bind(e+"."+l.data("mCustomScrollbarIndex"),function(x){l.data({on_drag:false});k.removeClass("mCSB_dragger_onDrag")})}else{k.bind("mousedown touchstart",function(K){K.preventDefault();K.stopImmediatePropagation();var J=c(this),N=J.offset(),I,M;if(K.type==="touchstart"){var L=K.originalEvent.touches[0]||K.originalEvent.changedTouches[0];I=L.pageX-N.left;M=L.pageY-N.top}else{l.data({on_drag:true});k.addClass("mCSB_dragger_onDrag");I=K.pageX-N.left;M=K.pageY-N.top}if(I<J.width()&&I>0&&M<J.height()&&M>0){o=M;p=I}}).bind("touchmove",function(K){K.preventDefault();K.stopImmediatePropagation();var N=K.originalEvent.touches[0]||K.originalEvent.changedTouches[0],J=c(this),M=J.offset(),I=N.pageX-M.left,L=N.pageY-M.top;G(o,p,L,I)});c(document).bind("mousemove."+l.data("mCustomScrollbarIndex"),function(K){if(l.data("on_drag")){var J=k,M=J.offset(),I=K.pageX-M.left,L=K.pageY-M.top;G(o,p,L,I)}}).bind("mouseup."+l.data("mCustomScrollbarIndex"),function(x){l.data({on_drag:false});k.removeClass("mCSB_dragger_onDrag")})}l.data({bindEvent_scrollbar_drag:true})}function G(J,K,L,I){if(l.data("horizontalScroll")){l.mCustomScrollbar("scrollTo",(k.position().left-(K))+I,{moveDragger:true,trigger:"internal"})}else{l.mCustomScrollbar("scrollTo",(k.position().top-(J))+L,{moveDragger:true,trigger:"internal"})}}if(c.support.touch&&l.data("contentTouchScroll")){if(!l.data("bindEvent_content_touch")){var m,E,s,t,v,F,H;q.bind("touchstart",function(x){x.stopImmediatePropagation();m=x.originalEvent.touches[0]||x.originalEvent.changedTouches[0];E=c(this);s=E.offset();v=m.pageX-s.left;t=m.pageY-s.top;F=t;H=v});q.bind("touchmove",function(x){x.preventDefault();x.stopImmediatePropagation();m=x.originalEvent.touches[0]||x.originalEvent.changedTouches[0];E=c(this).parent();s=E.offset();v=m.pageX-s.left;t=m.pageY-s.top;if(l.data("horizontalScroll")){l.mCustomScrollbar("scrollTo",H-v,{trigger:"internal"})}else{l.mCustomScrollbar("scrollTo",F-t,{trigger:"internal"})}})}}if(!l.data("bindEvent_scrollbar_click")){n.bind("click",function(I){var x=(I.pageY-n.offset().top)*l.data("scrollAmount"),y=c(I.target);if(l.data("horizontalScroll")){x=(I.pageX-n.offset().left)*l.data("scrollAmount")}if(y.hasClass("mCSB_draggerContainer")||y.hasClass("mCSB_draggerRail")){l.mCustomScrollbar("scrollTo",x,{trigger:"internal",scrollEasing:"draggerRailEase"})}});l.data({bindEvent_scrollbar_click:true})}if(l.data("mouseWheel")){if(!l.data("bindEvent_mousewheel")){i.bind("mousewheel",function(K,M){var J,I=l.data("mouseWheelPixels"),x=Math.abs(q.position().top),L=k.position().top,y=n.height()-k.height();if(l.data("normalizeMouseWheelDelta")){if(M<0){M=-1}else{M=1}}if(I==="auto"){I=100+Math.round(l.data("scrollAmount")/2)}if(l.data("horizontalScroll")){L=k.position().left;y=n.width()-k.width();x=Math.abs(q.position().left)}if((M>0&&L!==0)||(M<0&&L!==y)){K.preventDefault();K.stopImmediatePropagation()}J=x-(M*I);l.mCustomScrollbar("scrollTo",J,{trigger:"internal"})});l.data({bindEvent_mousewheel:true})}}if(l.data("scrollButtons_enable")){if(l.data("scrollButtons_scrollType")==="pixels"){if(l.data("horizontalScroll")){w.add(D).unbind("mousedown touchstart MSPointerDown pointerdown mouseup MSPointerUp pointerup mouseout MSPointerOut pointerout touchend",j,h);l.data({bindEvent_buttonsContinuous_x:false});if(!l.data("bindEvent_buttonsPixels_x")){w.bind("click",function(x){x.preventDefault();r(Math.abs(q.position().left)+l.data("scrollButtons_scrollAmount"))});D.bind("click",function(x){x.preventDefault();r(Math.abs(q.position().left)-l.data("scrollButtons_scrollAmount"))});l.data({bindEvent_buttonsPixels_x:true})}}else{f.add(A).unbind("mousedown touchstart MSPointerDown pointerdown mouseup MSPointerUp pointerup mouseout MSPointerOut pointerout touchend",j,h);l.data({bindEvent_buttonsContinuous_y:false});if(!l.data("bindEvent_buttonsPixels_y")){f.bind("click",function(x){x.preventDefault();r(Math.abs(q.position().top)+l.data("scrollButtons_scrollAmount"))});A.bind("click",function(x){x.preventDefault();r(Math.abs(q.position().top)-l.data("scrollButtons_scrollAmount"))});l.data({bindEvent_buttonsPixels_y:true})}}function r(x){if(!k.data("preventAction")){k.data("preventAction",true);l.mCustomScrollbar("scrollTo",x,{trigger:"internal"})}}}else{if(l.data("horizontalScroll")){w.add(D).unbind("click");l.data({bindEvent_buttonsPixels_x:false});if(!l.data("bindEvent_buttonsContinuous_x")){w.bind("mousedown touchstart MSPointerDown pointerdown",function(y){y.preventDefault();var x=B();l.data({mCSB_buttonScrollRight:setInterval(function(){l.mCustomScrollbar("scrollTo",Math.abs(q.position().left)+x,{trigger:"internal",scrollEasing:"easeOutCirc"})},17)})});var j=function(x){x.preventDefault();clearInterval(l.data("mCSB_buttonScrollRight"))};w.bind("mouseup touchend MSPointerUp pointerup mouseout MSPointerOut pointerout",j);D.bind("mousedown touchstart MSPointerDown pointerdown",function(y){y.preventDefault();var x=B();l.data({mCSB_buttonScrollLeft:setInterval(function(){l.mCustomScrollbar("scrollTo",Math.abs(q.position().left)-x,{trigger:"internal",scrollEasing:"easeOutCirc"})},17)})});var h=function(x){x.preventDefault();clearInterval(l.data("mCSB_buttonScrollLeft"))};D.bind("mouseup touchend MSPointerUp pointerup mouseout MSPointerOut pointerout",h);l.data({bindEvent_buttonsContinuous_x:true})}}else{f.add(A).unbind("click");l.data({bindEvent_buttonsPixels_y:false});if(!l.data("bindEvent_buttonsContinuous_y")){f.bind("mousedown touchstart MSPointerDown pointerdown",function(y){y.preventDefault();var x=B();l.data({mCSB_buttonScrollDown:setInterval(function(){l.mCustomScrollbar("scrollTo",Math.abs(q.position().top)+x,{trigger:"internal",scrollEasing:"easeOutCirc"})},17)})});var u=function(x){x.preventDefault();clearInterval(l.data("mCSB_buttonScrollDown"))};f.bind("mouseup touchend MSPointerUp pointerup mouseout MSPointerOut pointerout",u);A.bind("mousedown touchstart MSPointerDown pointerdown",function(y){y.preventDefault();var x=B();l.data({mCSB_buttonScrollUp:setInterval(function(){l.mCustomScrollbar("scrollTo",Math.abs(q.position().top)-x,{trigger:"internal",scrollEasing:"easeOutCirc"})},17)})});var g=function(x){x.preventDefault();clearInterval(l.data("mCSB_buttonScrollUp"))};A.bind("mouseup touchend MSPointerUp pointerup mouseout MSPointerOut pointerout",g);l.data({bindEvent_buttonsContinuous_y:true})}}function B(){var x=l.data("scrollButtons_scrollSpeed");if(l.data("scrollButtons_scrollSpeed")==="auto"){x=Math.round((l.data("scrollInertia")+100)/40)}return x}}}if(l.data("autoScrollOnFocus")){if(!l.data("bindEvent_focusin")){i.bind("focusin",function(){i.scrollTop(0).scrollLeft(0);var x=c(document.activeElement);if(x.is("input,textarea,select,button,a[tabindex],area,object")){var J=q.position().top,y=x.position().top,I=i.height()-x.outerHeight();if(l.data("horizontalScroll")){J=q.position().left;y=x.position().left;I=i.width()-x.outerWidth()}if(J+y<0||J+y>I){l.mCustomScrollbar("scrollTo",y,{trigger:"internal"})}}});l.data({bindEvent_focusin:true})}}if(l.data("autoHideScrollbar")&&!l.data("alwaysShowScrollbar")){if(!l.data("bindEvent_autoHideScrollbar")){i.bind("mouseenter",function(x){i.addClass("mCS-mouse-over");d.showScrollbar.call(i.children(".mCSB_scrollTools"))}).bind("mouseleave touchend",function(x){i.removeClass("mCS-mouse-over");if(x.type==="mouseleave"){d.hideScrollbar.call(i.children(".mCSB_scrollTools"))}});l.data({bindEvent_autoHideScrollbar:true})}}},scrollTo:function(e,f){var i=c(this),o={moveDragger:false,trigger:"external",callbacks:true,scrollInertia:i.data("scrollInertia"),scrollEasing:i.data("scrollEasing")},f=c.extend(o,f),p,g=i.children(".mCustomScrollBox"),k=g.children(".mCSB_container"),r=g.children(".mCSB_scrollTools"),j=r.children(".mCSB_draggerContainer"),h=j.children(".mCSB_dragger"),t=draggerSpeed=f.scrollInertia,q,s,m,l;if(!k.hasClass("mCS_no_scrollbar")){i.data({mCS_trigger:f.trigger});if(i.data("mCS_Init")){f.callbacks=false}if(e||e===0){if(typeof(e)==="number"){if(f.moveDragger){p=e;if(i.data("horizontalScroll")){e=h.position().left*i.data("scrollAmount")}else{e=h.position().top*i.data("scrollAmount")}draggerSpeed=0}else{p=e/i.data("scrollAmount")}}else{if(typeof(e)==="string"){var v;if(e==="top"){v=0}else{if(e==="bottom"&&!i.data("horizontalScroll")){v=k.outerHeight()-g.height()}else{if(e==="left"){v=0}else{if(e==="right"&&i.data("horizontalScroll")){v=k.outerWidth()-g.width()}else{if(e==="first"){v=i.find(".mCSB_container").find(":first")}else{if(e==="last"){v=i.find(".mCSB_container").find(":last")}else{v=i.find(e)}}}}}}if(v.length===1){if(i.data("horizontalScroll")){e=v.position().left}else{e=v.position().top}p=e/i.data("scrollAmount")}else{p=e=v}}}if(i.data("horizontalScroll")){if(i.data("onTotalScrollBack_Offset")){s=-i.data("onTotalScrollBack_Offset")}if(i.data("onTotalScroll_Offset")){l=g.width()-k.outerWidth()+i.data("onTotalScroll_Offset")}if(p<0){p=e=0;clearInterval(i.data("mCSB_buttonScrollLeft"));if(!s){q=true}}else{if(p>=j.width()-h.width()){p=j.width()-h.width();e=g.width()-k.outerWidth();clearInterval(i.data("mCSB_buttonScrollRight"));if(!l){m=true}}else{e=-e}}var n=i.data("snapAmount");if(n){e=Math.round(e/n)*n-i.data("snapOffset")}d.mTweenAxis.call(this,h[0],"left",Math.round(p),draggerSpeed,f.scrollEasing);d.mTweenAxis.call(this,k[0],"left",Math.round(e),t,f.scrollEasing,{onStart:function(){if(f.callbacks&&!i.data("mCS_tweenRunning")){u("onScrollStart")}if(i.data("autoHideScrollbar")&&!i.data("alwaysShowScrollbar")){d.showScrollbar.call(r)}},onUpdate:function(){if(f.callbacks){u("whileScrolling")}},onComplete:function(){if(f.callbacks){u("onScroll");if(q||(s&&k.position().left>=s)){u("onTotalScrollBack")}if(m||(l&&k.position().left<=l)){u("onTotalScroll")}}h.data("preventAction",false);i.data("mCS_tweenRunning",false);if(i.data("autoHideScrollbar")&&!i.data("alwaysShowScrollbar")){if(!g.hasClass("mCS-mouse-over")){d.hideScrollbar.call(r)}}}})}else{if(i.data("onTotalScrollBack_Offset")){s=-i.data("onTotalScrollBack_Offset")}if(i.data("onTotalScroll_Offset")){l=g.height()-k.outerHeight()+i.data("onTotalScroll_Offset")}if(p<0){p=e=0;clearInterval(i.data("mCSB_buttonScrollUp"));if(!s){q=true}}else{if(p>=j.height()-h.height()){p=j.height()-h.height();e=g.height()-k.outerHeight();clearInterval(i.data("mCSB_buttonScrollDown"));if(!l){m=true}}else{e=-e}}var n=i.data("snapAmount");if(n){e=Math.round(e/n)*n-i.data("snapOffset")}d.mTweenAxis.call(this,h[0],"top",Math.round(p),draggerSpeed,f.scrollEasing);d.mTweenAxis.call(this,k[0],"top",Math.round(e),t,f.scrollEasing,{onStart:function(){if(f.callbacks&&!i.data("mCS_tweenRunning")){u("onScrollStart")}if(i.data("autoHideScrollbar")&&!i.data("alwaysShowScrollbar")){d.showScrollbar.call(r)}},onUpdate:function(){if(f.callbacks){u("whileScrolling")}},onComplete:function(){if(f.callbacks){u("onScroll");if(q||(s&&k.position().top>=s)){u("onTotalScrollBack")}if(m||(l&&k.position().top<=l)){u("onTotalScroll")}}h.data("preventAction",false);i.data("mCS_tweenRunning",false);if(i.data("autoHideScrollbar")&&!i.data("alwaysShowScrollbar")){if(!g.hasClass("mCS-mouse-over")){d.hideScrollbar.call(r)}}}})}if(i.data("mCS_Init")){i.data({mCS_Init:false})}}}function u(w){if(i.data("mCustomScrollbarIndex")){this.mcs={top:k.position().top,left:k.position().left,draggerTop:h.position().top,draggerLeft:h.position().left,topPct:Math.round((100*Math.abs(k.position().top))/Math.abs(k.outerHeight()-g.height())),leftPct:Math.round((100*Math.abs(k.position().left))/Math.abs(k.outerWidth()-g.width()))};switch(w){case"onScrollStart":i.data("mCS_tweenRunning",true).data("onScrollStart_Callback").call(i,this.mcs);break;case"whileScrolling":i.data("whileScrolling_Callback").call(i,this.mcs);break;case"onScroll":i.data("onScroll_Callback").call(i,this.mcs);break;case"onTotalScrollBack":i.data("onTotalScrollBack_Callback").call(i,this.mcs);break;case"onTotalScroll":i.data("onTotalScroll_Callback").call(i,this.mcs);break}}}},stop:function(){var g=c(this),e=g.children().children(".mCSB_container"),f=g.children().children().children().children(".mCSB_dragger");d.mTweenAxisStop.call(this,e[0]);d.mTweenAxisStop.call(this,f[0])},disable:function(e){var j=c(this),f=j.children(".mCustomScrollBox"),h=f.children(".mCSB_container"),g=f.children(".mCSB_scrollTools"),i=g.children().children(".mCSB_dragger");f.unbind("mousewheel focusin mouseenter mouseleave touchend");h.unbind("touchstart touchmove");if(e){if(j.data("horizontalScroll")){i.add(h).css("left",0)}else{i.add(h).css("top",0)}}g.css("display","none");h.addClass("mCS_no_scrollbar");j.data({bindEvent_mousewheel:false,bindEvent_focusin:false,bindEvent_content_touch:false,bindEvent_autoHideScrollbar:false}).addClass("mCS_disabled")},destroy:function(){var e=c(this);e.removeClass("mCustomScrollbar _mCS_"+e.data("mCustomScrollbarIndex")).addClass("mCS_destroyed").children().children(".mCSB_container").unwrap().children().unwrap().siblings(".mCSB_scrollTools").remove();c(document).unbind("mousemove."+e.data("mCustomScrollbarIndex")+" mouseup."+e.data("mCustomScrollbarIndex")+" MSPointerMove."+e.data("mCustomScrollbarIndex")+" MSPointerUp."+e.data("mCustomScrollbarIndex"));c(window).unbind("resize."+e.data("mCustomScrollbarIndex"))}},d={showScrollbar:function(){this.stop().animate({opacity:1},"fast")},hideScrollbar:function(){this.stop().animate({opacity:0},"fast")},mTweenAxis:function(g,i,h,f,o,y){var y=y||{},v=y.onStart||function(){},p=y.onUpdate||function(){},w=y.onComplete||function(){};var n=t(),l,j=0,r=g.offsetTop,s=g.style;if(i==="left"){r=g.offsetLeft}var m=h-r;q();e();function t(){if(window.performance&&window.performance.now){return window.performance.now()}else{if(window.performance&&window.performance.webkitNow){return window.performance.webkitNow()}else{if(Date.now){return Date.now()}else{return new Date().getTime()}}}}function x(){if(!j){v.call()}j=t()-n;u();if(j>=g._time){g._time=(j>g._time)?j+l-(j-g._time):j+l-1;if(g._time<j+1){g._time=j+1}}if(g._time<f){g._id=_request(x)}else{w.call()}}function u(){if(f>0){g.currVal=k(g._time,r,m,f,o);s[i]=Math.round(g.currVal)+"px"}else{s[i]=h+"px"}p.call()}function e(){l=1000/60;g._time=j+l;_request=(!window.requestAnimationFrame)?function(z){u();return setTimeout(z,0.01)}:window.requestAnimationFrame;g._id=_request(x)}function q(){if(g._id==null){return}if(!window.requestAnimationFrame){clearTimeout(g._id)}else{window.cancelAnimationFrame(g._id)}g._id=null}function k(B,A,F,E,C){switch(C){case"linear":return F*B/E+A;break;case"easeOutQuad":B/=E;return -F*B*(B-2)+A;break;case"easeInOutQuad":B/=E/2;if(B<1){return F/2*B*B+A}B--;return -F/2*(B*(B-2)-1)+A;break;case"easeOutCubic":B/=E;B--;return F*(B*B*B+1)+A;break;case"easeOutQuart":B/=E;B--;return -F*(B*B*B*B-1)+A;break;case"easeOutQuint":B/=E;B--;return F*(B*B*B*B*B+1)+A;break;case"easeOutCirc":B/=E;B--;return F*Math.sqrt(1-B*B)+A;break;case"easeOutSine":return F*Math.sin(B/E*(Math.PI/2))+A;break;case"easeOutExpo":return F*(-Math.pow(2,-10*B/E)+1)+A;break;case"mcsEaseOut":var D=(B/=E)*B,z=D*B;return A+F*(0.499999999999997*z*D+-2.5*D*D+5.5*z+-6.5*D+4*B);break;case"draggerRailEase":B/=E/2;if(B<1){return F/2*B*B*B+A}B-=2;return F/2*(B*B*B+2)+A;break}}},mTweenAxisStop:function(e){if(e._id==null){return}if(!window.requestAnimationFrame){clearTimeout(e._id)}else{window.cancelAnimationFrame(e._id)}e._id=null},rafPolyfill:function(){var f=["ms","moz","webkit","o"],e=f.length;while(--e>-1&&!window.requestAnimationFrame){window.requestAnimationFrame=window[f[e]+"RequestAnimationFrame"];window.cancelAnimationFrame=window[f[e]+"CancelAnimationFrame"]||window[f[e]+"CancelRequestAnimationFrame"]}}};d.rafPolyfill.call();c.support.touch=!!("ontouchstart" in window);c.support.pointer=window.navigator.pointerEnabled;c.support.msPointer=window.navigator.msPointerEnabled;var a=("https:"==document.location.protocol)?"https:":"http:";c.event.special.mousewheel||document.write('<script src="'+a+'//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.0.6/jquery.mousewheel.min.js"><\/script>');c.fn.mCustomScrollbar=function(e){if(b[e]){return b[e].apply(this,Array.prototype.slice.call(arguments,1))}else{if(typeof e==="object"||!e){return b.init.apply(this,arguments)}else{c.error("Method "+e+" does not exist")}}}})(jQuery);
 
 ;( function($) {
-	jQuery.fn.slideFadeToggle  = function(speed, easing, callback) {
+  jQuery.fn.slideFadeToggle  = function(speed, easing, callback) {
         return this.animate({opacity: 'toggle', height: 'toggle'}, speed, easing, callback);
-	};
+  };
 } )();
 
 
@@ -3347,242 +3347,260 @@ e(this)),e(this).data("__nicescroll",h));k.push(h)});return 1==k.length?k[0]:k};
 //# sourceMappingURL=underscore-min.map
 
 ;(function ( $ ) {
-	var $gallery_wrap = $(this);
-	var $gallery_container = $gallery_wrap.children('#gallery-container');
-	var $position = 1;
-	var padding_l = 0;
-	var padding_r = 0;
-	var current = 0, w_width = 0;
-	var center = $gallery_wrap.width()/2;
-	var nmb_images = $gallery_container.children('.placeholder').length;
-	var scrolled = false, scrollTimeout;
-	var move_slide = function() {};
-	var show_image = function() {};
-	var preload = function() {};
-	var image_resize = function() {};
-	var show_arrows = function() {};
-	$.fn.CenteredSlider = function() {
-		$gallery_wrap = $(this);
-		$gallery_container = $gallery_wrap.children('#gallery-container');
-		$position = 1;
-		padding_l = 0;
-		padding_r = 0;
-		current = 0, w_width = 0;
-		center = $gallery_wrap.width()/2;
-		nmb_images = $gallery_container.children('.placeholder').length;
-		scrolled = false, scrollTimeout;
-		jQuery('.style1_placehloder').each(function(i) {
-			jQuery(this).find('img').attr('src', jQuery(this).attr('data-source'));
-			image_resize();
-		});
-		show_image = function($show_overlay) {
-			$show_overlay = typeof $show_overlay === 'undefined' ? true : false;
-			$obj = $gallery_container.find('.placeholder:eq('+current+')');
-			$length = $gallery_container.find('.placeholder').length;
-			for( i=current; i<=nmb_images; i++) {
-				preload(i);
-			}
-			if($obj.hasClass('center')) {
-				$obj.children('img').center(true).animate({opacity : 1});
-			}
-			else {
-				$obj.children('img').animate({opacity : 1});
-			}
-			if($obj.length > 0) {
-				if($gallery_wrap.hasClass('horizontal-slide')) {
-					var $offset = $obj.offset();
-					var $parent_offset = jQuery('#gallery-container-wrap').offset();
-					var obj_left = $offset.top-$parent_offset.top;
-					var obj_center 			= obj_left + ($obj.height()/2);
-					var center				= $gallery_wrap.height()/2;
-					var currentScrollLeft 	= parseFloat($gallery_wrap.scrollTop(),10);
-					var move 				= currentScrollLeft + (obj_center - center);
-					if($show_overlay) {
-						if($obj.hasClass('hentry')) {
-							jQuery('.portfolio-item-overlay').fadeIn();
-							jQuery('.portfolio-item-title').stop(true, true).animate({opacity: 0, 'padding-left' : '0%'}, 500);
-							$obj.find('.portfolio-item-overlay').fadeOut();
-							$obj.find('.portfolio-item-title').stop(true, true).animate({opacity: 1, 'padding-left' : '20%'}, 500);
-						} else {
-							jQuery('.overlay_placeholder').fadeIn();
-						}
-					}
+  var $gallery_wrap = $(this);
+  var $gallery_container = $gallery_wrap.children('#gallery-container');
+  var $position = 1;
+  var padding_l = 0;
+  var padding_r = 0;
+  var current = 0, w_width = 0;
+  var center = $gallery_wrap.width()/2;
+  var nmb_images = $gallery_container.children('.placeholder').length;
+  var scrolled = false, scrollTimeout;
+  var move_slide = function() {};
+  var show_image = function() {};
+  var preload = function() {};
+  var image_resize = function() {};
+  var show_arrows = function() {};
+  $.fn.CenteredSlider = function() {
+    $gallery_wrap = $(this);
+    $gallery_container = $gallery_wrap.children('#gallery-container');
+    $position = 1;
+    padding_l = 0;
+    padding_r = 0;
+    current = 0, w_width = 0;
+    center = $gallery_wrap.width()/2;
+    nmb_images = $gallery_container.children('.placeholder').length;
+    scrolled = false, scrollTimeout;
+    jQuery('.style1_placehloder').each(function(i) {
+      jQuery(this).find('img').attr('src', jQuery(this).attr('data-source'));
+      image_resize();
+    });
+    show_image = function($show_overlay) {
+      $show_overlay = typeof $show_overlay === 'undefined' ? true : false;
+      $obj = $gallery_container.find('.placeholder:eq('+current+')');
+      $length = $gallery_container.find('.placeholder').length;
+      for( i=current; i<=nmb_images; i++) {
+        preload(i);
+      }
+      if($obj.hasClass('center')) {
+        $obj.children('img').center(true).animate({opacity : 1});
+      }
+      else {
+        $obj.children('img').animate({opacity : 1});
+      }
+      if($obj.length > 0) {
+        if($gallery_wrap.hasClass('horizontal-slide')) {
+          var $offset = $obj.offset();
+          var $parent_offset = jQuery('#gallery-container-wrap').offset();
+          var obj_left = $offset.top-$parent_offset.top;
+          var obj_center      = obj_left + ($obj.height()/2);
+          var center        = $gallery_wrap.height()/2;
+          var currentScrollLeft   = parseFloat($gallery_wrap.scrollTop(),10);
+          var move        = currentScrollLeft + (obj_center - center);
+          if($show_overlay) {
+            if($obj.hasClass('hentry')) {
+              jQuery('.portfolio-item-overlay').fadeIn();
+              jQuery('.portfolio-item-title').stop(true, true).animate({opacity: 0, 'padding-left' : '0%'}, 500);
+              $obj.find('.portfolio-item-overlay').fadeOut();
+              $obj.find('.portfolio-item-title').stop(true, true).animate({opacity: 1, 'padding-left' : '20%'}, 500);
+            } else {
+              jQuery('.overlay_placeholder').fadeIn();
+            }
+          }
 
-					if(move != $gallery_wrap.scrollTop())
-						$gallery_wrap.stop().animate({scrollTop: move});
-				} else {
-					var $offset = $obj.offset();
-					var $parent_offset = jQuery('#gallery-container-wrap').offset();
-					var obj_left = $offset.left-$parent_offset.left;
-					var obj_center 			= obj_left + ($obj.width()/2);
-					var center				= $gallery_wrap.width()/2;
-					var currentScrollLeft 	= parseFloat($gallery_wrap.scrollLeft(),10);
-					var move 				= currentScrollLeft + (obj_center - center);
-					if($show_overlay) {
-						if($obj.hasClass('hentry')) {
-							var $element = $obj.find('.portfolio-item-overlay');
-							var $element_title = $obj.find('.portfolio-item-title');
-							jQuery('.portfolio-item-overlay').not($element).stop(true, true).fadeIn();
-							jQuery('.portfolio-item-title').not($element_title).css('display', 'none');
-							$element.stop(true, true).fadeOut();
-							if(!$element_title.is(":visible"))
-								$element_title.css('display', 'block');
-						} else {
-							var $element = $obj.find('.overlay_placeholder');
-							var $element_title = $obj.find('.portfolio-item-title');
-							jQuery('.overlay_placeholder').not($element).stop(true, true).fadeIn();
-							jQuery('.portfolio-item-title').not($element_title).css('display', 'none');
-							$element.stop(true, true).fadeOut();
-							if(!$element_title.is(":visible"))
-								$element_title.css('display', 'block');
-						}
-					}
-					if(move != $gallery_wrap.scrollLeft()) {
-					 	$gallery_wrap.stop().animate({scrollLeft: move});
-					}
-				}
-			}
-			show_arrows();
-			$gallery_wrap.css('opacity', 1);
-			jQuery('.page-loader').fadeOut();
-		};
-		preload = function(index) {
-			var $obj = $gallery_container.find('.placeholder:eq('+index+')');
-			if($obj.length > 0) {
-				if($obj.hasClass('load')) {
-					$obj.removeClass('load');
-					if($obj.attr('data-source') != 'video') {
-						loadImage($obj.attr('data-source'), function() {
-							$obj.find('img').remove();
-							this.hide();
-							$obj.prepend(this);
-							this.fadeIn(500, function() {
-								image_resize();
-								show_image(false);
-								$obj.removeClass('show-title');
-							});
-						});
-					}
-				}
-			}
-		}
-		loadImage = function(src, callback) {
-			var img = jQuery('<img>').on('load', function(){
-				callback.call(img);
-			});
-			img.attr('src',src);
-		}
-		move_slide = function($action) {
-			if($action == 'next' || $action == 'prev') {
-				if($action == 'next') {
-					nmb_images = $gallery_container.children('.placeholder').length;
-					if(current+1 < nmb_images) {
-						current++;
-						show_image();
-					}
-				}
-				if($action == 'prev') {
-					if(current > 0) {
-						current--;
-						show_image();
-					}
-				}
-			} else {
-				current = $action;
-				show_image();
-			}
-		};
-		show_arrows = function() {
-			if(nmb_images == 1) {
-				jQuery('.arrow_prev').remove();
-				jQuery('.arrow_next').remove();
-			}
-			if(nmb_images == current+1) {
-				jQuery('.arrow_next').fadeOut();
-				jQuery('.arrow_prev').fadeIn();
-			} else if(current == 0) {
-				jQuery('.arrow_prev').fadeOut();
-				jQuery('.arrow_next').fadeIn();
-			} else {
-				jQuery('.arrow_prev').fadeIn();
-				jQuery('.arrow_next').fadeIn();
-			}
-		};
-		image_resize = function() {
-			jQuery('.style1_placehloder').each(function(i) {
-				jQuery(this).height(jQuery('#gallery-container-wrap').height());
-				jQuery(this).find('img').height(jQuery('#gallery-container-wrap').height());
-				show_image(false);
-			});
-		}
-		show_image();
-		if(jQuery('html').hasClass('touch')) {
-			$gallery_wrap.swipe({
-				swipe:function(event, direction, distance, duration, fingerCount) {
-					if($gallery_wrap.hasClass('horizontal-slide')) {
-						if(direction == 'up') {
-							move_slide('next');
-						} else if(direction == 'down') {
-							move_slide('prev');
-						}
-					} else {
-						if(direction == 'left') {
-							move_slide('next');
-						} else if(direction == 'right') {
-							move_slide('prev');
-						}
-					}
-				},
-				threshold: 10 
-			});
-		} else {
-			$gallery_wrap.on('mousewheel',function(event, delta, deltaX,deltaY) {
-				event.preventDefault();
-				if(!scrolled) {
-					scrolled = true;
-					if(delta < 0) {
-						move_slide('next');
-					} else {
-						move_slide('prev');
-					}
-				}
-				clearTimeout(scrollTimeout);
-				scrollTimeout = setTimeout(function() {
-					scrolled = false;
-				}, 45);
-			});
-		}
-	}
-	image_resize();
-	jQuery(window).load(function(){
-		image_resize();
-	});
-	jQuery(window).smartresize(function() {
-		image_resize();
-	});
-	jQuery(document).on('click', '.arrow_next', function(e) {
-		move_slide('next');
-	});
-	jQuery(document).on('click', '.arrow_prev', function(e) {
-		move_slide('prev');
-	});
-	jQuery(document).on('click', '.elastislide-carousel ul li a', function(e) {
-		var $target = jQuery(this).attr('data-target');
-		move_slide(parseInt($target));
-	});
-	jQuery.fn.center = function(parent) {
-		if (parent) {
-			parent = this.parent();
-		} else {
-			parent = window;
-		}
-		this.css({
-			"position": "absolute",
-			"top": (((jQuery(parent).height() - this.outerHeight()) / 2) + jQuery(parent).scrollTop() + "px"),
-			"left": (((jQuery(parent).width() - this.outerWidth()) / 2) + jQuery(parent).scrollLeft() + "px")
-		});
-		return this;
-	}
+          if(move != $gallery_wrap.scrollTop())
+            $gallery_wrap.stop().animate({scrollTop: move});
+        } else {
+          var $offset = $obj.offset();
+          var $parent_offset = jQuery('#gallery-container-wrap').offset();
+          var obj_left = $offset.left-$parent_offset.left;
+          var obj_center      = obj_left + ($obj.width()/2);
+          var center        = $gallery_wrap.width()/2;
+          var currentScrollLeft   = parseFloat($gallery_wrap.scrollLeft(),10);
+          var move        = currentScrollLeft + (obj_center - center);
+          if($show_overlay) {
+            if($obj.hasClass('hentry')) {
+              var $element = $obj.find('.portfolio-item-overlay');
+              var $element_title = $obj.find('.portfolio-item-title');
+              jQuery('.portfolio-item-overlay').not($element).stop(true, true).fadeIn();
+              jQuery('.portfolio-item-title').not($element_title).css('display', 'none');
+              $element.stop(true, true).fadeOut();
+              if(!$element_title.is(":visible"))
+                $element_title.css('display', 'block');
+            } else {
+              var $element = $obj.find('.overlay_placeholder');
+              var $element_title = $obj.find('.portfolio-item-title');
+              jQuery('.overlay_placeholder').not($element).stop(true, true).fadeIn();
+              jQuery('.portfolio-item-title').not($element_title).css('display', 'none');
+              $element.stop(true, true).fadeOut();
+              if(!$element_title.is(":visible"))
+                $element_title.css('display', 'block');
+            }
+          }
+          if(move != $gallery_wrap.scrollLeft()) {
+            $gallery_wrap.stop().animate({scrollLeft: move});
+          }
+        }
+      }
+      show_arrows();
+      $gallery_wrap.css('opacity', 1);
+      jQuery('.page-loader').fadeOut();
+    };
+    preload = function(index) {
+      var $obj = $gallery_container.find('.placeholder:eq('+index+')');
+      if($obj.length > 0) {
+        if($obj.hasClass('load')) {
+          $obj.removeClass('load');
+          if($obj.attr('data-source') != 'video') {
+            loadImage($obj.attr('data-source'), function() {
+              $obj.find('img').remove();
+              this.hide();
+              $obj.prepend(this);
+              this.fadeIn(500, function() {
+                image_resize();
+                show_image(false);
+                $obj.removeClass('show-title');
+              });
+            });
+          }
+        }
+      }
+    }
+    loadImage = function(src, callback) {
+      var img = jQuery('<img>').on('load', function(){
+        callback.call(img);
+      });
+      img.attr('src',src);
+    }
+    move_slide = function($action) {
+      if($action == 'next' || $action == 'prev') {
+        if($action == 'next') {
+          nmb_images = $gallery_container.children('.placeholder').length;
+          if(current+1 < nmb_images) {
+            current++;
+            show_image();
+          }
+        }
+        if($action == 'prev') {
+          if(current > 0) {
+            current--;
+            show_image();
+          }
+        }
+      } else {
+        current = $action;
+        show_image();
+      }
+    };
+    show_arrows = function() {
+      if(nmb_images == 1) {
+        jQuery('.arrow_prev').remove();
+        jQuery('.arrow_next').remove();
+      }
+      if(nmb_images == current+1) {
+        jQuery('.arrow_next').fadeOut();
+        jQuery('.arrow_prev').fadeIn();
+      } else if(current == 0) {
+        jQuery('.arrow_prev').fadeOut();
+        jQuery('.arrow_next').fadeIn();
+      } else {
+        jQuery('.arrow_prev').fadeIn();
+        jQuery('.arrow_next').fadeIn();
+      }
+    };
+    image_resize = function() {
+      jQuery('.style1_placehloder').each(function(i) {
+        jQuery(this).height(jQuery('#gallery-container-wrap').height());
+        jQuery(this).find('img').height(jQuery('#gallery-container-wrap').height());
+        show_image(false);
+      });
+    }
+    show_image();
+    if(jQuery('html').hasClass('touch')) {
+      /*$gallery_wrap.swipe({
+        swipe:function(event, direction, distance, duration, fingerCount) {
+          if($gallery_wrap.hasClass('horizontal-slide')) {
+            if(direction == 'up') {
+              move_slide('next');
+            } else if(direction == 'down') {
+              move_slide('prev');
+            }
+          } else {
+            if(direction == 'left') {
+              move_slide('next');
+            } else if(direction == 'right') {
+              move_slide('prev');
+            }
+          }
+        },
+        threshold: 10 
+      });*/
+      jQuery('body').on('touchstart', '#gallery-container-wrap', function(e){
+        var touch = e.originalEvent, startX = touch.changedTouches[0].pageX;
+        $gallery_wrap.on('touchmove',function(e){
+          e.preventDefault();
+          touch = e.originalEvent.touches[0] ||
+              e.originalEvent.changedTouches[0];
+          if(touch.pageX - startX > 10){
+            $gallery_wrap.off('touchmove');
+            move_slide('prev');
+          }
+          else if (touch.pageX - startX < -10){
+            $gallery_wrap.off('touchmove');
+            move_slide('next');
+          }
+        });
+      }).on('touchend',function(){
+        $gallery_wrap.off('touchmove');
+      });
+    } else {
+      $gallery_wrap.on('mousewheel',function(event, delta, deltaX,deltaY) {
+        event.preventDefault();
+        if(!scrolled) {
+          scrolled = true;
+          if(delta < 0) {
+            move_slide('next');
+          } else {
+            move_slide('prev');
+          }
+        }
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+          scrolled = false;
+        }, 45);
+      });
+    }
+  }
+  image_resize();
+  jQuery(window).load(function(){
+    image_resize();
+  });
+  jQuery(window).smartresize(function() {
+    image_resize();
+  });
+  jQuery(document).on('click', '.arrow_next', function(e) {
+    move_slide('next');
+  });
+  jQuery(document).on('click', '.arrow_prev', function(e) {
+    move_slide('prev');
+  });
+  jQuery(document).on('click', '.elastislide-carousel ul li a', function(e) {
+    var $target = jQuery(this).attr('data-target');
+    move_slide(parseInt($target));
+  });
+  jQuery.fn.center = function(parent) {
+    if (parent) {
+      parent = this.parent();
+    } else {
+      parent = window;
+    }
+    this.css({
+      "position": "absolute",
+      "top": (((jQuery(parent).height() - this.outerHeight()) / 2) + jQuery(parent).scrollTop() + "px"),
+      "left": (((jQuery(parent).width() - this.outerWidth()) / 2) + jQuery(parent).scrollLeft() + "px")
+    });
+    return this;
+  }
 }( jQuery ));
 
 ;(function(a){if(typeof define==="function"&&define.amd&&define.amd.jQuery){define(["jquery"],a)}else{a(jQuery)}}(function(e){var o="left",n="right",d="up",v="down",c="in",w="out",l="none",r="auto",k="swipe",s="pinch",x="tap",i="doubletap",b="longtap",A="horizontal",t="vertical",h="all",q=10,f="start",j="move",g="end",p="cancel",a="ontouchstart" in window,y="TouchSwipe";var m={fingers:1,threshold:75,cancelThreshold:null,pinchThreshold:20,maxTimeThreshold:null,fingerReleaseThreshold:250,longTapThreshold:500,doubleTapThreshold:200,swipe:null,swipeLeft:null,swipeRight:null,swipeUp:null,swipeDown:null,swipeStatus:null,pinchIn:null,pinchOut:null,pinchStatus:null,click:null,tap:null,doubleTap:null,longTap:null,triggerOnTouchEnd:true,triggerOnTouchLeave:false,allowPageScroll:"auto",fallbackToMouseEvents:true,excludedElements:"label, button, input, select, textarea, a, .noSwipe"};e.fn.swipe=function(D){var C=e(this),B=C.data(y);if(B&&typeof D==="string"){if(B[D]){return B[D].apply(this,Array.prototype.slice.call(arguments,1))}else{e.error("Method "+D+" does not exist on jQuery.swipe")}}else{if(!B&&(typeof D==="object"||!D)){return u.apply(this,arguments)}}return C};e.fn.swipe.defaults=m;e.fn.swipe.phases={PHASE_START:f,PHASE_MOVE:j,PHASE_END:g,PHASE_CANCEL:p};e.fn.swipe.directions={LEFT:o,RIGHT:n,UP:d,DOWN:v,IN:c,OUT:w};e.fn.swipe.pageScroll={NONE:l,HORIZONTAL:A,VERTICAL:t,AUTO:r};e.fn.swipe.fingers={ONE:1,TWO:2,THREE:3,ALL:h};function u(B){if(B&&(B.allowPageScroll===undefined&&(B.swipe!==undefined||B.swipeStatus!==undefined))){B.allowPageScroll=l}if(B.click!==undefined&&B.tap===undefined){B.tap=B.click}if(!B){B={}}B=e.extend({},e.fn.swipe.defaults,B);return this.each(function(){var D=e(this);var C=D.data(y);if(!C){C=new z(this,B);D.data(y,C)}})}function z(a0,aq){var av=(a||!aq.fallbackToMouseEvents),G=av?"touchstart":"mousedown",au=av?"touchmove":"mousemove",R=av?"touchend":"mouseup",P=av?null:"mouseleave",az="touchcancel";var ac=0,aL=null,Y=0,aX=0,aV=0,D=1,am=0,aF=0,J=null;var aN=e(a0);var W="start";var T=0;var aM=null;var Q=0,aY=0,a1=0,aa=0,K=0;var aS=null;try{aN.bind(G,aJ);aN.bind(az,a5)}catch(ag){e.error("events not supported "+G+","+az+" on jQuery.swipe")}this.enable=function(){aN.bind(G,aJ);aN.bind(az,a5);return aN};this.disable=function(){aG();return aN};this.destroy=function(){aG();aN.data(y,null);return aN};this.option=function(a8,a7){if(aq[a8]!==undefined){if(a7===undefined){return aq[a8]}else{aq[a8]=a7}}else{e.error("Option "+a8+" does not exist on jQuery.swipe.options")}return null};function aJ(a9){if(ax()){return}if(e(a9.target).closest(aq.excludedElements,aN).length>0){return}var ba=a9.originalEvent?a9.originalEvent:a9;var a8,a7=a?ba.touches[0]:ba;W=f;if(a){T=ba.touches.length}else{a9.preventDefault()}ac=0;aL=null;aF=null;Y=0;aX=0;aV=0;D=1;am=0;aM=af();J=X();O();if(!a||(T===aq.fingers||aq.fingers===h)||aT()){ae(0,a7);Q=ao();if(T==2){ae(1,ba.touches[1]);aX=aV=ap(aM[0].start,aM[1].start)}if(aq.swipeStatus||aq.pinchStatus){a8=L(ba,W)}}else{a8=false}if(a8===false){W=p;L(ba,W);return a8}else{ak(true)}return null}function aZ(ba){var bd=ba.originalEvent?ba.originalEvent:ba;if(W===g||W===p||ai()){return}var a9,a8=a?bd.touches[0]:bd;var bb=aD(a8);aY=ao();if(a){T=bd.touches.length}W=j;if(T==2){if(aX==0){ae(1,bd.touches[1]);aX=aV=ap(aM[0].start,aM[1].start)}else{aD(bd.touches[1]);aV=ap(aM[0].end,aM[1].end);aF=an(aM[0].end,aM[1].end)}D=a3(aX,aV);am=Math.abs(aX-aV)}if((T===aq.fingers||aq.fingers===h)||!a||aT()){aL=aH(bb.start,bb.end);ah(ba,aL);ac=aO(bb.start,bb.end);Y=aI();aE(aL,ac);if(aq.swipeStatus||aq.pinchStatus){a9=L(bd,W)}if(!aq.triggerOnTouchEnd||aq.triggerOnTouchLeave){var a7=true;if(aq.triggerOnTouchLeave){var bc=aU(this);a7=B(bb.end,bc)}if(!aq.triggerOnTouchEnd&&a7){W=ay(j)}else{if(aq.triggerOnTouchLeave&&!a7){W=ay(g)}}if(W==p||W==g){L(bd,W)}}}else{W=p;L(bd,W)}if(a9===false){W=p;L(bd,W)}}function I(a7){var a8=a7.originalEvent;if(a){if(a8.touches.length>0){C();return true}}if(ai()){T=aa}a7.preventDefault();aY=ao();Y=aI();if(a6()){W=p;L(a8,W)}else{if(aq.triggerOnTouchEnd||(aq.triggerOnTouchEnd==false&&W===j)){W=g;L(a8,W)}else{if(!aq.triggerOnTouchEnd&&a2()){W=g;aB(a8,W,x)}else{if(W===j){W=p;L(a8,W)}}}}ak(false);return null}function a5(){T=0;aY=0;Q=0;aX=0;aV=0;D=1;O();ak(false)}function H(a7){var a8=a7.originalEvent;if(aq.triggerOnTouchLeave){W=ay(g);L(a8,W)}}function aG(){aN.unbind(G,aJ);aN.unbind(az,a5);aN.unbind(au,aZ);aN.unbind(R,I);if(P){aN.unbind(P,H)}ak(false)}function ay(bb){var ba=bb;var a9=aw();var a8=aj();var a7=a6();if(!a9||a7){ba=p}else{if(a8&&bb==j&&(!aq.triggerOnTouchEnd||aq.triggerOnTouchLeave)){ba=g}else{if(!a8&&bb==g&&aq.triggerOnTouchLeave){ba=p}}}return ba}function L(a9,a7){var a8=undefined;if(F()||S()){a8=aB(a9,a7,k)}else{if((M()||aT())&&a8!==false){a8=aB(a9,a7,s)}}if(aC()&&a8!==false){a8=aB(a9,a7,i)}else{if(al()&&a8!==false){a8=aB(a9,a7,b)}else{if(ad()&&a8!==false){a8=aB(a9,a7,x)}}}if(a7===p){a5(a9)}if(a7===g){if(a){if(a9.touches.length==0){a5(a9)}}else{a5(a9)}}return a8}function aB(ba,a7,a9){var a8=undefined;if(a9==k){aN.trigger("swipeStatus",[a7,aL||null,ac||0,Y||0,T]);if(aq.swipeStatus){a8=aq.swipeStatus.call(aN,ba,a7,aL||null,ac||0,Y||0,T);if(a8===false){return false}}if(a7==g&&aR()){aN.trigger("swipe",[aL,ac,Y,T]);if(aq.swipe){a8=aq.swipe.call(aN,ba,aL,ac,Y,T);if(a8===false){return false}}switch(aL){case o:aN.trigger("swipeLeft",[aL,ac,Y,T]);if(aq.swipeLeft){a8=aq.swipeLeft.call(aN,ba,aL,ac,Y,T)}break;case n:aN.trigger("swipeRight",[aL,ac,Y,T]);if(aq.swipeRight){a8=aq.swipeRight.call(aN,ba,aL,ac,Y,T)}break;case d:aN.trigger("swipeUp",[aL,ac,Y,T]);if(aq.swipeUp){a8=aq.swipeUp.call(aN,ba,aL,ac,Y,T)}break;case v:aN.trigger("swipeDown",[aL,ac,Y,T]);if(aq.swipeDown){a8=aq.swipeDown.call(aN,ba,aL,ac,Y,T)}break}}}if(a9==s){aN.trigger("pinchStatus",[a7,aF||null,am||0,Y||0,T,D]);if(aq.pinchStatus){a8=aq.pinchStatus.call(aN,ba,a7,aF||null,am||0,Y||0,T,D);if(a8===false){return false}}if(a7==g&&a4()){switch(aF){case c:aN.trigger("pinchIn",[aF||null,am||0,Y||0,T,D]);if(aq.pinchIn){a8=aq.pinchIn.call(aN,ba,aF||null,am||0,Y||0,T,D)}break;case w:aN.trigger("pinchOut",[aF||null,am||0,Y||0,T,D]);if(aq.pinchOut){a8=aq.pinchOut.call(aN,ba,aF||null,am||0,Y||0,T,D)}break}}}if(a9==x){if(a7===p||a7===g){clearTimeout(aS);if(V()&&!E()){K=ao();aS=setTimeout(e.proxy(function(){K=null;aN.trigger("tap",[ba.target]);if(aq.tap){a8=aq.tap.call(aN,ba,ba.target)}},this),aq.doubleTapThreshold)}else{K=null;aN.trigger("tap",[ba.target]);if(aq.tap){a8=aq.tap.call(aN,ba,ba.target)}}}}else{if(a9==i){if(a7===p||a7===g){clearTimeout(aS);K=null;aN.trigger("doubletap",[ba.target]);if(aq.doubleTap){a8=aq.doubleTap.call(aN,ba,ba.target)}}}else{if(a9==b){if(a7===p||a7===g){clearTimeout(aS);K=null;aN.trigger("longtap",[ba.target]);if(aq.longTap){a8=aq.longTap.call(aN,ba,ba.target)}}}}}return a8}function aj(){var a7=true;if(aq.threshold!==null){a7=ac>=aq.threshold}return a7}function a6(){var a7=false;if(aq.cancelThreshold!==null&&aL!==null){a7=(aP(aL)-ac)>=aq.cancelThreshold}return a7}function ab(){if(aq.pinchThreshold!==null){return am>=aq.pinchThreshold}return true}function aw(){var a7;if(aq.maxTimeThreshold){if(Y>=aq.maxTimeThreshold){a7=false}else{a7=true}}else{a7=true}return a7}function ah(a7,a8){if(aq.allowPageScroll===l||aT()){a7.preventDefault()}else{var a9=aq.allowPageScroll===r;switch(a8){case o:if((aq.swipeLeft&&a9)||(!a9&&aq.allowPageScroll!=A)){a7.preventDefault()}break;case n:if((aq.swipeRight&&a9)||(!a9&&aq.allowPageScroll!=A)){a7.preventDefault()}break;case d:if((aq.swipeUp&&a9)||(!a9&&aq.allowPageScroll!=t)){a7.preventDefault()}break;case v:if((aq.swipeDown&&a9)||(!a9&&aq.allowPageScroll!=t)){a7.preventDefault()}break}}}function a4(){var a8=aK();var a7=U();var a9=ab();return a8&&a7&&a9}function aT(){return !!(aq.pinchStatus||aq.pinchIn||aq.pinchOut)}function M(){return !!(a4()&&aT())}function aR(){var ba=aw();var bc=aj();var a9=aK();var a7=U();var a8=a6();var bb=!a8&&a7&&a9&&bc&&ba;return bb}function S(){return !!(aq.swipe||aq.swipeStatus||aq.swipeLeft||aq.swipeRight||aq.swipeUp||aq.swipeDown)}function F(){return !!(aR()&&S())}function aK(){return((T===aq.fingers||aq.fingers===h)||!a)}function U(){return aM[0].end.x!==0}function a2(){return !!(aq.tap)}function V(){return !!(aq.doubleTap)}function aQ(){return !!(aq.longTap)}function N(){if(K==null){return false}var a7=ao();return(V()&&((a7-K)<=aq.doubleTapThreshold))}function E(){return N()}function at(){return((T===1||!a)&&(isNaN(ac)||ac===0))}function aW(){return((Y>aq.longTapThreshold)&&(ac<q))}function ad(){return !!(at()&&a2())}function aC(){return !!(N()&&V())}function al(){return !!(aW()&&aQ())}function C(){a1=ao();aa=event.touches.length+1}function O(){a1=0;aa=0}function ai(){var a7=false;if(a1){var a8=ao()-a1;if(a8<=aq.fingerReleaseThreshold){a7=true}}return a7}function ax(){return !!(aN.data(y+"_intouch")===true)}function ak(a7){if(a7===true){aN.bind(au,aZ);aN.bind(R,I);if(P){aN.bind(P,H)}}else{aN.unbind(au,aZ,false);aN.unbind(R,I,false);if(P){aN.unbind(P,H,false)}}aN.data(y+"_intouch",a7===true)}function ae(a8,a7){var a9=a7.identifier!==undefined?a7.identifier:0;aM[a8].identifier=a9;aM[a8].start.x=aM[a8].end.x=a7.pageX||a7.clientX;aM[a8].start.y=aM[a8].end.y=a7.pageY||a7.clientY;return aM[a8]}function aD(a7){var a9=a7.identifier!==undefined?a7.identifier:0;var a8=Z(a9);a8.end.x=a7.pageX||a7.clientX;a8.end.y=a7.pageY||a7.clientY;return a8}function Z(a8){for(var a7=0;a7<aM.length;a7++){if(aM[a7].identifier==a8){return aM[a7]}}}function af(){var a7=[];for(var a8=0;a8<=5;a8++){a7.push({start:{x:0,y:0},end:{x:0,y:0},identifier:0})}return a7}function aE(a7,a8){a8=Math.max(a8,aP(a7));J[a7].distance=a8}function aP(a7){if(J[a7]){return J[a7].distance}return undefined}function X(){var a7={};a7[o]=ar(o);a7[n]=ar(n);a7[d]=ar(d);a7[v]=ar(v);return a7}function ar(a7){return{direction:a7,distance:0}}function aI(){return aY-Q}function ap(ba,a9){var a8=Math.abs(ba.x-a9.x);var a7=Math.abs(ba.y-a9.y);return Math.round(Math.sqrt(a8*a8+a7*a7))}function a3(a7,a8){var a9=(a8/a7)*1;return a9.toFixed(2)}function an(){if(D<1){return w}else{return c}}function aO(a8,a7){return Math.round(Math.sqrt(Math.pow(a7.x-a8.x,2)+Math.pow(a7.y-a8.y,2)))}function aA(ba,a8){var a7=ba.x-a8.x;var bc=a8.y-ba.y;var a9=Math.atan2(bc,a7);var bb=Math.round(a9*180/Math.PI);if(bb<0){bb=360-Math.abs(bb)}return bb}function aH(a8,a7){var a9=aA(a8,a7);if((a9<=45)&&(a9>=0)){return o}else{if((a9<=360)&&(a9>=315)){return o}else{if((a9>=135)&&(a9<=225)){return n}else{if((a9>45)&&(a9<135)){return v}else{return d}}}}}function ao(){var a7=new Date();return a7.getTime()}function aU(a7){a7=e(a7);var a9=a7.offset();var a8={left:a9.left,right:a9.left+a7.outerWidth(),top:a9.top,bottom:a9.top+a7.outerHeight()};return a8}function B(a7,a8){return(a7.x>a8.left&&a7.x<a8.right&&a7.y>a8.top&&a7.y<a8.bottom)}}}));
@@ -3996,214 +4014,214 @@ e(this)),e(this).data("__nicescroll",h));k.push(h)});return 1==k.length?k[0]:k};
  * http://www.codrops.com
  */
 ;( function( $, window, undefined ) {
-	
-	'use strict';
+  
+  'use strict';
 
-	$.HoverDir = function( options, element ) {
-		
-		this.$el = $( element );
-		this._init( options );
+  $.HoverDir = function( options, element ) {
+    
+    this.$el = $( element );
+    this._init( options );
 
-	};
+  };
 
-	// the options
-	$.HoverDir.defaults = {
-		speed : 300,
-		easing : 'ease',
-		hoverDelay : 0,
-		inverse : false
-	};
+  // the options
+  $.HoverDir.defaults = {
+    speed : 300,
+    easing : 'ease',
+    hoverDelay : 0,
+    inverse : false
+  };
 
-	$.HoverDir.prototype = {
+  $.HoverDir.prototype = {
 
-		_init : function( options ) {
-			
-			// options
-			this.options = $.extend( true, {}, $.HoverDir.defaults, options );
-			// transition properties
-			this.transitionProp = 'all ' + this.options.speed + 'ms ' + this.options.easing;
-			// support for CSS transitions
-			this.support = Modernizr.csstransitions;
-			// load the events
-			this._loadEvents();
+    _init : function( options ) {
+      
+      // options
+      this.options = $.extend( true, {}, $.HoverDir.defaults, options );
+      // transition properties
+      this.transitionProp = 'all ' + this.options.speed + 'ms ' + this.options.easing;
+      // support for CSS transitions
+      this.support = Modernizr.csstransitions;
+      // load the events
+      this._loadEvents();
 
-		},
-		_loadEvents : function() {
+    },
+    _loadEvents : function() {
 
-			var self = this;
-			
-			this.$el.on( 'mouseenter.hoverdir, mouseleave.hoverdir', function( event ) {
-				
-				var $el = $( this ),
-					$hoverElem = $el.find( 'div.portfolio-overlay' ),
-					direction = self._getDir( $el, { x : event.pageX, y : event.pageY } ),
-					styleCSS = self._getStyle( direction );
-				
-				if( event.type === 'mouseenter' ) {
-					
-					$hoverElem.hide().css( styleCSS.from );
-					clearTimeout( self.tmhover );
+      var self = this;
+      
+      this.$el.on( 'mouseenter.hoverdir, mouseleave.hoverdir', function( event ) {
+        
+        var $el = $( this ),
+          $hoverElem = $el.find( 'div.portfolio-overlay' ),
+          direction = self._getDir( $el, { x : event.pageX, y : event.pageY } ),
+          styleCSS = self._getStyle( direction );
+        
+        if( event.type === 'mouseenter' ) {
+          
+          $hoverElem.hide().css( styleCSS.from );
+          clearTimeout( self.tmhover );
 
-					self.tmhover = setTimeout( function() {
-						
-						$hoverElem.show( 0, function() {
-							
-							var $el = $( this );
-							if( self.support ) {
-								$el.css( 'transition', self.transitionProp );
-							}
-							self._applyAnimation( $el, styleCSS.to, self.options.speed );
+          self.tmhover = setTimeout( function() {
+            
+            $hoverElem.show( 0, function() {
+              
+              var $el = $( this );
+              if( self.support ) {
+                $el.css( 'transition', self.transitionProp );
+              }
+              self._applyAnimation( $el, styleCSS.to, self.options.speed );
 
-						} );
-						
-					
-					}, self.options.hoverDelay );
-					
-				}
-				else {
-				
-					if( self.support ) {
-						$hoverElem.css( 'transition', self.transitionProp );
-					}
-					clearTimeout( self.tmhover );
-					self._applyAnimation( $hoverElem, styleCSS.from, self.options.speed );
-					
-				}
-					
-			} );
+            } );
+            
+          
+          }, self.options.hoverDelay );
+          
+        }
+        else {
+        
+          if( self.support ) {
+            $hoverElem.css( 'transition', self.transitionProp );
+          }
+          clearTimeout( self.tmhover );
+          self._applyAnimation( $hoverElem, styleCSS.from, self.options.speed );
+          
+        }
+          
+      } );
 
-		},
-		// credits : http://stackoverflow.com/a/3647634
-		_getDir : function( $el, coordinates ) {
-			
-			// the width and height of the current div
-			var w = $el.width(),
-				h = $el.height(),
+    },
+    // credits : http://stackoverflow.com/a/3647634
+    _getDir : function( $el, coordinates ) {
+      
+      // the width and height of the current div
+      var w = $el.width(),
+        h = $el.height(),
 
-				// calculate the x and y to get an angle to the center of the div from that x and y.
-				// gets the x value relative to the center of the DIV and "normalize" it
-				x = ( coordinates.x - $el.offset().left - ( w/2 )) * ( w > h ? ( h/w ) : 1 ),
-				y = ( coordinates.y - $el.offset().top  - ( h/2 )) * ( h > w ? ( w/h ) : 1 ),
-			
-				// the angle and the direction from where the mouse came in/went out clockwise (TRBL=0123);
-				// first calculate the angle of the point,
-				// add 180 deg to get rid of the negative values
-				// divide by 90 to get the quadrant
-				// add 3 and do a modulo by 4  to shift the quadrants to a proper clockwise TRBL (top/right/bottom/left) **/
-				direction = Math.round( ( ( ( Math.atan2(y, x) * (180 / Math.PI) ) + 180 ) / 90 ) + 3 ) % 4;
-			
-			return direction;
-			
-		},
-		_getStyle : function( direction ) {
-			
-			var fromStyle, toStyle,
-				slideFromTop = { left : '0px', top : '-100%' },
-				slideFromBottom = { left : '0px', top : '100%' },
-				slideFromLeft = { left : '-100%', top : '0px' },
-				slideFromRight = { left : '100%', top : '0px' },
-				slideTop = { top : '0px' },
-				slideLeft = { left : '0px' };
-			
-			switch( direction ) {
-				case 0:
-					// from top
-					fromStyle = !this.options.inverse ? slideFromTop : slideFromBottom;
-					toStyle = slideTop;
-					break;
-				case 1:
-					// from right
-					fromStyle = !this.options.inverse ? slideFromRight : slideFromLeft;
-					toStyle = slideLeft;
-					break;
-				case 2:
-					// from bottom
-					fromStyle = !this.options.inverse ? slideFromBottom : slideFromTop;
-					toStyle = slideTop;
-					break;
-				case 3:
-					// from left
-					fromStyle = !this.options.inverse ? slideFromLeft : slideFromRight;
-					toStyle = slideLeft;
-					break;
-			};
-			
-			return { from : fromStyle, to : toStyle };
-					
-		},
-		// apply a transition or fallback to jquery animate based on Modernizr.csstransitions support
-		_applyAnimation : function( el, styleCSS, speed ) {
+        // calculate the x and y to get an angle to the center of the div from that x and y.
+        // gets the x value relative to the center of the DIV and "normalize" it
+        x = ( coordinates.x - $el.offset().left - ( w/2 )) * ( w > h ? ( h/w ) : 1 ),
+        y = ( coordinates.y - $el.offset().top  - ( h/2 )) * ( h > w ? ( w/h ) : 1 ),
+      
+        // the angle and the direction from where the mouse came in/went out clockwise (TRBL=0123);
+        // first calculate the angle of the point,
+        // add 180 deg to get rid of the negative values
+        // divide by 90 to get the quadrant
+        // add 3 and do a modulo by 4  to shift the quadrants to a proper clockwise TRBL (top/right/bottom/left) **/
+        direction = Math.round( ( ( ( Math.atan2(y, x) * (180 / Math.PI) ) + 180 ) / 90 ) + 3 ) % 4;
+      
+      return direction;
+      
+    },
+    _getStyle : function( direction ) {
+      
+      var fromStyle, toStyle,
+        slideFromTop = { left : '0px', top : '-100%' },
+        slideFromBottom = { left : '0px', top : '100%' },
+        slideFromLeft = { left : '-100%', top : '0px' },
+        slideFromRight = { left : '100%', top : '0px' },
+        slideTop = { top : '0px' },
+        slideLeft = { left : '0px' };
+      
+      switch( direction ) {
+        case 0:
+          // from top
+          fromStyle = !this.options.inverse ? slideFromTop : slideFromBottom;
+          toStyle = slideTop;
+          break;
+        case 1:
+          // from right
+          fromStyle = !this.options.inverse ? slideFromRight : slideFromLeft;
+          toStyle = slideLeft;
+          break;
+        case 2:
+          // from bottom
+          fromStyle = !this.options.inverse ? slideFromBottom : slideFromTop;
+          toStyle = slideTop;
+          break;
+        case 3:
+          // from left
+          fromStyle = !this.options.inverse ? slideFromLeft : slideFromRight;
+          toStyle = slideLeft;
+          break;
+      };
+      
+      return { from : fromStyle, to : toStyle };
+          
+    },
+    // apply a transition or fallback to jquery animate based on Modernizr.csstransitions support
+    _applyAnimation : function( el, styleCSS, speed ) {
 
-			$.fn.applyStyle = this.support ? $.fn.css : $.fn.animate;
-			el.stop().applyStyle( styleCSS, $.extend( true, [], { duration : speed + 'ms' } ) );
+      $.fn.applyStyle = this.support ? $.fn.css : $.fn.animate;
+      el.stop().applyStyle( styleCSS, $.extend( true, [], { duration : speed + 'ms' } ) );
 
-		},
+    },
 
-	};
-	
-	var logError = function( message ) {
+  };
+  
+  var logError = function( message ) {
 
-		if ( window.console ) {
+    if ( window.console ) {
 
-			window.console.error( message );
-		
-		}
+      window.console.error( message );
+    
+    }
 
-	};
-	
-	$.fn.hoverdir = function( options ) {
+  };
+  
+  $.fn.hoverdir = function( options ) {
 
-		var instance = $.data( this, 'hoverdir' );
-		
-		if ( typeof options === 'string' ) {
-			
-			var args = Array.prototype.slice.call( arguments, 1 );
-			
-			this.each(function() {
-			
-				if ( !instance ) {
+    var instance = $.data( this, 'hoverdir' );
+    
+    if ( typeof options === 'string' ) {
+      
+      var args = Array.prototype.slice.call( arguments, 1 );
+      
+      this.each(function() {
+      
+        if ( !instance ) {
 
-					logError( "cannot call methods on hoverdir prior to initialization; " +
-					"attempted to call method '" + options + "'" );
-					return;
-				
-				}
-				
-				if ( !$.isFunction( instance[options] ) || options.charAt(0) === "_" ) {
+          logError( "cannot call methods on hoverdir prior to initialization; " +
+          "attempted to call method '" + options + "'" );
+          return;
+        
+        }
+        
+        if ( !$.isFunction( instance[options] ) || options.charAt(0) === "_" ) {
 
-					logError( "no such method '" + options + "' for hoverdir instance" );
-					return;
-				
-				}
-				
-				instance[ options ].apply( instance, args );
-			
-			});
-		
-		} 
-		else {
-		
-			this.each(function() {
-				
-				if ( instance ) {
+          logError( "no such method '" + options + "' for hoverdir instance" );
+          return;
+        
+        }
+        
+        instance[ options ].apply( instance, args );
+      
+      });
+    
+    } 
+    else {
+    
+      this.each(function() {
+        
+        if ( instance ) {
 
-					instance._init();
-				
-				}
-				else {
+          instance._init();
+        
+        }
+        else {
 
-					instance = $.data( this, 'hoverdir', new $.HoverDir( options, this ) );
-				
-				}
+          instance = $.data( this, 'hoverdir', new $.HoverDir( options, this ) );
+        
+        }
 
-			});
-		
-		}
-		
-		return instance;
-		
-	};
-	
+      });
+    
+    }
+    
+    return instance;
+    
+  };
+  
 } )( jQuery, window );
 
 /*
@@ -4241,228 +4259,228 @@ e(this)),e(this).data("__nicescroll",h));k.push(h)});return 1==k.length?k[0]:k};
 // http://closure-compiler.appspot.com/home
 
 ;(function ($, exports) {
-	'use strict';
+  'use strict';
 
-	$.fn.djax = function (selector, exceptions, replaceBlockWithFunc) {
+  $.fn.djax = function (selector, exceptions, replaceBlockWithFunc) {
 
-		// If browser doesn't support pushState, abort now
-		if (!history.pushState) {
-			return $(this);
-		}
+    // If browser doesn't support pushState, abort now
+    if (!history.pushState) {
+      return $(this);
+    }
 
-		var self = this,
-		    blockSelector = selector,
-		    excludes = (exceptions && exceptions.length) ? exceptions : [],
-		    replaceBlockWith = (replaceBlockWithFunc) ? replaceBlockWithFunc : $.fn.replaceWith,
-			djaxing = false;
+    var self = this,
+        blockSelector = selector,
+        excludes = (exceptions && exceptions.length) ? exceptions : [],
+        replaceBlockWith = (replaceBlockWithFunc) ? replaceBlockWithFunc : $.fn.replaceWith,
+      djaxing = false;
 
-		// Ensure that the history is correct when going from 2nd page to 1st
-		window.history.replaceState(
-			{
-				'url' : window.location.href,
-				'title' : $('title').text()
-			},
-			$('title').text(),
-			window.location.href
-		);
-		
-		self.clearDjaxing = function() {
-			self.djaxing = false;
-		}
+    // Ensure that the history is correct when going from 2nd page to 1st
+    window.history.replaceState(
+      {
+        'url' : window.location.href,
+        'title' : $('title').text()
+      },
+      $('title').text(),
+      window.location.href
+    );
+    
+    self.clearDjaxing = function() {
+      self.djaxing = false;
+    }
 
-		// Exclude the link exceptions
-		self.attachClick = function (element, event) {
+    // Exclude the link exceptions
+    self.attachClick = function (element, event) {
 
-			var link = $(element),
-				exception = false;
-			if(link.hasClass('portfolio-item')) {
-				var $href = link.attr('data-href');
-			} else {
-				var $href = link.attr('href');
-			}
+      var link = $(element),
+        exception = false;
+      if(link.hasClass('portfolio-item')) {
+        var $href = link.attr('data-href');
+      } else {
+        var $href = link.attr('href');
+      }
 
-			$.each(excludes, function (index, exclusion) {
-				if ($href.indexOf(exclusion) !== -1) {
-					exception = true;
-				}
-				if (window.location.href.indexOf(exclusion) !== -1) {
-					exception = true;
-				}
-			});
+      $.each(excludes, function (index, exclusion) {
+        if ($href.indexOf(exclusion) !== -1) {
+          exception = true;
+        }
+        if (window.location.href.indexOf(exclusion) !== -1) {
+          exception = true;
+        }
+      });
 
-			// If the link is one of the exceptions, return early so that
-			// the link can be clicked and a full page load as normal
-			if (exception) {
-				return $(element);
-			}
+      // If the link is one of the exceptions, return early so that
+      // the link can be clicked and a full page load as normal
+      if (exception) {
+        return $(element);
+      }
 
-			// From this point on, we handle the behaviour
-			event.preventDefault();
+      // From this point on, we handle the behaviour
+      event.preventDefault();
 
-			// If we're already doing djaxing, return now and silently fail
-			if (self.djaxing) {
-				setTimeout(self.clearDjaxing, 1000);
-				return $(element);
-			}
+      // If we're already doing djaxing, return now and silently fail
+      if (self.djaxing) {
+        setTimeout(self.clearDjaxing, 1000);
+        return $(element);
+      }
 
-			$(window).trigger('djaxClick', [element]);
-			self.reqUrl = $href;
-			self.triggered = false;
-			self.navigate($href, true);
-		};
+      $(window).trigger('djaxClick', [element]);
+      self.reqUrl = $href;
+      self.triggered = false;
+      self.navigate($href, true);
+    };
 
-		// Handle the navigation
-		self.navigate = function (url, add) {
+    // Handle the navigation
+    self.navigate = function (url, add) {
 
-			var blocks = $(blockSelector);
+      var blocks = $(blockSelector);
 
-			self.djaxing = true;
+      self.djaxing = true;
 
-			// Get the new page
-			$(window).trigger(
-				'djaxLoading',
-				[{
-					'url' : url
-				}]
-			);
+      // Get the new page
+      $(window).trigger(
+        'djaxLoading',
+        [{
+          'url' : url
+        }]
+      );
 
-			var replaceBlocks = function (response) {
-				if (url !== self.reqUrl) {
-					self.navigate(self.reqUrl, false);
-					return true;
-				}
+      var replaceBlocks = function (response) {
+        if (url !== self.reqUrl) {
+          self.navigate(self.reqUrl, false);
+          return true;
+        }
 
-				var result = $(response),
-					newBlocks = $(result).find(blockSelector);
+        var result = $(response),
+          newBlocks = $(result).find(blockSelector);
 
-				if (add) {
-					window.history.pushState(
-						{
-							'url' : url,
-							'title' : $(result).filter('title').text()
-						},
-						$(result).filter('title').text(),
-						url
-					);
-				}
+        if (add) {
+          window.history.pushState(
+            {
+              'url' : url,
+              'title' : $(result).filter('title').text()
+            },
+            $(result).filter('title').text(),
+            url
+          );
+        }
 
-				// Set page title as new page title
-				$('title').text($(result).filter('title').text());
+        // Set page title as new page title
+        $('title').text($(result).filter('title').text());
 
-				// Loop through each block and find new page equivalent
-				blocks.each(function () {
+        // Loop through each block and find new page equivalent
+        blocks.each(function () {
 
-					var id = '#' + $(this).attr('id'),
-					    newBlock = newBlocks.filter(id),
-					    block = $(this);
-					
-					$('a,div.hentry.portfolio-item.clickable', newBlock).filter(function () {
-						if(jQuery(this).hasClass('portfolio-item')) {
-							return self.getLocation(jQuery(this).attr('data-href')) === location.hostname;
-						} else {
-							return self.getLocation(this.href) === location.hostname;
-						}
-					}).addClass('dJAX_internal').on('click', function (event) {
-						return self.attachClick(this, event);
-					});
-					
-					if (newBlock.length) {
-						if (block.html() !== newBlock.html()) {
-							replaceBlockWith.call(block, newBlock);
-						}
-					} else {
-						block.remove();
-					}
+          var id = '#' + $(this).attr('id'),
+              newBlock = newBlocks.filter(id),
+              block = $(this);
+          
+          $('a,div.hentry.portfolio-item.clickable', newBlock).filter(function () {
+            if(jQuery(this).hasClass('portfolio-item')) {
+              return self.getLocation(jQuery(this).attr('data-href')) === location.hostname;
+            } else {
+              return self.getLocation(this.href) === location.hostname;
+            }
+          }).addClass('dJAX_internal').on('click', function (event) {
+            return self.attachClick(this, event);
+          });
+          
+          if (newBlock.length) {
+            if (block.html() !== newBlock.html()) {
+              replaceBlockWith.call(block, newBlock);
+            }
+          } else {
+            block.remove();
+          }
 
-				});
+        });
 
-				// Loop through new page blocks and add in as needed
-				$.each(newBlocks, function () {
+        // Loop through new page blocks and add in as needed
+        $.each(newBlocks, function () {
 
-					var newBlock = $(this),
-					    id = '#' + $(this).attr('id'),
-					    $previousSibling;
+          var newBlock = $(this),
+              id = '#' + $(this).attr('id'),
+              $previousSibling;
 
-					// If there is a new page block without an equivalent block
-					// in the old page, we need to find out where to insert it
-					if (!$(id).length) {
+          // If there is a new page block without an equivalent block
+          // in the old page, we need to find out where to insert it
+          if (!$(id).length) {
 
-						// Find the previous sibling
-						$previousSibling = $(result).find(id).prev();
+            // Find the previous sibling
+            $previousSibling = $(result).find(id).prev();
 
-						if ($previousSibling.length) {
-							// Insert after the previous element
-							newBlock.insertAfter('#' + $previousSibling.attr('id'));
-						} else {
-							// There's no previous sibling, so prepend to parent instead
-							newBlock.prependTo('#' + newBlock.parent().attr('id'));
-						}
-					}
+            if ($previousSibling.length) {
+              // Insert after the previous element
+              newBlock.insertAfter('#' + $previousSibling.attr('id'));
+            } else {
+              // There's no previous sibling, so prepend to parent instead
+              newBlock.prependTo('#' + newBlock.parent().attr('id'));
+            }
+          }
 
-									// Only add a class to internal links
-					$('a,div.hentry.portfolio-item.clickable', newBlock).filter(function () {
-						if(jQuery(this).hasClass('portfolio-item')) {
-							return self.getLocation(jQuery(this).attr('data-href')) === location.hostname;
-						} else {
-							return self.getLocation(this.href) === location.hostname;
-						}
-					}).addClass('dJAX_internal').on('click', function (event) {
-						//return self.attachClick(this, event);
-					});
+                  // Only add a class to internal links
+          $('a,div.hentry.portfolio-item.clickable', newBlock).filter(function () {
+            if(jQuery(this).hasClass('portfolio-item')) {
+              return self.getLocation(jQuery(this).attr('data-href')) === location.hostname;
+            } else {
+              return self.getLocation(this.href) === location.hostname;
+            }
+          }).addClass('dJAX_internal').on('click', function (event) {
+            //return self.attachClick(this, event);
+          });
 
-				});
+        });
 
 
 
-				// Trigger djaxLoad event as a pseudo ready()
-				if (!self.triggered) {
-					$(window).trigger(
-						'djaxLoad',
-						[{
-							'url' : url,
-							'title' : $(result).filter('title').text(),
-							'response' : response
-						}]
-					);
-					self.triggered = true;
-					self.djaxing = false;
-				}
-			};
-			$.get(url, function (response) {
-				replaceBlocks(response);
-			}).error(function (response) {
-				// handle error
-				console.log('error', response);
-				replaceBlocks(response['responseText']);
-			});
-		}; /* End self.navigate */
-		self.getLocation = function (href) {
-			var l = document.createElement("a");
-			l.href = href;
-			return l.hostname;
-		};
-		
+        // Trigger djaxLoad event as a pseudo ready()
+        if (!self.triggered) {
+          $(window).trigger(
+            'djaxLoad',
+            [{
+              'url' : url,
+              'title' : $(result).filter('title').text(),
+              'response' : response
+            }]
+          );
+          self.triggered = true;
+          self.djaxing = false;
+        }
+      };
+      $.get(url, function (response) {
+        replaceBlocks(response);
+      }).error(function (response) {
+        // handle error
+        console.log('error', response);
+        replaceBlocks(response['responseText']);
+      });
+    }; /* End self.navigate */
+    self.getLocation = function (href) {
+      var l = document.createElement("a");
+      l.href = href;
+      return l.hostname;
+    };
+    
 
-		// Only add a class to internal links
-		$(this).find('a,div.hentry.portfolio-item.clickable').filter(function () {
-			if(jQuery(this).hasClass('portfolio-item')) {
-				return self.getLocation(jQuery(this).attr('data-href')) === location.hostname;
-			} else {
-				return self.getLocation(this.href) === location.hostname;
-			}
-		}).addClass('dJAX_internal').on('click', function (event) {
-			return self.attachClick(this, event);
-		});
+    // Only add a class to internal links
+    $(this).find('a,div.hentry.portfolio-item.clickable').filter(function () {
+      if(jQuery(this).hasClass('portfolio-item')) {
+        return self.getLocation(jQuery(this).attr('data-href')) === location.hostname;
+      } else {
+        return self.getLocation(this.href) === location.hostname;
+      }
+    }).addClass('dJAX_internal').on('click', function (event) {
+      return self.attachClick(this, event);
+    });
 
-		// On new page load
-		$(window).bind('popstate', function (event) {
-			self.triggered = false;
-			if (event.originalEvent.state) {
-				self.reqUrl = event.originalEvent.state.url;
-				self.navigate(event.originalEvent.state.url, false);
-			}
-		});
+    // On new page load
+    $(window).bind('popstate', function (event) {
+      self.triggered = false;
+      if (event.originalEvent.state) {
+        self.reqUrl = event.originalEvent.state.url;
+        self.navigate(event.originalEvent.state.url, false);
+      }
+    });
 
-	};
+  };
 
 }(jQuery, window));

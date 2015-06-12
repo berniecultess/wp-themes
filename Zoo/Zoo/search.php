@@ -5,7 +5,7 @@
 		<header class="page-header">
 			<div class="row">
 				<div class="c12 end">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '_s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'zoo' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</div>
 			</div>
 			<div class="row">

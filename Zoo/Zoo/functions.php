@@ -6,6 +6,9 @@ if ( ! isset( $content_width ) ) $content_width = 1170;
 
 function _s_setup() {
 
+
+    load_theme_textdomain( 'zoo', get_template_directory() . '/languages' );
+
     require( get_template_directory() . '/inc/template-tags.php' );
 
     require_once (get_template_directory() . '/inc/dimox-breadcrumbs.php');
@@ -20,6 +23,8 @@ function _s_setup() {
 
     add_theme_support( 'post-thumbnails' );
 
+    add_image_size('portfolioThumbCropped', 300, 300, true);
+
     register_nav_menus( array(
         'primary' => __( 'Primary Menu', 'zoo' ),
     ) );
@@ -33,7 +38,7 @@ add_action( 'after_setup_theme', '_s_setup' );
 
 function _s_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Sidebar', '_s' ),
+        'name' => __( 'Sidebar', 'zoo' ),
         'id' => 'sidebar-1',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget' => '</aside>',
@@ -51,6 +56,55 @@ function SearchFilter($query) {
 }
 add_filter('pre_get_posts','SearchFilter');
 
+
+function sanitize_term_translate ($title) {
+    $mk2lat_table = array(
+   "А"=>"A","Б"=>"B","В"=>"V","Г"=>"G","Д"=>"D",
+   "Ѓ"=>"Gj","Е"=>"E","Ж"=>"Zh","З"=>"Z","Ѕ"=>"Dz",
+   "И"=>"I","Ј"=>"J","К"=>"K","Л"=>"L","Љ"=>"Lj",
+   "М"=>"M","Н"=>"N","Њ"=>"Nj","О"=>"O","П"=>"P",
+   "Р"=>"R","С"=>"S","Т"=>"T","Ќ"=>"Kj","У"=>"U",
+   "Ф"=>"F","Х"=>"H","Ц"=>"C","Ч"=>"Ch","Џ"=>"Dzh",
+   "Ш"=>"Sh","а"=>"a","б"=>"b","в"=>"v","г"=>"g",
+   "д"=>"d","ѓ"=>"gj","е"=>"e","ж"=>"zh","з"=>"z",
+   "ѕ"=>"dz","и"=>"i","ј"=>"j","к"=>"k","л"=>"l",
+   "љ"=>"lj","м"=>"m","н"=>"n","њ"=>"nj","о"=>"o",
+   "п"=>"p","р"=>"r","с"=>"s","т"=>"t","ќ"=>"kj",
+   "у"=>"u","ф"=>"f","х"=>"h","ц"=>"c","ч"=>"ch",
+   "џ"=>"dzh","ш"=>"sh"
+    );
+
+    global $wpdb;
+    if ($term = $wpdb->get_var("SELECT slug FROM $wpdb->terms WHERE name='$title'")) return $term; else return strtr($title,$mk2lat_table);
+}
+add_action('sanitize_title', 'sanitize_term_translate', 0);
+
+$tr = array(
+   "Ґ"=>"G","Ё"=>"YO","Є"=>"E","Ї"=>"YI","І"=>"I",
+   "і"=>"i","ґ"=>"g","ё"=>"yo","№"=>"#","є"=>"e",
+   "ї"=>"yi","А"=>"A","Б"=>"B","В"=>"V","Г"=>"G",
+   "Д"=>"D","Е"=>"E","Ж"=>"ZH","З"=>"Z","И"=>"I",
+   "Й"=>"Y","К"=>"K","Л"=>"L","М"=>"M","Н"=>"N",
+   "О"=>"O","П"=>"P","Р"=>"R","С"=>"S","Т"=>"T",
+   "У"=>"U","Ф"=>"F","Х"=>"H","Ц"=>"TS","Ч"=>"CH",
+   "Ш"=>"SH","Щ"=>"SCH","Ъ"=>"'","Ы"=>"YI","Ь"=>"",
+   "Э"=>"E","Ю"=>"YU","Я"=>"YA","а"=>"a","б"=>"b",
+   "в"=>"v","г"=>"g","д"=>"d","е"=>"e","ж"=>"zh",
+   "з"=>"z","и"=>"i","й"=>"y","к"=>"k","л"=>"l",
+   "м"=>"m","н"=>"n","о"=>"o","п"=>"p","р"=>"r",
+   "с"=>"s","т"=>"t","у"=>"u","ф"=>"f","х"=>"h",
+   "ц"=>"ts","ч"=>"ch","ш"=>"sh","щ"=>"sch","ъ"=>"'",
+   "ы"=>"yi","ь"=>"","э"=>"e","ю"=>"yu","я"=>"ya"
+  );
+
+function sanitize_title_with_translit($title) {
+    global $tr;
+    return strtr($title,$tr);
+}
+add_action('sanitize_title', 'sanitize_title_with_translit', 0);
+
+
+
 function _s_style() { 
     wp_enqueue_style( 'style', get_stylesheet_uri(), array( 'normalize' ) );
     wp_enqueue_style( 'normalize', get_template_directory_uri() . '/css/normalize.css' );      
@@ -59,26 +113,31 @@ function _s_style() {
     
     $font_on = $Zoo_Options->get('zo_fonton');
     $body_font = $Zoo_Options->get('zo_body_font');
+    $body_weight = preg_replace("/[^0-9]/","",$body_font);
     $body_font  = str_replace("+", " ", $body_font);
     $body_font  = explode(":", $body_font);
     $body_font  = $body_font[0];
 
     $heading_1 = $Zoo_Options->get('zo_heading1_font');
+    $h1_weight = preg_replace("/[^0-9]/","",$heading_1);
     $heading_1  = str_replace("+", " ", $heading_1);
     $heading_1  = explode(":", $heading_1);
     $heading_1  = $heading_1[0];
 
     $heading_226 = $Zoo_Options->get('zo_heading226_font');
+    $h226_weight = preg_replace("/[^0-9]/","",$heading_226);
     $heading_226  = str_replace("+", " ", $heading_226);
     $heading_226  = explode(":", $heading_226);
     $heading_226  = $heading_226[0];
 
     $pagedesc_font = $Zoo_Options->get('zo_pagedesc_font');
+    $pagedesc_weight = preg_replace("/[^0-9]/","",$pagedesc_font);
     $pagedesc_font  = str_replace("+", " ", $pagedesc_font);
     $pagedesc_font  = explode(":", $pagedesc_font);
     $pagedesc_font  = $pagedesc_font[0];
 
     $accent_font = $Zoo_Options->get('zo_accent_font');
+    $accent_weight = preg_replace("/[^0-9]/","",$accent_font);
     $accent_font  = str_replace("+", " ", $accent_font);
     $accent_font  = explode(":", $accent_font);
     $accent_font  = $accent_font[0];    
@@ -104,11 +163,11 @@ function _s_style() {
     <?php 
     
     if($font_on == 'yes'){?>
-        body{ font-family:<?php echo $body_font ;?>;}
-        h1,.zoo-page-title{ font-family:<?php echo $heading_1 ; ?>;}
-        h2,h3,h4,h5,h6{ font-family:<?php echo $heading_226 ; ?>;}
-        .accent{font-family:<?php echo $accent_font ?>;}
-        .zoo-page-title{font-family:<?php echo $pagedesc_font ?>;}
+        body{ font-family:<?php echo $body_font ;?>; font-weight:<?php echo $body_weight; ?>;}
+        h1,.zoo-page-title{ font-family:<?php echo $heading_1 ; ?>; font-weight:<?php echo $h1_weight; ?>;}
+        h2,h3,h4,h5,h6{ font-family:<?php echo $heading_226 ; ?>; font-weight:<?php echo $h226_weight; ?>;}
+        .accent{font-family:<?php echo $accent_font ?>; font-weight:<?php echo $accent_weight; ?>;}
+        .zoo-page-title{font-family:<?php echo $pagedesc_font ;?>; font-weight:<?php echo $pagedesc_weight; ?>;}
     <?php }
     else{ ?>
         h1,.zoo-page-title{font-family: latoBlack, sans-serif; font-weight: normal;}
@@ -199,29 +258,29 @@ function zoo_fonts() {
     $protocol = is_ssl() ? 'https' : 'http';
     
     $body_font = $Zoo_Options->get('zo_body_font');
-    $body_font  = str_replace("+", " ", $body_font);
+   /* $body_font  = str_replace("+", " ", $body_font);
     $body_font  = explode(":", $body_font);
-    $body_font  = $body_font[0];
+    $body_font  = $body_font[0]; */
 
     $heading_1 = $Zoo_Options->get('zo_heading1_font');
-    $heading_1  = str_replace("+", " ", $heading_1);
+   /* $heading_1  = str_replace("+", " ", $heading_1);
     $heading_1  = explode(":", $heading_1);
-    $heading_1  = $heading_1[0];
+    $heading_1  = $heading_1[0];*/
 
     $heading_226 = $Zoo_Options->get('zo_heading226_font');
-    $heading_226  = str_replace("+", " ", $heading_226);
+    /*$heading_226  = str_replace("+", " ", $heading_226);
     $heading_226  = explode(":", $heading_226);
-    $heading_226  = $heading_226[0];
+    $heading_226  = $heading_226[0];*/
 
     $pagedesc_font = $Zoo_Options->get('zo_pagedesc_font');
-    $pagedesc_font  = str_replace("+", " ", $pagedesc_font);
+   /* $pagedesc_font  = str_replace("+", " ", $pagedesc_font);
     $pagedesc_font  = explode(":", $pagedesc_font);
-    $pagedesc_font  = $pagedesc_font[0];
+    $pagedesc_font  = $pagedesc_font[0];*/
 
     $accent_font = $Zoo_Options->get('zo_accent_font');
-    $accent_font  = str_replace("+", " ", $accent_font);
+   /* $accent_font  = str_replace("+", " ", $accent_font);
     $accent_font  = explode(":", $accent_font);
-    $accent_font  = $accent_font[0];
+    $accent_font  = $accent_font[0];*/
 
     
 
@@ -246,10 +305,11 @@ add_action( 'wp_enqueue_scripts', 'zoo_fonts' );
 
 
 
-
-function get_avatar_url($get_avatar){
-    preg_match("/src='(.*?)'/i", $get_avatar, $matches);
-    return $matches[1];
+if (!function_exists('zoo_get_avatar_url')) { 
+    function zoo_get_avatar_url($get_avatar){
+        preg_match("/src='(.*?)'/i", $get_avatar, $matches);
+        return $matches[1];
+    }
 }
 
 if (!function_exists('string_limit_words')) {    
@@ -315,7 +375,8 @@ if(! class_exists( 'single_page_walker' )):
                                          
                 $varpost = get_post($item->object_id);
                 $trailing_slash = preg_match('/\/$/', $link ) ? '' : '/' ;  
-                $link_id = $trailing_slash . '#'.preg_replace('/\s+/', '', $varpost->post_title );                  
+                //$link_id = $trailing_slash . '#'.preg_replace('/\s+/', '', $varpost->post_title );                  
+                $link_id = $trailing_slash . '#'.sanitize_title($varpost->post_title);    
                 $attributes .= ' href="'. $link . $link_id . ' "';      
             
             }        
@@ -326,7 +387,8 @@ if(! class_exists( 'single_page_walker' )):
                 $varpost = get_post($item->object_id);
                 
                 $trailing_slash = preg_match('/\/$/', $item->url ) ? '' : '/' ;  
-                $link_id = $trailing_slash . '#'.preg_replace('/\s+/', '', $varpost->post_title );
+                //$link_id = $trailing_slash . '#'.preg_replace('/\s+/', '', $varpost->post_title );
+                $link_id = $trailing_slash . '#'.sanitize_title($varpost->post_title);
                 $attributes .= ' href="'. esc_attr( $item->url) .$link_id. '" ';
              
             }
@@ -402,7 +464,8 @@ if(! class_exists( 'Custom_Walker_Page' )):
                                 
                 $permalink = get_permalink( $page_id );         
                 $trailing_slash = preg_match('/\/$/', $permalink ) ? '' : '/' ;            
-                $link_id = $trailing_slash . '#'.preg_replace('/\s+/', '', $page->post_title );                                                             
+               // $link_id = $trailing_slash . '#'.preg_replace('/\s+/', '', $page->post_title );
+                $link_id = $trailing_slash . '#'.sanitize_title($page->post_title);                                                               
             }
                         
             $css_class = implode( ' ', apply_filters( 'page_css_class', $css_class, $page, $depth, $args, $current_page ) );

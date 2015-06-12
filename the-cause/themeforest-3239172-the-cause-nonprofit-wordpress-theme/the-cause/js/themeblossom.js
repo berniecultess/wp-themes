@@ -16,8 +16,8 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('#main .evenHolder:last').addClass('last');
-	$('#inner.woocommerce .woocommerce_tabs ul.tabs li:last').addClass('last');
-	$('#inner.woocommerce .woocommerce_tabs .panel tr:even').addClass('even');
+	$('#inner.woocommerce .woocommerce-tabs ul.tabs li:last').addClass('last');
+	$('#inner.woocommerce .woocommerce-tabs .panel tr:even').addClass('even');
 	$('.cart_totals table tr:even').addClass('even');
 	
 	$('#sidebar').append('<div class="horShadow"></div>');
@@ -148,6 +148,18 @@ jQuery(document).ready(function($) {
 		{
 			$(this).attr('rel', 'prettyPhoto');
 			
+		} 
+
+		if ($(this).children('img').hasClass('alignleft')) {
+			$(this).addClass('alignleft');
+		}
+
+		if ($(this).children('img').hasClass('alignright')) {
+			$(this).addClass('alignright');
+		}
+
+		if ($(this).children('img').hasClass('aligncenter')) {
+			$(this).addClass('aligncenter');
 		}
 		
 		var width = $(this).children('img').width();
@@ -157,12 +169,18 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('a[href$=".mov"] , a[href$=".swf"] , a[href*="vimeo.com"] , a[href*="youtube.com"]').each(function()
-	{
-		if(!$(this).attr('rel') != undefined && !$(this).attr('rel') != '')
-		{
-			$(this).attr('rel', 'prettyPhoto');
+	{ 
+
+		if ($(this).parent().parent().hasClass('cwu')) {
+			// do nothing
+		} else {
+			if(!$(this).attr('rel') != undefined && !$(this).attr('rel') != '')
+			{
+				$(this).attr('rel', 'prettyPhoto');
+			}
+			$(this).append('<span class="play"></span>');
 		}
-		$(this).append('<span class="play"></span>');
+
 	});
 	
 	$('#gallery .thumbHolder .thumb a').each(function() {
@@ -178,7 +196,7 @@ jQuery(document).ready(function($) {
 	});
 	
 	
-	$("a[rel^='prettyPhoto'], .doubleFramed a, #shopWidget > a, a.thumb, .flickrWidget a, #inner.woocommerce .wooImage a").hover(function() {
+	$("a[rel^='prettyPhoto'], .doubleFramed a, #shopWidget > a, a.thumb, .flickrWidget a, #inner.woocommerce .images a").hover(function() {
 		$(this).children('img').animate({opacity: 0.5}, 400);
 	}, function() {
 		$(this).children('img').animate({opacity: 1}, 400);
@@ -328,18 +346,16 @@ jQuery(document).ready(function($) {
 		$('form#getInvolvedForm').attr('action', action);
 	});
 
-	$('.wooImage > .mainImage > img').addClass('hasNoLink');
-
 	$('#inner.woocommerce .button, #tbWooCommerce .button').removeClass('button').addClass('tinyButton').addClass('roundButton').addClass('right');
 	
 	$('p.buttons').addClass('center');
 	
 	$('ul.products li').each(function() {
-		$(this).children('a:first').addClass('wooImageLink');
+		$(this).children('a:first').addClass('imagesLink');
 	});
 	
-	$('ul.products li a.wooImageLink img').after('<span class="paperClip"></span>');
-	$('ul.products li a.wooImageLink').hover(function() {
+	$('ul.products li a.imagesLink img').after('<span class="paperClip"></span>');
+	$('ul.products li a.imagesLink').hover(function() {
 		$(this).children('img').animate({opacity: 0.6}, 400);
 	}, function() {
 		$(this).children('img').animate({opacity: 1}, 400);

@@ -567,51 +567,45 @@ jQuery(document).ready(function() {
 	}
 
 	function removeEditorControls($form) {
-		window.tinyMCE.execCommand( "mceRemoveEditor", false, 'textblockcontent' );
+		if(typeof(window.tinyMCE.editors.textblockcontent) !== 'undefined') {
+			window.tinyMCE.execCommand( "mceRemoveEditor", false, 'textblockcontent' );
+		}
 		jQuery('#content-old').attr('id','textblockcontent');
 		if(jQuery('#textblockcontent').length > 0) {
 			var val = window.switchEditors.wpautop(jQuery('#textblockcontent').val());
 			jQuery('#textblockcontent').val(val);
 		}
-		window.tinyMCE.execCommand( "mceAddEditor", false, 'textblockcontent' );
-		
 	}
-	
 	var add_button = true;
 	function addEditorControls($form) {
-		var editors = $form.find('.be-pb-editor');
-		window.tinyMCE.execCommand( "mceRemoveEditor", false, 'textblockcontent' );
+		if(typeof(window.tinyMCE.editors.textblockcontent) !== 'undefined') {
+			window.tinyMCE.execCommand( "mceRemoveEditor", false, 'textblockcontent' );
+		}
 		jQuery('#textblockcontent').attr('id','content-old');
 		$form.find('.be-pb-editor').attr('id','textblockcontent');
-		window.tinyMCE.execCommand( "mceAddEditor", false, 'textblockcontent' );
-		jQuery('.be-jq-dialog .wp-editor-wrap').removeClass('html-active').addClass('tmce-active');
-		window.tinymce.execCommand('mceFocus', false, 'textblockcontent');
-		quicktags({id:"textblockcontent", buttons: "link, em, strong, block, del, ins, img, ul, li, ol, code, more, spell, close, fullscreen"});
-		QTags.addButton( 'custom_print', 'p', '<p>', '</p>', 'p', 'Print tag', 1, 'textblockcontent' );
-		if(add_button) {
-			QTags.addButton( 'custom_bold', 'B', '<b>', '</b>', 'b', 'Bold', 1, 'textblockcontent' );
-			QTags.addButton( 'custom_italic', 'I', '<i>', '</i>', 'i', 'Italic', 2, 'textblockcontent' );
-			QTags.addButton( 'custom_paragraph', 'P', '<p>', '</p>', 'p', 'Paragraph', 3, 'textblockcontent' );
-			QTags.addButton( 'custom_blockquote', 'b-quote', '<blockquote>', '</blockquote>', 'blockquote', 'Blockquote', 100, 'textblockcontent' );
-			QTags.addButton( 'custom_ul', 'ul', '<ul>', '</ul>', 'ul', 'Unordered List', 101, 'textblockcontent' );
-			QTags.addButton( 'custom_ol', 'ol', '<ol>', '</ol>', 'ol', 'Ordered List', 102, 'textblockcontent' );
-			QTags.addButton( 'custom_li', 'li', '<li>', '</li>', 'li', 'List', 103, 'textblockcontent' );
-			QTags.addButton( 'custom_code', 'code', '<code>', '</code>', 'code', 'Code', 104, 'textblockcontent' );
-			QTags.addButton( 'custom_more', 'more', '<!--more-->', '', 'more', 'More', 105, 'textblockcontent' );
-			QTags.addButton( 'custom_del', 'del', '<del datetime="'+Date('dd-MM-yyyy hh:mm:ss AA')+'">', '</del>', 'del', 'Del', 106, 'textblockcontent' );
-			QTags.addButton( 'custom_ins', 'ins', '<ins datetime="'+Date('dd-MM-yyyy hh:mm:ss AA')+'">', '</ins>', 'ins', 'Ins', 107, 'textblockcontent' );
-			add_button = false;
+		if(typeof(window.tinyMCE.editors.textblockcontent) === 'undefined') {
+			window.tinyMCE.execCommand( "mceAddEditor", false, 'textblockcontent' );
+			jQuery('.be-jq-dialog .wp-editor-wrap').removeClass('html-active').addClass('tmce-active');
+			window.tinymce.execCommand('mceFocus', false, 'textblockcontent');
+			quicktags({id:"textblockcontent", buttons: "link, em, strong, block, del, ins, img, ul, li, ol, code, more, spell, close, fullscreen"});
+			QTags.addButton( 'custom_print', 'p', '<p>', '</p>', 'p', 'Print tag', 1, 'textblockcontent' );
+			if(add_button) {
+				QTags.addButton( 'custom_bold', 'b', '<b>', '</b>', 'b', 'Bold', 1, 'textblockcontent' );
+				QTags.addButton( 'custom_italic', 'i', '<i>', '</i>', 'i', 'Italic', 2, 'textblockcontent' );
+				QTags.addButton( 'custom_paragraph', 'p', '<p>', '</p>', 'p', 'Paragraph', 3, 'textblockcontent' );
+				QTags.addButton( 'custom_blockquote', 'b-quote', '<blockquote>', '</blockquote>', 'blockquote', 'Blockquote', 100, 'textblockcontent' );
+				QTags.addButton( 'custom_ul', 'ul', '<ul>', '</ul>', 'ul', 'Unordered List', 101, 'textblockcontent' );
+				QTags.addButton( 'custom_ol', 'ol', '<ol>', '</ol>', 'ol', 'Ordered List', 102, 'textblockcontent' );
+				QTags.addButton( 'custom_li', 'li', '<li>', '</li>', 'li', 'List', 103, 'textblockcontent' );
+				QTags.addButton( 'custom_code', 'code', '<code>', '</code>', 'code', 'Code', 104, 'textblockcontent' );
+				QTags.addButton( 'custom_more', 'more', '<!--more-->', '', 'more', 'More', 105, 'textblockcontent' );
+				QTags.addButton( 'custom_del', 'del', '<del datetime="'+Date('dd-MM-yyyy hh:mm:ss AA')+'">', '</del>', 'del', 'Del', 106, 'textblockcontent' );
+				QTags.addButton( 'custom_ins', 'ins', '<ins datetime="'+Date('dd-MM-yyyy hh:mm:ss AA')+'">', '</ins>', 'ins', 'Ins', 107, 'textblockcontent' );
+				QTags.addButton( 'custom_more', 'more', '<!--more-->', '', 'more', 'More', 108, 'textblockcontent' );
+				add_button = false;
+			}
 		}
 	}
-
-	jQuery(document).on('click', '.be-jq-dialog .wp-switch-editor.switch-tmce', function() {
-		jQuery(this).closest('.wp-editor-wrap').removeClass('html-active').addClass('tmce-active');
-		window.tinyMCE.execCommand('mceAddEditor', false, 'textblockcontent');
-	});
-	jQuery(document).on('click', '.be-jq-dialog .wp-switch-editor.switch-html', function() {
-		jQuery(this).closest('.wp-editor-wrap').removeClass('tmce-active').addClass('html-active');
-		window.tinyMCE.execCommand('mceRemoveEditor', false, 'textblockcontent');
-	});
 
 	jQuery('#be-pb-save').on('click', function(e){
 		e.preventDefault();

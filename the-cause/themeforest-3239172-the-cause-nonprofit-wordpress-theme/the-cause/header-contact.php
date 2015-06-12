@@ -59,6 +59,11 @@ if ($latitude || $longitude) { ?>
 
 <body <?php body_class(); ?> onload="initialize()">
 <?php }  else { ?>
+
+
+<?php wp_head(); ?>
+
+
 </head>
 <body <?php body_class(); ?> >
 <?php } ?>

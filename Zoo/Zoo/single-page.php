@@ -7,7 +7,7 @@
 get_header();
 ?>
 <main id="main" role="main">
-<div id="<?php echo preg_replace('/\s+/', '', get_the_title());  ?>">
+<div id="<?php echo sanitize_title(get_the_title());  ?>">
 	<?php while ( have_posts() ) : the_post(); ?>
 			<?php the_content(); ?>
 	<?php endwhile;  ?>
@@ -33,7 +33,8 @@ $pages = get_pages($args);
 foreach ($pages as $page_data) {
     $content = apply_filters('the_content', $page_data->post_content);
     $title = $page_data->post_title;
-    $id = preg_replace('/\s+/', '', $title);
+    $id = sanitize_title($title);
+   // $id = preg_replace('/\s+/', '', $title);
     $slug = $page_data->post_name;
     $bgcolor = get_post_meta( $page_data->ID, '_cmb_background_colorpicker', true );
     $bgimage = get_post_meta( $page_data->ID, '_cmb_background_image', true );

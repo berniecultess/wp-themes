@@ -10,7 +10,7 @@ get_header();
 global $be_themes_data;
 while( have_posts() ): the_post(); 
 ?>
-<section class="be-section map-section">
+<section class="be-section map-section" style="display: none;">
 	<div class="gmap map_960" id="contact-page-map" data-address="<?php echo $be_themes_data['address']; ?>" data-zoom="14"></div> <!--  End Map -->
 </section>
 <section id="content" class="no-sidebar-page">

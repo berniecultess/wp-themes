@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 	var $product_container = jQuery('.products-wrap ul.products');
 	$product_container.imagesLoaded( function() {
 		$product_container.isotope({
-			itemSelector : '.hentry'
+			itemSelector : '.product'
 		});
 	});
 	jQuery(window).smartresize(function() {

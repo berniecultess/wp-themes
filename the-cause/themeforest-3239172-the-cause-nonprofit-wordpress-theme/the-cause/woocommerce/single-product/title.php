@@ -1,5 +1,0 @@
-<?php
-/**
- * Single Product Title
- */
-?>

@@ -8,14 +8,14 @@
 	</aside>
 
 	<aside id="archives" class="widget">
-		<h6 class="widget-title"><?php _e( 'Archives', '_s' ); ?></h6>
+		<h6 class="widget-title"><?php _e( 'Archives', 'zoo' ); ?></h6>
 		<ul>
 		<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 		</ul>
 	</aside>
 
 	<aside id="meta" class="widget">
-		<h6 class="widget-title"><?php _e( 'Meta', '_s' ); ?></h6>
+		<h6 class="widget-title"><?php _e( 'Meta', 'zoo' ); ?></h6>
 		<ul>
 		<?php wp_register(); ?>
 		<li><?php wp_loginout(); ?></li>

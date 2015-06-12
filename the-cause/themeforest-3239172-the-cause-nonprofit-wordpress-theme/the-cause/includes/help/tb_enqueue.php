@@ -27,8 +27,8 @@ function tb_enqueue() {
 		wp_enqueue_script('easing');
 		
 		if ($postTemplate == 'page-the-issues.php') {		
-			wp_register_script('accordion', TEMPLATE_DIRECTORY . '/js/jquery.elegantAccordion.js', array('jquery'), '0.3', false);
-			wp_enqueue_script('accordion');
+			wp_register_script('accordion2', TEMPLATE_DIRECTORY . '/js/jquery.elegantAccordion.js', array('jquery'), '0.3', false);
+			wp_enqueue_script('accordion2');
 		}
 		
 		if ($postTemplate == 'page-landing.php') {		

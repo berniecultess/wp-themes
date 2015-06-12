@@ -22,39 +22,39 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 
 	$meta_boxes[] = array(
 		'id'         => 'page_metabox',
-		'title'      => 'Page Options',
+		'title'      => __('Page Options', 'zoo'),
 		'pages'      => array( 'page', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
 		'show_names' => true, // Show field names on the left
 		'fields'     => array(
 						array(
-			'name' => 'Heading Style',
-				'desc' => 'Select Page Heading Style',
+			'name' => __( 'Heading Style', 'zoo'),
+				'desc' => __( 'Select Page Heading Style', 'zoo'),
 				'id'   => $prefix . 'heading_style',
 				'type' => 'select',
 				'options' => array(
-					array( 'name' => 'Standard', 'value' => 'standard', ),
-					array( 'name' => 'Dropcap', 'value' => 'dropcap', ),
-					array( 'name' => 'No Heading', 'value' => 'noheading', ),
+					array( 'name' => __('Standard', 'zoo'), 'value' => 'standard', ),
+					array( 'name' => __('Dropcap', 'zoo'), 'value' => 'dropcap', ),
+					array( 'name' => __('No Heading', 'zoo'), 'value' => 'noheading', ),
 				),
 			),	
 
 			array(
-	            'name' => 'Background Color',
-	            'desc' => 'Select page background color',
+	            'name' => __('Background Color', 'zoo'),
+	            'desc' => __('Select page background color', 'zoo'),
 	            'id'   => $prefix . 'background_colorpicker',
 	            'type' => 'colorpicker',
 				'std'  => '#ffffff'
 	        ),
 			array(
-				'name' => 'Background Image',
-				'desc' => 'Upload a background image or enter an URL.',
+				'name' => __('Background Image', 'zoo'),
+				'desc' => __('Upload a background image or enter an URL.', 'zoo'),
 				'id'   => $prefix . 'background_image',
 				'type' => 'file',
 			),
 			array(
-				'name' => 'Page Description',
+				'name' => __('Page Description', 'zoo'),
 				'id'   => $prefix . 'description_text',
 				'type' => 'wysiwyg',
 			),
@@ -65,7 +65,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 
 	$meta_boxes[] = array(
 		'id'         => 'super_slider_metabox',
-		'title'      => 'Slide Caption Scoll Animation Presets',
+		'title'      => __('Slide Caption Scoll Animation Presets', 'zoo'),
 		'pages'      => array( 'super_slider', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
@@ -73,14 +73,14 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 		//'show_on'    => array( 'key' => 'id', 'value' => array( 2, ), ), // Specific post IDs to display this metabox
 		'fields' => array(
 			array(
-				'name' => 'Animtion Style',
+				'name' => __( 'Animtion Style', 'zoo'),
 				'id'   => $prefix . 'caption_animation',
 				'type' => 'select',
 				'options' => array(
-					array( 'name' => 'None', 'value' => '', ),
-					array( 'name' => 'Shrink', 'value' => "data-0='transform:scale(1); top:0px;' data-1400='transform:scale(0.5); top:200px;' ", ),
-					array( 'name' => 'Grow', 'value' => "data-0='transform:scale(1); top:0px;' data-1400='transform:scale(2); top:-200px;' ", ),
-					array( 'name' => 'Spin', 'value' => "data-0='transform:rotate(0deg);' data-1400='transform:rotate(360deg);' ", ),
+					array( 'name' => __('None', 'zoo'), 'value' => '', ),
+					array( 'name' => __('Shrink', 'zoo'), 'value' => "data-0='transform:scale(1); top:0px;' data-1400='transform:scale(0.5); top:200px;' ", ),
+					array( 'name' => __('Grow', 'zoo'), 'value' => "data-0='transform:scale(1); top:0px;' data-1400='transform:scale(2); top:-200px;' ", ),
+					array( 'name' => __('Spin', 'zoo'), 'value' => "data-0='transform:rotate(0deg);' data-1400='transform:rotate(360deg);' ", ),
 				),
 			),
 		)

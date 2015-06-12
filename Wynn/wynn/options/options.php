@@ -19,7 +19,7 @@ if ( ! class_exists('NHP_Options') ){
 	}
 	
 	if(!defined('THEME_VERSION')){
-		define('THEME_VERSION', '1.9');
+		define('THEME_VERSION', '2.1');
 	}
 	
 class NHP_Options{

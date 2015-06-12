@@ -196,6 +196,7 @@ add_action( 'wp_footer', 'be_themes_exclude_woo_from_ajax' );
 function be_themes_exclude_woo_from_ajax() {
 	global $woocommerce;
 	global $be_themes_data;
+        global $order_id;
 
 		echo '<script>
 				var no_ajax_pages = [];';
@@ -206,7 +207,7 @@ function be_themes_exclude_woo_from_ajax() {
 	echo '</script>';
 
 	if($woocommerce) { 	
-		$order = new WC_Order();
+		$order = new WC_Order( $order_id );
 		echo '<script>
 				no_ajax_pages.push("'.$woocommerce->cart->get_cart_url().'");
 				no_ajax_pages.push("'.$woocommerce->cart->get_checkout_url().'");

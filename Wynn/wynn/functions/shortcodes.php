@@ -901,7 +901,7 @@ if (!function_exists('be_portfolio')) {
 		global $paged;
 		$pageoptions = array();
 		$showposts = $items_per_page;
-		if($filter == "tag") {
+		if($filter == "tags") {
 			$filteres_to_use='portfolio_tags';
 		}
 		else {

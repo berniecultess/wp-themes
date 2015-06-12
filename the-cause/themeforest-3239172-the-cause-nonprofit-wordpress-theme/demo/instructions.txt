@@ -1,0 +1,41 @@
+PLUGINS
+
+These plugins must be installed if you want to included all dummy data.
+
+1. Slider Revolution - included in theme's package
+2. WooCommerce - https://wordpress.org/plugins/woocommerce/
+ 
+These plugins are recommended:
+
+1. Force Regenerate Thumbnails - https://wordpress.org/plugins/force-regenerate-thumbnails/
+2. Widget Importer & Exporter - https://wordpress.org/plugins/widget-importer-exporter/
+
+NOTE: when you install WooCommerce, message "Welcome to WooCommerce – You're almost ready to start selling :)" will be shown on top of your page. Just hit 'Skip setup' because pages are already included in our demo file. We will explain later what to do.
+
+DEMO CONTENT
+
+Once the plugins are installed and activated, upload the demo content XML (demo.xml) file with the WordPress importer. This file will be located within the 'All files & documentation' download package in your Envato Marketplace account's download area.
+
+Check the 'Download and import file attachments' option after clicking 'Upload file and import'. This will import demo images. It may take a couple extra minutes to import but it'll be worth it.
+
+NOTE: images used on our demo site are purchased on Photo Dune, Fotolia or Shutterstock. Therefore, images are not included in our demo content. However, all images are replaced with placeholder images of appropriate size.
+
+After demo content is imported, go to Appearance > Menus > Manage Locations and set specific menus in appropriate menu location.
+
+SLIDERS
+
+In demo content, you can find all sliders from our site with some images replaced or with watermark added. Just import them and you are good to go(Revolution Slider > Import Slider).
+
+***
+
+After sliders are imported go to Settings > Reading and choose desirable page to be your static front page. On our demo site, page with title 'Home' is used for static front page.
+
+Now go to Settings > Permalinks and change default settings to fit your needs. We strongly recommend to use at least 'Month and Name' option.
+
+***
+
+WOOCOMMERCE
+
+1. go to WooCommerce > Settings > Products and choose page named 'Shop' for your Product Archive / Shop Page
+2. go to WooCommerce > Settings > Checkout and choose appropriate pages for your Cart and Checkout page
+3. go to WooCommerce > Settings > Accounts and choose appropriate page for your My Account page

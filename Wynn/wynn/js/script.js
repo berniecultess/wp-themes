@@ -485,6 +485,12 @@
 	var transition = function($newEl) {
 		var $oldEl = this;
 		$oldEl.fadeOut(500, function () {
+			if (jQuery('.rev_slider_wrapper').length > 0) {
+                jQuery('.rev_slider_wrapper').each(function () {
+                    var $wrapper = jQuery(this).attr('id'), $instance = jQuery(this).find('.rev_slider').attr('id'), revapi2 = tpj('#' + $instance).revolution();
+                    revapi2.revkill();
+                });
+            }
 			$oldEl.after($newEl);
 			$newEl.hide();
 			jQuery('html, body, document').animate({scrollTop: jQuery('body').offset().top }, 500);

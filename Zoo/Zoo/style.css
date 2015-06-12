@@ -4,7 +4,7 @@ Theme URI: http://www.webdingo.net/zoo
 Author: Web Dingo
 Author URI: http://www.webdingo.net
 Description: Single page multi purpose parallax and animated scrolling theme.
-Version: 1.0.4
+Version: 1.1.5
 License: GNU General Public License
 License URI: license.txt
 Tags: white, light, one-column, two-columns, right-sidebar, flexible-width
@@ -125,8 +125,7 @@ div.page{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  position: relative;
-  z-index: 10;
+
 }
 .page-template-default #main{padding-top: 54px;}
 .grid:after{
@@ -156,7 +155,7 @@ div.page{
   padding: 5px 15px;
 }
 
-.pulse{
+.skrollr .pulse{
   animation-name: pulse;
   -webkit-animation-name: pulse;  
 
@@ -272,8 +271,8 @@ h6:after, .zeta:after, .entry-title a:after, #reply-title span > span:after{
 }
 
 #reply-title a{ color: #fff; }
-a{
-  text-decoration: none;
+a{ text-decoration: none; }
+.skrollr a{
   -webkit-transition: color 75ms ease;
   -moz-transition: color 75ms ease;
   -ms-transition: color 75ms ease;
@@ -524,7 +523,8 @@ cite{
   box-shadow: none;
   max-height: 0px;
   overflow: hidden;
-
+}
+.skrollr .mainnav ul > li > ul {
   -webkit-transiton: all 0.4s;
   -moz-transition: all 0.4s;
   -ms-transition: all 0.4s;
@@ -564,6 +564,8 @@ cite{
   position: fixed;
   top:0px;
   left: 0;
+}
+.skrollr #active-bar{
   -webkit-transition: left 500ms ease-out, width 300ms ease-out;
   -moz-transition: left 500ms ease-out, width 300ms ease-out;
   -ms-transition: left 500ms ease-out, width 300ms ease-out;
@@ -636,7 +638,9 @@ textarea, input[type=text],input[type=email]{
   border: 2px solid;
   padding: 13px 45px;
   max-width: 100%;
-  -webkit-transition: background 200ms ease;
+}
+.skrollr .button, .skrollr button, .skrollr input[type=submit]{
+ -webkit-transition: background 200ms ease;
   -moz-transition: background 200ms ease;
   -ms-transition: background 200ms ease;
   -o-transition: background 200ms ease;
@@ -649,6 +653,8 @@ textarea, input[type=text],input[type=email]{
    ========================================================================== */
 
 span.wpcf7-not-valid-tip{
+  position: absolute;
+  width: 280px;
   left: 50%;
   margin-left: -140px;
   text-align: center;
@@ -661,6 +667,7 @@ span.wpcf7-not-valid-tip{
   letter-spacing: 1px;
   color: #fff;
 }
+.wpcf7-form p span:first-child span.wpcf7-not-valid-tip{top: -10px;}
 div.wpcf7-validation-errors, div.wpcf7-mail-sent-ok {
     border: none;
 }
@@ -705,6 +712,8 @@ span.wpcf7-not-valid-tip:after{
   top: 50%;
   left: 50%;
   margin: -37px 0px 0px -37px;
+}
+.skrollr .recent-post-img:after{
   -moz-transform:rotate(45deg);
   -webkit-transform:rotate(45deg);
   -o-transform:rotate(45deg);
@@ -720,14 +729,16 @@ span.wpcf7-not-valid-tip:after{
   background: url('images/link@2x.png') no-repeat center center;
   background-size: 78px 78px;
   opacity: 1;
-  -moz-transform:rotate(0deg);
+}
+.skrollr .recent-post-img:hover:after{
+ -moz-transform:rotate(0deg);
   -webkit-transform:rotate(0deg);
   -o-transform:rotate(0deg);
   -ms-transform:rotate(0deg);
   transform:rotate(0deg);
 }
-.recent-post-img img{
-  -webkit-transition: opacity 300ms linear;
+.skrollr .recent-post-img img{
+ -webkit-transition: opacity 300ms linear;
   -moz-transition: opacity 300ms linear;
   -ms-transition: opacity 300ms linear;
   -o-transition: opacity 300ms linear;
@@ -947,6 +958,8 @@ span.date{
   opacity: 0.4;
   background: transparent url(images/search.png) no-repeat center center;
   border: none;
+}
+.skrollr #searchsubmit{
   -webkit-transition: opacity 50ms linear;
   -moz-transition: opacity  50ms linear;
   -ms-transition: opacity  50ms linear;
@@ -1141,11 +1154,12 @@ body{
 }
 .menu-item-has-children:hover > a:before {
   padding-top: 3px;
+}
+.skrollr .menu-item-has-children:hover > a:before {
   transform: rotate(90deg);
   -ms-transform: rotate(90deg); 
   -webkit-transform: rotate(90deg);
 }
-
 .navHide{overflow: hidden !important; height: auto !important;}
 .navShow{display:list-item !important;}
 .no-js .mainnav ul > li{ display: block ;}

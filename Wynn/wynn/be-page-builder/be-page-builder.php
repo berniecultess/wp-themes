@@ -330,7 +330,7 @@ function be_pb_print_form($shortcode_name,$action='generate', $atts = array(), $
 						break;
 					case 'tinymce':
 						$content = wpautop($content);
-						wp_editor($content, $option_key, array('textarea_name'=> 'be_shortcode_atts['.$option_key.']','editor_class'=>'be-shortcode-atts be-pb-editor', 'quicktags'=>true, 'media_buttons' => true,'wpautop'=>false ,'textarea_rows'=>20));
+						wp_editor($content, 'textblockcontent', array('textarea_name'=> 'be_shortcode_atts['.$option_key.']','editor_class'=>'be-shortcode-atts be-pb-editor', 'quicktags'=>true, 'media_buttons' => true,'wpautop'=>false ,'textarea_rows'=>20));
 						break;
 					case 'checkbox':
 						echo '<input type="checkbox" name="be_shortcode_atts['.$option_key.']" value="1" class="be-shortcode-atts be-pb-checkbox" '.checked($att_value,'1',false).' />';
